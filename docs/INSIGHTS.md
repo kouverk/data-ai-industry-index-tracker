@@ -1,0 +1,249 @@
+# Data Insights
+
+This document captures key insights discovered during data exploration and analysis. These findings will inform dashboard design and highlight interesting trends for the final presentation.
+
+---
+
+## Dataset Overview
+
+### Hacker News "Who Is Hiring"
+
+| Metric | Value |
+|--------|-------|
+| Total posts (2011-2025) | 93,031 |
+| Posts from 2018+ | 56,790 (61%) |
+| Posts in 2024 | 4,119 |
+| Posts with role detected | 61.6% |
+| Posts with technology detected | 52.7% |
+| Average technologies per post | 1.3 |
+
+### LinkedIn Jobs
+
+| Metric | Value |
+|--------|-------|
+| Total job postings | 1,348,454 |
+| Jobs with pre-extracted skills | 1,296,381 (96%) |
+| Data/ML relevant jobs | 6,383 (0.5%) |
+| Coverage | January 2024 snapshot |
+
+---
+
+## Key Findings
+
+### 1. HN Posting Volume Reflects Tech Market Cycles
+
+**Observation:** HN "Who Is Hiring" post counts correlate with tech hiring cycles.
+
+| Year | Post Count | Context |
+|------|------------|---------|
+| 2018 | 9,828 | Strong market |
+| 2019 | 8,664 | Continued growth |
+| 2020 | 7,317 | COVID slowdown |
+| 2021 | **10,570** | Post-COVID hiring surge (peak) |
+| 2022 | 7,787 | Inflation concerns, rate hikes |
+| 2023 | 4,306 | Tech layoffs era |
+| 2024 | 4,119 | Recovery beginning |
+| 2025 | 4,199 | (partial year) |
+
+**Insight:** 2021 was peak hiring; 2023-2024 dropped to ~40% of peak volume.
+
+---
+
+### 2. Role Prevalence in HN Posts (2018+)
+
+| Role | % of Posts | Notes |
+|------|------------|-------|
+| Software Engineer | 37.9% | Most common (HN is tech-focused) |
+| DevOps Engineer | 12.4% | Infrastructure roles common |
+| Backend Engineer | 10.1% | Overlaps with many data roles |
+| Data Scientist | 8.3% | Strong presence |
+| **Data Engineer** | **6.0%** | Core focus of this project |
+| Site Reliability Engineer | 5.1% | Modern infra role |
+| Machine Learning Engineer | 3.5% | Growing |
+| Data Analyst | 1.3% | Less common on HN (more LinkedIn) |
+| Analytics Engineer | 0.3% | Still emerging |
+
+**Insight:** Data Engineer at 6% = ~3,400 posts since 2018. Analytics Engineer is still small but growing (emerged ~2019).
+
+---
+
+### 3. Technology Trends: Modern Data Stack Rise
+
+**Cloud Warehouses Overtaking Legacy**
+
+| Year | Redshift | Snowflake | BigQuery | Databricks |
+|------|----------|-----------|----------|------------|
+| 2018 | 1.3% | 0.2% | 0.5% | 0.1% |
+| 2019 | 1.1% | 0.4% | 0.8% | 0.0% |
+| 2020 | 0.5% | 0.3% | 0.6% | 0.0% |
+| 2021 | 0.5% | 0.6% | 0.7% | 0.1% |
+| 2022 | 0.5% | 0.8% | 0.8% | 0.3% |
+| 2023 | 0.5% | 1.1% | 0.7% | 0.3% |
+| 2024 | 0.2% | **1.6%** | 0.4% | 0.6% |
+| 2025 | 0.3% | 1.2% | 1.2% | 0.5% |
+
+**Insight:** Snowflake overtook Redshift around 2021-2022 and now leads the pack. Redshift in decline.
+
+---
+
+### 4. dbt Emergence
+
+| Year | dbt % |
+|------|-------|
+| 2018 | 0.0% |
+| 2019 | 0.0% |
+| 2020 | 0.2% |
+| 2021 | 0.5% |
+| 2022 | 0.6% |
+| 2023 | 0.7% |
+| 2024 | 0.6% |
+| 2025 | 0.8% |
+
+**Insight:** dbt essentially didn't exist in job posts before 2020, then grew steadily. Still under 1% but represents a significant shift in data transformation practices.
+
+---
+
+### 5. AI/ML Framework Shift: PyTorch vs TensorFlow
+
+| Year | PyTorch | TensorFlow | Winner |
+|------|---------|------------|--------|
+| 2018 | 0.2% | 1.4% | TensorFlow |
+| 2019 | 0.5% | 1.2% | TensorFlow |
+| 2020 | 0.9% | 1.8% | TensorFlow |
+| 2021 | 0.9% | 1.0% | Tie |
+| 2022 | **1.5%** | 0.6% | PyTorch |
+| 2023 | 1.0% | 1.0% | Tie |
+| 2024 | 1.6% | 0.6% | PyTorch |
+| 2025 | **2.0%** | 0.4% | PyTorch |
+
+**Insight:** TensorFlow dominated until 2021, then PyTorch took over. PyTorch now leads 2.0% vs 0.4% (5x).
+
+---
+
+### 6. The ChatGPT Effect (OpenAI Mentions)
+
+| Year | OpenAI % | Notes |
+|------|----------|-------|
+| 2018 | 0.1% | Baseline |
+| 2019 | 0.1% | - |
+| 2020 | 0.0% | - |
+| 2021 | 0.2% | GPT-3 era |
+| 2022 | 0.4% | Pre-ChatGPT |
+| 2023 | **1.7%** | ChatGPT launched Nov 2022 |
+| 2024 | **1.9%** | Continued growth |
+| 2025 | **2.7%** | GenAI ubiquity |
+
+**Insight:** OpenAI mentions exploded 4x from 2022 to 2023 (ChatGPT effect) and continue climbing.
+
+---
+
+### 7. Infrastructure Technology Maturity
+
+**Docker peaked and is declining; Kubernetes stable**
+
+| Year | Docker | Kubernetes | Terraform |
+|------|--------|------------|-----------|
+| 2018 | 10.6% | 8.4% | 2.7% |
+| 2019 | 11.1% | 11.0% | 4.3% |
+| 2020 | 8.2% | 10.3% | 4.9% |
+| 2021 | 6.8% | 10.4% | 5.4% |
+| 2022 | 5.9% | 11.5% | 5.8% |
+| 2023 | 5.6% | 9.0% | 4.6% |
+| 2024 | 4.2% | 7.9% | 4.6% |
+| 2025 | 5.5% | 9.2% | 5.2% |
+
+**Insight:** Docker peaked in 2019 (11.1%) and has declined as containerization became assumed. Kubernetes remains stable. Terraform growing steadily.
+
+---
+
+### 8. Database Popularity
+
+| Database | % of Posts | Type |
+|----------|------------|------|
+| PostgreSQL | 14.6% | Relational OSS |
+| Redis | 4.5% | Key-Value |
+| MySQL | 3.1% | Relational OSS |
+| MongoDB | 3.0% | Document |
+| Elasticsearch | 3.0% | Search |
+| DynamoDB | 0.7% | Document (AWS) |
+| SQL Server | 0.6% | Relational Commercial |
+| Cassandra | 0.6% | Wide Column |
+
+**Insight:** PostgreSQL dominates at 14.6% - nearly 3x the next database. HN companies strongly prefer open source.
+
+---
+
+### 9. Programming Language Mentions
+
+| Language | % of Posts |
+|----------|------------|
+| Python | 23.2% |
+| Java | 8.2% |
+| Scala | 7.3% |
+| Rust | 4.4% |
+| Go | 4.1% |
+| SQL | 3.9% |
+| R | 1.5% |
+
+**Insight:** Python dominates data/ML jobs at 23%. SQL at 3.9% seems low, but SQL is often assumed rather than explicitly listed.
+
+---
+
+### 10. LinkedIn vs HN Comparison
+
+Initial observations from the LinkedIn dataset:
+
+| Aspect | LinkedIn | HN |
+|--------|----------|-----|
+| Volume | 1.3M jobs | 93K posts |
+| Time coverage | Jan 2024 snapshot | 2011-2025 monthly |
+| DE/ML jobs | 0.5% (6,383) | 6%+ when filtered |
+| Skills | Pre-extracted | Requires NLP |
+| Company type | Enterprise + startups | Startup-heavy |
+
+**Insight:** LinkedIn has volume; HN has time series and startup signal. Combining both gives a fuller picture.
+
+---
+
+## Questions for Dashboard
+
+Based on these insights, the dashboard should answer:
+
+1. **Technology Trends**
+   - Which technologies are growing/declining?
+   - When did [technology] first appear in job posts?
+   - What technologies co-occur frequently?
+
+2. **Role Evolution**
+   - Is Analytics Engineer overtaking Data Analyst?
+   - What happened to Data Scientist demand post-2022?
+   - How do role titles vary between platforms?
+
+3. **Market Events**
+   - How did ChatGPT launch affect AI job postings?
+   - Did 2023 layoffs show in HN posting volume?
+   - COVID effect on remote data roles?
+
+4. **Platform Comparison**
+   - Do HN startups want different skills than LinkedIn enterprises?
+   - Which platform has more AI/ML focus?
+
+---
+
+## Data Quality Notes
+
+### Issues Discovered
+
+1. **"Atlan" false positive** - The data catalog tool "Atlan" at 0.9% may be matching unrelated text. Needs investigation.
+
+2. **HTML encoding in HN** - Text contains HTML entities (`&#x2F;`, `&amp;`) that need cleaning before analysis.
+
+3. **LinkedIn skills format** - Skills stored as comma-separated strings, not normalized. Requires splitting.
+
+4. **No per-comment timestamp in HN** - Can only bucket by month, not exact date.
+
+### Validation Recommendations
+
+- Spot-check extracted technologies against original text
+- Compare HN skill frequencies with LinkedIn skill frequencies
+- Verify role extraction with manual sampling
