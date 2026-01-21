@@ -81,6 +81,55 @@ This document describes the data sources, exploration scripts, and taxonomy defi
 
 ---
 
+### 3. GitHub Repository Stats
+
+| Attribute | Value |
+|-----------|-------|
+| **Source** | GitHub REST API |
+| **Format** | JSON/CSV |
+| **Coverage** | Current snapshot (daily refresh in pipeline) |
+| **Row Count** | 81 repositories tracked |
+| **Update Frequency** | Daily |
+
+**Schema:**
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `repo` | string | Repository identifier (owner/repo) |
+| `category` | string | Category from taxonomy (orchestration, transformation, etc.) |
+| `stars` | int | Star count (popularity metric) |
+| `forks` | int | Fork count (contribution/usage metric) |
+| `open_issues` | int | Open issue count (activity metric) |
+| `language` | string | Primary programming language |
+| `created_at` | datetime | Repository creation date |
+| `pushed_at` | datetime | Last push date |
+| `license` | string | SPDX license identifier |
+| `fetched_at` | datetime | When data was collected |
+
+**Categories tracked:**
+- `orchestration` (7 repos): Airflow, Dagster, Prefect, etc.
+- `transformation` (6 repos): dbt, Spark, pandas, Polars, etc.
+- `warehouse` (4 repos): ClickHouse, DuckDB, etc.
+- `streaming` (5 repos): Kafka, Flink, Pulsar, etc.
+- `table_format` (4 repos): Delta Lake, Iceberg, Hudi
+- `etl_elt` (4 repos): Airbyte, Meltano, dlt
+- `bi` (5 repos): Metabase, Superset, Redash, etc.
+- `ml_framework` (8 repos): PyTorch, TensorFlow, scikit-learn, etc.
+- `llm` (8 repos): LangChain, Transformers, Ollama, etc.
+- `mlops` (6 repos): MLflow, Kubeflow, W&B, etc.
+- `vector_db` (6 repos): Chroma, Qdrant, Milvus, etc.
+- `data_quality` (4 repos): Great Expectations, DataHub, etc.
+- `infrastructure` (5 repos): Kubernetes, Docker, Terraform, etc.
+- `database` (9 repos): PostgreSQL, Redis, MongoDB, etc.
+
+**Notes:**
+- No auth required for basic stats (60 req/hour)
+- With GITHUB_TOKEN: 5000 req/hour
+- Historical star counts require separate API or third-party tools
+- Provides "developer interest" signal complementing job market data
+
+---
+
 ## Exploration Scripts
 
 ### `exploration/01_explore_hn_data.py`
@@ -133,6 +182,26 @@ This document describes the data sources, exploration scripts, and taxonomy defi
 
 **Outputs:**
 - `data/processed/hn_with_extractions.parquet` - HN data enriched with extracted roles, technologies, and databases
+
+---
+
+### `exploration/04_explore_github_data.py`
+
+**Purpose:** Fetch and explore GitHub repository stats for tools in our taxonomy.
+
+**What it does:**
+1. Defines 81 repositories across 14 categories
+2. Fetches current stats from GitHub API (stars, forks, issues)
+3. Compares tools within categories (Airflow vs Dagster vs Prefect)
+4. Sorts by popularity and category
+
+**Outputs:**
+- `data/raw/github_repo_stats.json` - Full API response with metadata
+- `data/raw/github_repo_stats.csv` - Simplified CSV for quick viewing
+
+**Notes:**
+- Requires GITHUB_TOKEN env var for higher rate limits (5000/hr vs 60/hr)
+- Run daily in pipeline to build historical trend data
 
 ---
 
@@ -247,11 +316,14 @@ data-ai-industry-index-tracker/
 │   ├── 01_explore_hn_data.py
 │   ├── 02_explore_linkedin_data.py
 │   ├── 03_skill_extraction_prototype.py
+│   ├── 04_explore_github_data.py
 │   └── taxonomy.py
 ├── data/
 │   ├── raw/
 │   │   ├── hn_who_is_hiring.parquet
 │   │   ├── hn_sample_100.csv
+│   │   ├── github_repo_stats.json
+│   │   ├── github_repo_stats.csv
 │   │   └── linkedin/
 │   │       ├── linkedin_job_postings.csv
 │   │       ├── job_skills.csv

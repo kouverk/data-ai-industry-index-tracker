@@ -9,8 +9,11 @@ kaggle>=1.5.0
 # Future: NLP for skill extraction
 # spacy>=3.7.0
 
-# Future: Cloud infrastructure
-# snowflake-connector-python>=3.0.0
+# Environment variables
+python-dotenv>=1.0.0
+
+# Cloud infrastructure
+snowflake-connector-python>=3.0.0
 # boto3>=1.28.0
 # apache-airflow>=2.7.0
 # dbt-snowflake>=1.7.0

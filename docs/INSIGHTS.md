@@ -26,6 +26,15 @@ This document captures key insights discovered during data exploration and analy
 | Data/ML relevant jobs | 6,383 (0.5%) |
 | Coverage | January 2024 snapshot |
 
+### GitHub Repository Stats
+
+| Metric | Value |
+|--------|-------|
+| Repositories tracked | 81 |
+| Categories | 14 |
+| Total stars tracked | 2.5M+ |
+| Update frequency | Daily (in pipeline) |
+
 ---
 
 ## Key Findings
@@ -202,6 +211,107 @@ Initial observations from the LinkedIn dataset:
 | Company type | Enterprise + startups | Startup-heavy |
 
 **Insight:** LinkedIn has volume; HN has time series and startup signal. Combining both gives a fuller picture.
+
+---
+
+### 11. GitHub Stars: Developer Interest Signal
+
+**Top 20 Repositories by Stars (Jan 2025)**
+
+| Rank | Repository | Stars | Category |
+|------|------------|-------|----------|
+| 1 | tensorflow/tensorflow | 193,382 | ml_framework |
+| 2 | ollama/ollama | 159,673 | llm |
+| 3 | huggingface/transformers | 155,276 | llm |
+| 4 | langchain-ai/langchain | 124,420 | llm |
+| 5 | kubernetes/kubernetes | 119,880 | infrastructure |
+| 6 | pytorch/pytorch | 96,696 | ml_framework |
+| 7 | ggerganov/llama.cpp | 93,166 | llm |
+| 8 | elastic/elasticsearch | 75,892 | database |
+| 9 | redis/redis | 72,553 | database |
+| 10 | apache/superset | 70,121 | bi |
+
+**Insight:** LLM tools dominate the top 10 - Ollama, Transformers, LangChain, llama.cpp all in top 7. This is the GenAI boom in developer mindshare.
+
+---
+
+### 12. GitHub: Tool Comparisons Within Categories
+
+**Orchestration**
+
+| Tool | Stars | Notes |
+|------|-------|-------|
+| Airflow | 43,885 | Incumbent, mature |
+| Kestra | 26,243 | Fast-growing newcomer |
+| Prefect | 21,350 | Modern alternative |
+| Luigi | 18,619 | Original, stable |
+| Dagster | 14,762 | Developer-friendly |
+| Mage | 8,613 | Notebook-style |
+
+**Insight:** Airflow still dominates but Kestra has surprising momentum (26K stars). Prefect and Dagster are competitive alternatives.
+
+---
+
+**Transformation**
+
+| Tool | Stars | Notes |
+|------|-------|-------|
+| pandas | 47,606 | Universal |
+| Spark | 42,651 | Big data standard |
+| Polars | 37,022 | Fast-growing Rust alternative |
+| dask | 13,719 | Distributed pandas |
+| Trino | 12,430 | Query federation |
+| dbt | 12,104 | Analytics transformation |
+
+**Insight:** Polars at 37K stars is remarkable for a newer project - close to Spark. The Rust-based "fast pandas" movement is real.
+
+---
+
+**Vector Databases**
+
+| Tool | Stars | Notes |
+|------|-------|-------|
+| Milvus | 42,278 | Enterprise-focused |
+| FAISS | 38,779 | Facebook's original |
+| Qdrant | 28,249 | Rust-based |
+| Chroma | 25,528 | Python-native |
+| pgvector | 19,320 | PostgreSQL extension |
+| Weaviate | 15,420 | GraphQL-first |
+
+**Insight:** Vector DB space is crowded and competitive. pgvector at 19K shows demand for "just add vectors to Postgres" approach.
+
+---
+
+**BI Tools**
+
+| Tool | Stars | Notes |
+|------|-------|-------|
+| Superset | 70,121 | Apache project, feature-rich |
+| Metabase | 45,619 | Simple, popular |
+| Redash | 28,155 | Query-focused |
+| Evidence | 5,820 | Code-first BI |
+| Lightdash | 5,476 | dbt-native |
+
+**Insight:** Superset leads open-source BI significantly. Evidence and Lightdash represent the "BI as code" trend.
+
+---
+
+### 13. Job Market vs Developer Interest Correlation
+
+Comparing HN job mentions with GitHub stars reveals interesting patterns:
+
+| Technology | HN Job % | GitHub Stars | Correlation |
+|------------|----------|--------------|-------------|
+| TensorFlow | 0.4% (declining) | 193K | Stars high, jobs declining |
+| PyTorch | 2.0% (growing) | 97K | Both growing |
+| dbt | 0.8% | 12K | Jobs higher relative to stars |
+| Airflow | 0.9% | 44K | Mature, stable demand |
+| Snowflake | 1.6% | N/A (closed) | Jobs without OSS signal |
+
+**Insight:**
+- TensorFlow has legacy stars but PyTorch is winning new jobs
+- dbt punches above its star count in job market (practitioners > stargazers)
+- Closed-source tools (Snowflake, Databricks) need job data since no GitHub signal
 
 ---
 
