@@ -1,0 +1,176 @@
+keyword,canonical_name,category,era
+airflow,Airflow,orchestration,modern
+apache airflow,Airflow,orchestration,modern
+dagster,Dagster,orchestration,current
+prefect,Prefect,orchestration,current
+luigi,Luigi,orchestration,modern
+spotify luigi,Luigi,orchestration,modern
+oozie,Oozie,orchestration,legacy
+apache oozie,Oozie,orchestration,legacy
+mage.ai,Mage,orchestration,current
+mage-ai,Mage,orchestration,current
+temporal.io,Temporal,orchestration,current
+kestra,Kestra,orchestration,current
+dbt,dbt,transformation,modern
+data build tool,dbt,transformation,modern
+dbt-core,dbt,transformation,modern
+dbt cloud,dbt,transformation,modern
+spark,Spark,transformation,modern
+pyspark,Spark,transformation,modern
+apache spark,Spark,transformation,modern
+spark sql,Spark,transformation,modern
+pandas,pandas,transformation,modern
+polars,Polars,transformation,current
+dask,Dask,transformation,modern
+mapreduce,Hadoop MapReduce,transformation,legacy
+hive,Hive,transformation,legacy
+apache hive,Hive,transformation,legacy
+presto,Presto,transformation,modern
+prestodb,Presto,transformation,modern
+trino,Trino,transformation,current
+snowflake,Snowflake,warehouse_cloud,modern
+bigquery,BigQuery,warehouse_cloud,modern
+big query,BigQuery,warehouse_cloud,modern
+google bigquery,BigQuery,warehouse_cloud,modern
+redshift,Redshift,warehouse_cloud,modern
+aws redshift,Redshift,warehouse_cloud,modern
+amazon redshift,Redshift,warehouse_cloud,modern
+databricks,Databricks,warehouse_cloud,modern
+databricks sql,Databricks,warehouse_cloud,modern
+azure synapse,Azure Synapse,warehouse_cloud,modern
+synapse analytics,Azure Synapse,warehouse_cloud,modern
+clickhouse,ClickHouse,warehouse_cloud,modern
+duckdb,DuckDB,warehouse_cloud,current
+firebolt,Firebolt,warehouse_cloud,current
+motherduck,MotherDuck,warehouse_cloud,current
+teradata,Teradata,warehouse_legacy,legacy
+netezza,Netezza,warehouse_legacy,legacy
+greenplum,Greenplum,warehouse_legacy,legacy
+vertica,Vertica,warehouse_legacy,legacy
+kafka,Kafka,streaming,modern
+apache kafka,Kafka,streaming,modern
+confluent,Kafka,streaming,modern
+flink,Flink,streaming,modern
+apache flink,Flink,streaming,modern
+kinesis,Kinesis,streaming,modern
+aws kinesis,Kinesis,streaming,modern
+pulsar,Pulsar,streaming,modern
+apache pulsar,Pulsar,streaming,modern
+spark streaming,Spark Streaming,streaming,modern
+structured streaming,Spark Streaming,streaming,modern
+rabbitmq,RabbitMQ,streaming,modern
+delta lake,Delta Lake,table_format,current
+iceberg,Apache Iceberg,table_format,current
+apache iceberg,Apache Iceberg,table_format,current
+hudi,Apache Hudi,table_format,current
+apache hudi,Apache Hudi,table_format,current
+parquet,Parquet,table_format,modern
+apache parquet,Parquet,table_format,modern
+s3,S3,cloud_storage,modern
+aws s3,S3,cloud_storage,modern
+amazon s3,S3,cloud_storage,modern
+gcs,GCS,cloud_storage,modern
+google cloud storage,GCS,cloud_storage,modern
+azure blob,Azure Blob,cloud_storage,modern
+hdfs,HDFS,cloud_storage,legacy
+fivetran,Fivetran,etl_elt,modern
+airbyte,Airbyte,etl_elt,current
+stitch,Stitch,etl_elt,modern
+aws glue,AWS Glue,etl_elt,modern
+glue etl,AWS Glue,etl_elt,modern
+matillion,Matillion,etl_elt,modern
+informatica,Informatica,etl_elt,legacy
+talend,Talend,etl_elt,legacy
+ssis,SSIS,etl_elt,legacy
+sql server integration services,SSIS,etl_elt,legacy
+meltano,Meltano,etl_elt,current
+tableau,Tableau,bi,modern
+looker,Looker,bi,modern
+lookml,Looker,bi,modern
+power bi,Power BI,bi,modern
+powerbi,Power BI,bi,modern
+metabase,Metabase,bi,modern
+superset,Superset,bi,modern
+apache superset,Superset,bi,modern
+mode analytics,Mode,bi,modern
+qlik,Qlik,bi,legacy
+qlikview,Qlik,bi,legacy
+microstrategy,MicroStrategy,bi,legacy
+thoughtspot,ThoughtSpot,bi,current
+lightdash,Lightdash,bi,current
+scikit-learn,scikit-learn,ml_classical,modern
+sklearn,scikit-learn,ml_classical,modern
+xgboost,XGBoost,ml_classical,modern
+lightgbm,LightGBM,ml_classical,modern
+catboost,CatBoost,ml_classical,modern
+pytorch,PyTorch,ml_deep,modern
+tensorflow,TensorFlow,ml_deep,modern
+keras,Keras,ml_deep,modern
+jax,JAX,ml_deep,current
+openai,OpenAI,llm,current
+gpt-4,OpenAI,llm,current
+gpt-3,OpenAI,llm,current
+chatgpt,OpenAI,llm,current
+claude,Claude,llm,current
+anthropic claude,Claude,llm,current
+llama,Llama,llm,current
+llama2,Llama,llm,current
+meta llama,Llama,llm,current
+mistral,Mistral,llm,current
+mixtral,Mistral,llm,current
+gemini,Gemini,llm,current
+google gemini,Gemini,llm,current
+langchain,LangChain,llm,current
+llamaindex,LlamaIndex,llm,current
+hugging face,Hugging Face,llm,current
+huggingface,Hugging Face,llm,current
+ollama,Ollama,llm,current
+vllm,vLLM,llm,current
+mlflow,MLflow,mlops,modern
+kubeflow,Kubeflow,mlops,modern
+weights & biases,Weights & Biases,mlops,modern
+wandb,Weights & Biases,mlops,modern
+sagemaker,SageMaker,mlops,modern
+aws sagemaker,SageMaker,mlops,modern
+vertex ai,Vertex AI,mlops,current
+azure ml,Azure ML,mlops,modern
+pinecone,Pinecone,vector_db,current
+weaviate,Weaviate,vector_db,current
+chroma,Chroma,vector_db,current
+chromadb,Chroma,vector_db,current
+pgvector,pgvector,vector_db,current
+milvus,Milvus,vector_db,current
+qdrant,Qdrant,vector_db,current
+faiss,FAISS,vector_db,modern
+python,Python,language,modern
+sql,SQL,language,legacy
+scala,Scala,language,modern
+golang,Go,language,modern
+rust,Rust,language,current
+kubernetes,Kubernetes,infrastructure,modern
+k8s,Kubernetes,infrastructure,modern
+docker,Docker,infrastructure,modern
+terraform,Terraform,infrastructure,modern
+ansible,Ansible,infrastructure,modern
+helm,Helm,infrastructure,modern
+pulumi,Pulumi,infrastructure,current
+aws,AWS,cloud,modern
+amazon web services,AWS,cloud,modern
+gcp,GCP,cloud,modern
+google cloud platform,GCP,cloud,modern
+google cloud,GCP,cloud,modern
+azure,Azure,cloud,modern
+microsoft azure,Azure,cloud,modern
+hadoop,Hadoop,big_data,legacy
+apache hadoop,Hadoop,big_data,legacy
+hbase,HBase,big_data,legacy
+impala,Impala,big_data,legacy
+zookeeper,Zookeeper,big_data,legacy
+cloudera,Cloudera,big_data,legacy
+great expectations,Great Expectations,data_quality,modern
+monte carlo data,Monte Carlo,data_quality,current
+datahub,DataHub,data_catalog,current
+atlan,Atlan,data_catalog,current
+alation,Alation,data_catalog,modern
+collibra,Collibra,data_catalog,modern
+unity catalog,Unity Catalog,data_catalog,current

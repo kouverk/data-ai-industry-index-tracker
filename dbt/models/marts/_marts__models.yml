@@ -1,0 +1,103 @@
+version: 2
+
+models:
+  - name: dim_technologies
+    description: "Dimension table of all tracked technologies"
+    columns:
+      - name: technology_id
+        description: "Surrogate key"
+        tests:
+          - unique
+          - not_null
+      - name: technology_name
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_roles
+    description: "Dimension table of all tracked job roles"
+    columns:
+      - name: role_id
+        description: "Surrogate key"
+        tests:
+          - unique
+          - not_null
+      - name: role_name
+        tests:
+          - unique
+          - not_null
+      - name: tier
+        tests:
+          - accepted_values:
+              values: [1, 2, 3, 4, 5]
+
+  - name: dim_date
+    description: "Date dimension with month granularity"
+    columns:
+      - name: date_key
+        tests:
+          - unique
+          - not_null
+
+  - name: fct_hn_technology_mentions
+    description: "Fact table of technology mentions in HN job postings"
+    columns:
+      - name: mention_id
+        tests:
+          - unique
+          - not_null
+      - name: posting_id
+        tests:
+          - not_null
+      - name: technology_name
+        tests:
+          - not_null
+
+  - name: fct_hn_role_mentions
+    description: "Fact table of role mentions in HN job postings"
+    columns:
+      - name: mention_id
+        tests:
+          - unique
+          - not_null
+      - name: posting_id
+        tests:
+          - not_null
+
+  - name: fct_monthly_technology_trends
+    description: "Pre-aggregated monthly technology trends"
+    columns:
+      - name: posting_month
+        tests:
+          - not_null
+      - name: technology_name
+        tests:
+          - not_null
+
+  - name: fct_monthly_role_trends
+    description: "Pre-aggregated monthly role trends"
+    columns:
+      - name: posting_month
+        tests:
+          - not_null
+      - name: role_name
+        tests:
+          - not_null
+
+  - name: fct_github_repo_stats
+    description: "GitHub repository statistics with derived metrics"
+    columns:
+      - name: repo_id
+        tests:
+          - unique
+          - not_null
+      - name: category
+        tests:
+          - not_null
+
+  - name: fct_linkedin_skill_counts
+    description: "Aggregated skill counts from LinkedIn postings"
+    columns:
+      - name: skill_name
+        tests:
+          - not_null

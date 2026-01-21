@@ -1,0 +1,16 @@
+[0m18:01:15.131077 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ba43a10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d1efc50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d1efed0>]}
+
+
+============================== 18:01:15.137977 | b88e1528-06de-4cb5-8258-ebbb514a77d8 ==============================
+[0m18:01:15.137977 [info ] [MainThread]: Running with dbt=1.10.13
+[0m18:01:15.139181 [debug] [MainThread]: running dbt with arguments {'indirect_selection': 'eager', 'send_anonymous_usage_stats': 'True', 'use_colors': 'True', 'fail_fast': 'False', 'debug': 'False', 'printer_width': '80', 'invocation_command': 'dbt run --select fct_github_repo_stats --profiles-dir .', 'static_parser': 'True', 'log_cache_events': 'False', 'profiles_dir': '.', 'warn_error': 'None', 'use_experimental_parser': 'False', 'log_path': 'logs', 'no_print': 'None', 'write_json': 'True', 'target_path': 'None', 'version_check': 'True', 'introspect': 'True', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'cache_selected_only': 'False', 'log_format': 'default', 'empty': 'False', 'partial_parse': 'True'}
+[0m18:01:15.140077 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m18:01:15.142968 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.122990295, "process_in_blocks": "0", "process_kernel_time": 0.343109, "process_mem_max_rss": "116764672", "process_out_blocks": "0", "process_user_time": 3.659826}
+[0m18:01:15.143919 [debug] [MainThread]: Command `dbt run` failed at 18:01:15.143694 after 0.12 seconds
+[0m18:01:15.144717 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d28c2b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d255a30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d08e690>]}
+[0m18:01:15.145285 [debug] [MainThread]: Flushing usage events
+[0m18:01:15.451303 [debug] [MainThread]: An error was encountered while trying to flush usage events

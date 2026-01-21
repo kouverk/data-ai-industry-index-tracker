@@ -1,0 +1,54 @@
+keyword,canonical_name,category,era
+postgresql,PostgreSQL,relational_oss,legacy
+postgres,PostgreSQL,relational_oss,legacy
+psql,PostgreSQL,relational_oss,legacy
+mysql,MySQL,relational_oss,legacy
+mariadb,MariaDB,relational_oss,modern
+sqlite,SQLite,relational_oss,legacy
+cockroachdb,CockroachDB,relational_oss,current
+cockroach db,CockroachDB,relational_oss,current
+tidb,TiDB,relational_oss,current
+oracle database,Oracle,relational_commercial,legacy
+oracle db,Oracle,relational_commercial,legacy
+pl/sql,Oracle,relational_commercial,legacy
+sql server,SQL Server,relational_commercial,legacy
+mssql,SQL Server,relational_commercial,legacy
+microsoft sql server,SQL Server,relational_commercial,legacy
+t-sql,SQL Server,relational_commercial,legacy
+tsql,SQL Server,relational_commercial,legacy
+db2,DB2,relational_commercial,legacy
+ibm db2,DB2,relational_commercial,legacy
+mongodb,MongoDB,nosql_document,modern
+mongo,MongoDB,nosql_document,modern
+couchbase,Couchbase,nosql_document,modern
+dynamodb,DynamoDB,nosql_document,modern
+aws dynamodb,DynamoDB,nosql_document,modern
+firestore,Firestore,nosql_document,modern
+cloud firestore,Firestore,nosql_document,modern
+redis,Redis,nosql_kv,modern
+memcached,Memcached,nosql_kv,legacy
+etcd,etcd,nosql_kv,modern
+cassandra,Cassandra,nosql_column,modern
+apache cassandra,Cassandra,nosql_column,modern
+scylladb,ScyllaDB,nosql_column,current
+scylla,ScyllaDB,nosql_column,current
+neo4j,Neo4j,nosql_graph,modern
+amazon neptune,Neptune,nosql_graph,modern
+aws neptune,Neptune,nosql_graph,modern
+janusgraph,JanusGraph,nosql_graph,modern
+arangodb,ArangoDB,nosql_graph,modern
+dgraph,Dgraph,nosql_graph,modern
+elasticsearch,Elasticsearch,search,modern
+elastic search,Elasticsearch,search,modern
+elk stack,Elasticsearch,search,modern
+opensearch,OpenSearch,search,current
+solr,Solr,search,legacy
+apache solr,Solr,search,legacy
+algolia,Algolia,search,modern
+meilisearch,Meilisearch,search,current
+influxdb,InfluxDB,timeseries,modern
+influx,InfluxDB,timeseries,modern
+timescaledb,TimescaleDB,timeseries,modern
+timescale,TimescaleDB,timeseries,modern
+prometheus,Prometheus,timeseries,modern
+questdb,QuestDB,timeseries,current

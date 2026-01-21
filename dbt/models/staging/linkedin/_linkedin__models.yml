@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: stg_linkedin__postings
+    description: "Cleaned LinkedIn job postings"
+    columns:
+      - name: posting_id
+        description: "Unique job link URL"
+        tests:
+          - unique
+          - not_null
+      - name: job_title
+        tests:
+          - not_null
+
+  - name: stg_linkedin__skills
+    description: "LinkedIn skills exploded to one row per skill per posting"
+    columns:
+      - name: posting_id
+        description: "FK to job posting"
+        tests:
+          - not_null
+      - name: skill_name
+        description: "Individual skill extracted from comma-separated list"
+        tests:
+          - not_null
+
+  - name: stg_linkedin__summaries
+    description: "LinkedIn job description text"
+    columns:
+      - name: posting_id
+        description: "FK to job posting"
+        tests:
+          - unique
+          - not_null

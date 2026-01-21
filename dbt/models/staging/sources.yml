@@ -1,0 +1,72 @@
+version: 2
+
+sources:
+  - name: raw
+    database: "{{ env_var('SNOWFLAKE_DATABASE') }}"
+    schema: "{{ env_var('SNOWFLAKE_SCHEMA') }}"
+    tables:
+      - name: raw_hn_job_postings
+        description: "Hacker News 'Who Is Hiring' job postings (2011-present)"
+        columns:
+          - name: id
+            description: "Unique comment ID from HN"
+          - name: thread_id
+            description: "Parent thread ID"
+          - name: thread_month
+            description: "Month of the hiring thread (e.g., 'January 2024')"
+          - name: author
+            description: "HN username of poster"
+          - name: text
+            description: "Raw job posting text (HTML)"
+          - name: posted_at
+            description: "Timestamp when posted"
+
+      - name: raw_linkedin_postings
+        description: "LinkedIn job postings from January 2024 Kaggle dataset"
+        columns:
+          - name: job_link
+            description: "Unique job posting URL"
+          - name: job_title
+            description: "Job title"
+          - name: company
+            description: "Company name"
+          - name: job_location
+            description: "Job location"
+          - name: first_seen
+            description: "When the job was first scraped"
+          - name: job_level
+            description: "Seniority level"
+          - name: job_type
+            description: "Employment type (full-time, contract, etc.)"
+
+      - name: raw_linkedin_skills
+        description: "Pre-extracted skills from LinkedIn job postings"
+        columns:
+          - name: job_link
+            description: "FK to job posting"
+          - name: job_skills
+            description: "Comma-separated list of skills"
+
+      - name: raw_linkedin_summaries
+        description: "Job description summaries from LinkedIn"
+        columns:
+          - name: job_link
+            description: "FK to job posting"
+          - name: job_summary
+            description: "Job description text"
+
+      - name: raw_github_repo_stats
+        description: "GitHub repository statistics for data/AI tools"
+        columns:
+          - name: repo_name
+            description: "Repository name"
+          - name: full_name
+            description: "Full repo path (owner/repo)"
+          - name: category
+            description: "Technology category"
+          - name: stars
+            description: "Star count"
+          - name: forks
+            description: "Fork count"
+          - name: fetched_at
+            description: "When stats were fetched"

@@ -1,0 +1,79 @@
+keyword,canonical_name,tier
+data engineer,Data Engineer,1
+data engineering,Data Engineer,1
+data pipeline engineer,Data Engineer,1
+etl engineer,Data Engineer,1
+elt engineer,Data Engineer,1
+analytics engineer,Analytics Engineer,1
+analytics engineering,Analytics Engineer,1
+data analyst,Data Analyst,1
+business analyst,Data Analyst,1
+reporting analyst,Data Analyst,1
+insights analyst,Data Analyst,1
+data scientist,Data Scientist,1
+data science,Data Scientist,1
+applied scientist,Data Scientist,1
+data architect,Data Architect,1
+enterprise data architect,Data Architect,1
+machine learning engineer,Machine Learning Engineer,2
+ml engineer,Machine Learning Engineer,2
+applied ml engineer,Machine Learning Engineer,2
+mlops engineer,MLOps Engineer,2
+mlops,MLOps Engineer,2
+ml ops engineer,MLOps Engineer,2
+data platform engineer,Data Platform Engineer,2
+data infrastructure engineer,Data Platform Engineer,2
+bi engineer,BI Engineer,2
+bi developer,BI Engineer,2
+business intelligence engineer,BI Engineer,2
+business intelligence developer,BI Engineer,2
+etl developer,ETL Developer,2
+integration developer,ETL Developer,2
+data integration developer,ETL Developer,2
+database administrator,Database Administrator,2
+database admin,Database Administrator,2
+db administrator,Database Administrator,2
+dba,Database Administrator,2
+data warehouse engineer,Data Warehouse Engineer,2
+data warehousing engineer,Data Warehouse Engineer,2
+dwh engineer,Data Warehouse Engineer,2
+ai engineer,AI Engineer,3
+artificial intelligence engineer,AI Engineer,3
+genai engineer,AI Engineer,3
+generative ai engineer,AI Engineer,3
+nlp engineer,NLP Engineer,3
+natural language processing engineer,NLP Engineer,3
+computer vision engineer,Computer Vision Engineer,3
+cv engineer,Computer Vision Engineer,3
+research scientist,Research Scientist,3
+ml researcher,Research Scientist,3
+ai researcher,Research Scientist,3
+research engineer,Research Scientist,3
+deep learning engineer,Deep Learning Engineer,3
+llm engineer,LLM Engineer,3
+large language model engineer,LLM Engineer,3
+prompt engineer,LLM Engineer,3
+hadoop developer,Hadoop Developer,4
+hadoop engineer,Hadoop Developer,4
+big data developer,Hadoop Developer,4
+big data engineer,Hadoop Developer,4
+statistician,Statistician,4
+statistical analyst,Statistician,4
+quantitative analyst,Quantitative Analyst,4
+quant analyst,Quantitative Analyst,4
+quant developer,Quantitative Analyst,4
+report developer,Report Developer,4
+report writer,Report Developer,4
+software engineer,Software Engineer,5
+software developer,Software Engineer,5
+backend engineer,Backend Engineer,5
+back-end engineer,Backend Engineer,5
+backend developer,Backend Engineer,5
+site reliability engineer,Site Reliability Engineer,5
+sre,Site Reliability Engineer,5
+devops engineer,DevOps Engineer,5
+devops,DevOps Engineer,5
+infrastructure engineer,DevOps Engineer,5
+solutions architect,Solutions Architect,5
+solution architect,Solutions Architect,5
+technical architect,Solutions Architect,5

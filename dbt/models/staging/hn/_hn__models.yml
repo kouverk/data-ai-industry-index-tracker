@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg_hn__job_postings
+    description: "Cleaned HN Who Is Hiring job postings"
+    columns:
+      - name: posting_id
+        description: "Unique posting ID from HN"
+        tests:
+          - unique
+          - not_null
+      - name: posting_text
+        description: "Job posting text with HTML stripped"
+        tests:
+          - not_null
+      - name: posting_month
+        description: "First day of the posting month"
+      - name: posting_year
+        description: "Year of posting"

@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg_github__repo_stats
+    description: "GitHub repository statistics for data/AI tools"
+    columns:
+      - name: repo_id
+        description: "Full repo path (owner/repo)"
+        tests:
+          - unique
+          - not_null
+      - name: category
+        description: "Technology category (orchestration, warehouses, llm, etc.)"
+        tests:
+          - not_null
+      - name: stars
+        description: "GitHub star count"
+        tests:
+          - not_null

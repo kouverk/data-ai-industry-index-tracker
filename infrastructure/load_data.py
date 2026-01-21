@@ -93,9 +93,10 @@ def load_github_data():
 
     df = pd.DataFrame(rows)
 
-    # Convert timestamps
+    # Convert timestamps to strings for Snowflake compatibility
     for col in ['created_at', 'updated_at', 'pushed_at', 'fetched_at']:
-        df[col] = pd.to_datetime(df[col])
+        ts = pd.to_datetime(df[col], utc=True)
+        df[col] = ts.dt.strftime('%Y-%m-%d %H:%M:%S')
 
     # Uppercase columns
     df.columns = [c.upper() for c in df.columns]
