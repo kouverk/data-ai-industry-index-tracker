@@ -9,6 +9,7 @@ db_mappings as (
 ),
 
 -- Cross join postings with database mappings and check for matches
+-- Using CONTAINS for case-insensitive keyword matching (Snowflake doesn't support \b word boundaries)
 matched as (
     select
         p.posting_id,
@@ -19,7 +20,7 @@ matched as (
         d.era
     from postings p
     cross join db_mappings d
-    where regexp_like(lower(p.posting_text), '\\b' || lower(d.keyword) || '\\b')
+    where contains(lower(p.posting_text), lower(d.keyword))
 )
 
 select distinct

@@ -4064,3 +4064,585 @@ having count(*) > 1
 [0m18:32:48.555315 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10fbe0410>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11f30fe30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11f30fd80>]}
 [0m18:32:48.555776 [debug] [MainThread]: Flushing usage events
 [0m18:32:48.813973 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:31:31.875151 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108056550>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109594970>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109594790>]}
+
+
+============================== 11:31:31.890821 | e8465d45-4f8b-450d-b880-b5be84343ac6 ==============================
+[0m11:31:31.890821 [info ] [MainThread]: Running with dbt=1.10.13
+[0m11:31:31.891687 [debug] [MainThread]: running dbt with arguments {'cache_selected_only': 'False', 'target_path': 'None', 'profiles_dir': '/Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt', 'write_json': 'True', 'introspect': 'True', 'empty': 'False', 'fail_fast': 'False', 'debug': 'False', 'use_experimental_parser': 'False', 'quiet': 'False', 'version_check': 'True', 'no_print': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True', 'log_path': '/Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/logs', 'warn_error': 'None', 'printer_width': '80', 'static_parser': 'True', 'use_colors': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'partial_parse': 'True', 'invocation_command': 'dbt run --select int_hn__technologies_extracted int_hn__roles_extracted int_hn__databases_extracted', 'log_cache_events': 'False', 'indirect_selection': 'eager'}
+[0m11:31:31.898830 [error] [MainThread]: Encountered an error:
+Parsing Error
+  Env var required but not provided: 'SNOWFLAKE_ACCOUNT'
+[0m11:31:31.905014 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.14954549, "process_in_blocks": "0", "process_kernel_time": 0.199919, "process_mem_max_rss": "92495872", "process_out_blocks": "0", "process_user_time": 1.798315}
+[0m11:31:31.905974 [debug] [MainThread]: Command `dbt run` failed at 11:31:31.905816 after 0.15 seconds
+[0m11:31:31.906575 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108056550>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1095cddc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1095cd460>]}
+[0m11:31:31.907111 [debug] [MainThread]: Flushing usage events
+[0m11:31:32.240040 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:31:59.005533 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112703730>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113c43b50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113c43970>]}
+
+
+============================== 11:31:59.010678 | 1c24b663-40ed-4d13-be5e-50658cea91cf ==============================
+[0m11:31:59.010678 [info ] [MainThread]: Running with dbt=1.10.13
+[0m11:31:59.011505 [debug] [MainThread]: running dbt with arguments {'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'indirect_selection': 'eager', 'no_print': 'None', 'use_experimental_parser': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'use_colors': 'True', 'quiet': 'False', 'debug': 'False', 'empty': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'write_json': 'True', 'log_path': '/Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/logs', 'log_format': 'default', 'partial_parse': 'True', 'profiles_dir': '/Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt', 'target_path': 'None', 'cache_selected_only': 'False', 'static_parser': 'True', 'version_check': 'True', 'send_anonymous_usage_stats': 'True', 'printer_width': '80', 'invocation_command': 'dbt run --select int_hn__technologies_extracted int_hn__roles_extracted int_hn__databases_extracted'}
+[0m11:31:59.021920 [info ] [MainThread]: Error importing adapter: No module named 'dbt.adapters.snowflake'
+[0m11:31:59.022874 [error] [MainThread]: Encountered an error:
+Runtime Error
+  Credentials in profile "data_ai_index", target "dev" invalid: Runtime Error
+    Could not find adapter type snowflake!
+[0m11:31:59.025601 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.123730205, "process_in_blocks": "0", "process_kernel_time": 0.18316, "process_mem_max_rss": "91045888", "process_out_blocks": "0", "process_user_time": 1.776805}
+[0m11:31:59.026306 [debug] [MainThread]: Command `dbt run` failed at 11:31:59.026165 after 0.12 seconds
+[0m11:31:59.026835 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112703730>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11355bca0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113bd9e20>]}
+[0m11:31:59.027366 [debug] [MainThread]: Flushing usage events
+[0m11:31:59.285366 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:36:24.150657 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108506280>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109a3f8e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109a3f700>]}
+
+
+============================== 11:36:24.156864 | 813c7b00-4b4b-4b89-a1a7-48ae40b247d2 ==============================
+[0m11:36:24.156864 [info ] [MainThread]: Running with dbt=1.10.13
+[0m11:36:24.157655 [debug] [MainThread]: running dbt with arguments {'indirect_selection': 'eager', 'empty': 'False', 'profiles_dir': '/Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt', 'quiet': 'False', 'log_path': '/Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/logs', 'write_json': 'True', 'cache_selected_only': 'False', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_format': 'default', 'warn_error': 'None', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'use_colors': 'True', 'debug': 'False', 'log_cache_events': 'False', 'printer_width': '80', 'static_parser': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'target_path': 'None', 'invocation_command': 'dbt run --select int_hn__technologies_extracted int_hn__roles_extracted int_hn__databases_extracted', 'fail_fast': 'False', 'introspect': 'True'}
+[0m11:36:25.910069 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '813c7b00-4b4b-4b89-a1a7-48ae40b247d2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109a22220>]}
+[0m11:36:26.002232 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '813c7b00-4b4b-4b89-a1a7-48ae40b247d2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a8163a0>]}
+[0m11:36:26.003444 [info ] [MainThread]: Registered adapter: snowflake=1.10.2
+[0m11:36:26.228852 [debug] [MainThread]: checksum: 9f0c81e2574b4ff463f3d16d080df83c6982fc0372c9feeacae0504ac9ea3ffe, vars: {}, profile: , target: , version: 1.10.13
+[0m11:36:26.593895 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 4 files changed.
+[0m11:36:26.595317 [debug] [MainThread]: Partial parsing: updated file: data_ai_index://models/marts/_marts__models.yml
+[0m11:36:26.595957 [debug] [MainThread]: Partial parsing: updated file: data_ai_index://models/intermediate/int_hn__roles_extracted.sql
+[0m11:36:26.596519 [debug] [MainThread]: Partial parsing: updated file: data_ai_index://models/intermediate/int_hn__databases_extracted.sql
+[0m11:36:26.597148 [debug] [MainThread]: Partial parsing: updated file: data_ai_index://models/intermediate/int_hn__technologies_extracted.sql
+[0m11:36:27.368554 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '813c7b00-4b4b-4b89-a1a7-48ae40b247d2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10aeff5b0>]}
+[0m11:36:27.560060 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/manifest.json
+[0m11:36:27.563087 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/semantic_manifest.json
+[0m11:36:27.610388 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '813c7b00-4b4b-4b89-a1a7-48ae40b247d2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bbc62e0>]}
+[0m11:36:27.611467 [info ] [MainThread]: Found 18 models, 3 seeds, 48 data tests, 5 sources, 608 macros
+[0m11:36:27.612186 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '813c7b00-4b4b-4b89-a1a7-48ae40b247d2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a7e89d0>]}
+[0m11:36:27.615627 [info ] [MainThread]: 
+[0m11:36:27.616886 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m11:36:27.617597 [info ] [MainThread]: 
+[0m11:36:27.618535 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m11:36:27.625729 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DATAEXPERT_STUDENT'
+[0m11:36:27.749596 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT"
+[0m11:36:27.750775 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT: show terse schemas in database DATAEXPERT_STUDENT
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT"} */
+[0m11:36:27.751540 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:36:32.361118 [debug] [ThreadPool]: SQL status: SUCCESS 427 in 4.609 seconds
+[0m11:36:32.386244 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT, now list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY)
+[0m11:36:32.387227 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging'
+[0m11:36:32.400138 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts'
+[0m11:36:32.401119 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate'
+[0m11:36:32.423546 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging"
+[0m11:36:32.425807 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY"
+[0m11:36:32.430730 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts"
+[0m11:36:32.435272 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate"
+[0m11:36:32.435848 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging: show objects in DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_staging
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging"} */;
+[0m11:36:32.436319 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY: show objects in DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY"} */;
+[0m11:36:32.436766 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts: show objects in DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts"} */;
+[0m11:36:32.437232 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate: show objects in DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_intermediate
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate"} */;
+[0m11:36:32.437661 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:36:32.439716 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:36:32.440526 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:36:32.674160 [debug] [ThreadPool]: SQL status: SUCCESS 8 in 0.236 seconds
+[0m11:36:33.369464 [debug] [ThreadPool]: SQL status: SUCCESS 5 in 0.932 seconds
+[0m11:36:33.378227 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 0.938 seconds
+[0m11:36:33.380852 [debug] [ThreadPool]: SQL status: SUCCESS 9 in 0.941 seconds
+[0m11:36:33.391130 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '813c7b00-4b4b-4b89-a1a7-48ae40b247d2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107407d90>]}
+[0m11:36:33.399277 [debug] [Thread-1  ]: Began running node model.data_ai_index.int_hn__databases_extracted
+[0m11:36:33.400090 [debug] [Thread-2  ]: Began running node model.data_ai_index.int_hn__roles_extracted
+[0m11:36:33.400930 [info ] [Thread-1  ]: 1 of 3 START sql table model KOUVERK_DATA_INDUSTRY_intermediate.int_hn__databases_extracted  [RUN]
+[0m11:36:33.401703 [debug] [Thread-3  ]: Began running node model.data_ai_index.int_hn__technologies_extracted
+[0m11:36:33.402478 [info ] [Thread-2  ]: 2 of 3 START sql table model KOUVERK_DATA_INDUSTRY_intermediate.int_hn__roles_extracted  [RUN]
+[0m11:36:33.403234 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY, now model.data_ai_index.int_hn__databases_extracted)
+[0m11:36:33.404000 [info ] [Thread-3  ]: 3 of 3 START sql table model KOUVERK_DATA_INDUSTRY_intermediate.int_hn__technologies_extracted  [RUN]
+[0m11:36:33.404680 [debug] [Thread-2  ]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging, now model.data_ai_index.int_hn__roles_extracted)
+[0m11:36:33.405270 [debug] [Thread-1  ]: Began compiling node model.data_ai_index.int_hn__databases_extracted
+[0m11:36:33.405857 [debug] [Thread-3  ]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts, now model.data_ai_index.int_hn__technologies_extracted)
+[0m11:36:33.406760 [debug] [Thread-2  ]: Began compiling node model.data_ai_index.int_hn__roles_extracted
+[0m11:36:33.485485 [debug] [Thread-3  ]: Began compiling node model.data_ai_index.int_hn__technologies_extracted
+[0m11:36:33.497581 [debug] [Thread-2  ]: Writing injected SQL for node "model.data_ai_index.int_hn__roles_extracted"
+[0m11:36:33.491823 [debug] [Thread-1  ]: Writing injected SQL for node "model.data_ai_index.int_hn__databases_extracted"
+[0m11:36:33.502877 [debug] [Thread-3  ]: Writing injected SQL for node "model.data_ai_index.int_hn__technologies_extracted"
+[0m11:36:33.505936 [debug] [Thread-3  ]: Began executing node model.data_ai_index.int_hn__technologies_extracted
+[0m11:36:33.506753 [debug] [Thread-2  ]: Began executing node model.data_ai_index.int_hn__roles_extracted
+[0m11:36:33.507270 [debug] [Thread-1  ]: Began executing node model.data_ai_index.int_hn__databases_extracted
+[0m11:36:33.612969 [debug] [Thread-2  ]: Writing runtime sql for node "model.data_ai_index.int_hn__roles_extracted"
+[0m11:36:33.623920 [debug] [Thread-3  ]: Writing runtime sql for node "model.data_ai_index.int_hn__technologies_extracted"
+[0m11:36:33.630677 [debug] [Thread-1  ]: Writing runtime sql for node "model.data_ai_index.int_hn__databases_extracted"
+[0m11:36:33.632981 [debug] [Thread-2  ]: Using snowflake connection "model.data_ai_index.int_hn__roles_extracted"
+[0m11:36:33.634841 [debug] [Thread-3  ]: Using snowflake connection "model.data_ai_index.int_hn__technologies_extracted"
+[0m11:36:33.635487 [debug] [Thread-2  ]: On model.data_ai_index.int_hn__roles_extracted: create or replace transient table DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_intermediate.int_hn__roles_extracted
+    
+    
+    
+    as (
+
+with postings as (
+    select * from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_staging.stg_hn__job_postings
+),
+
+role_mappings as (
+    select * from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY.role_mappings
+),
+
+-- Cross join postings with role mappings and check for matches
+-- Using CONTAINS for case-insensitive keyword matching (Snowflake doesn't support \b word boundaries)
+matched as (
+    select
+        p.posting_id,
+        p.posting_month,
+        p.posting_year,
+        r.canonical_name as role,
+        r.tier
+    from postings p
+    cross join role_mappings r
+    where contains(lower(p.posting_text), lower(r.keyword))
+)
+
+select distinct
+    posting_id,
+    posting_month,
+    posting_year,
+    role,
+    tier
+from matched
+    )
+
+/* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "model.data_ai_index.int_hn__roles_extracted"} */;
+[0m11:36:33.636317 [debug] [Thread-3  ]: On model.data_ai_index.int_hn__technologies_extracted: create or replace transient table DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_intermediate.int_hn__technologies_extracted
+    
+    
+    
+    as (
+
+with postings as (
+    select * from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_staging.stg_hn__job_postings
+),
+
+tech_mappings as (
+    select * from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY.technology_mappings
+),
+
+-- Cross join postings with tech mappings and check for matches
+-- Using CONTAINS for case-insensitive keyword matching (Snowflake doesn't support \b word boundaries)
+matched as (
+    select
+        p.posting_id,
+        p.posting_month,
+        p.posting_year,
+        t.canonical_name as technology,
+        t.category,
+        t.era
+    from postings p
+    cross join tech_mappings t
+    where contains(lower(p.posting_text), lower(t.keyword))
+)
+
+select distinct
+    posting_id,
+    posting_month,
+    posting_year,
+    technology,
+    category,
+    era
+from matched
+    )
+
+/* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "model.data_ai_index.int_hn__technologies_extracted"} */;
+[0m11:36:33.638090 [debug] [Thread-1  ]: Using snowflake connection "model.data_ai_index.int_hn__databases_extracted"
+[0m11:36:33.641563 [debug] [Thread-1  ]: On model.data_ai_index.int_hn__databases_extracted: create or replace transient table DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_intermediate.int_hn__databases_extracted
+    
+    
+    
+    as (
+
+with postings as (
+    select * from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_staging.stg_hn__job_postings
+),
+
+db_mappings as (
+    select * from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY.database_mappings
+),
+
+-- Cross join postings with database mappings and check for matches
+-- Using CONTAINS for case-insensitive keyword matching (Snowflake doesn't support \b word boundaries)
+matched as (
+    select
+        p.posting_id,
+        p.posting_month,
+        p.posting_year,
+        d.canonical_name as database_name,
+        d.category,
+        d.era
+    from postings p
+    cross join db_mappings d
+    where contains(lower(p.posting_text), lower(d.keyword))
+)
+
+select distinct
+    posting_id,
+    posting_month,
+    posting_year,
+    database_name,
+    category,
+    era
+from matched
+    )
+
+/* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "model.data_ai_index.int_hn__databases_extracted"} */;
+[0m11:36:37.464154 [debug] [Thread-1  ]: SQL status: SUCCESS 1 in 3.821 seconds
+[0m11:36:37.473418 [debug] [Thread-2  ]: SQL status: SUCCESS 1 in 3.835 seconds
+[0m11:36:37.534301 [debug] [Thread-2  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '813c7b00-4b4b-4b89-a1a7-48ae40b247d2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10baef370>]}
+[0m11:36:37.535158 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '813c7b00-4b4b-4b89-a1a7-48ae40b247d2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110d2f0a0>]}
+[0m11:36:37.536203 [info ] [Thread-2  ]: 2 of 3 OK created sql table model KOUVERK_DATA_INDUSTRY_intermediate.int_hn__roles_extracted  [[32mSUCCESS 1[0m in 4.13s]
+[0m11:36:37.537260 [info ] [Thread-1  ]: 1 of 3 OK created sql table model KOUVERK_DATA_INDUSTRY_intermediate.int_hn__databases_extracted  [[32mSUCCESS 1[0m in 4.13s]
+[0m11:36:37.538118 [debug] [Thread-2  ]: Finished running node model.data_ai_index.int_hn__roles_extracted
+[0m11:36:37.538806 [debug] [Thread-1  ]: Finished running node model.data_ai_index.int_hn__databases_extracted
+[0m11:36:38.385915 [debug] [Thread-3  ]: SQL status: SUCCESS 1 in 4.747 seconds
+[0m11:36:38.394115 [debug] [Thread-3  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '813c7b00-4b4b-4b89-a1a7-48ae40b247d2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1097eea90>]}
+[0m11:36:38.396049 [info ] [Thread-3  ]: 3 of 3 OK created sql table model KOUVERK_DATA_INDUSTRY_intermediate.int_hn__technologies_extracted  [[32mSUCCESS 1[0m in 4.99s]
+[0m11:36:38.397601 [debug] [Thread-3  ]: Finished running node model.data_ai_index.int_hn__technologies_extracted
+[0m11:36:38.400371 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m11:36:38.401113 [debug] [MainThread]: Connection 'model.data_ai_index.int_hn__databases_extracted' was left open.
+[0m11:36:38.401806 [debug] [MainThread]: On model.data_ai_index.int_hn__databases_extracted: Close
+[0m11:36:38.565437 [debug] [MainThread]: Connection 'model.data_ai_index.int_hn__roles_extracted' was left open.
+[0m11:36:38.566875 [debug] [MainThread]: On model.data_ai_index.int_hn__roles_extracted: Close
+[0m11:36:38.762046 [debug] [MainThread]: Connection 'model.data_ai_index.int_hn__technologies_extracted' was left open.
+[0m11:36:38.763691 [debug] [MainThread]: On model.data_ai_index.int_hn__technologies_extracted: Close
+[0m11:36:38.911544 [debug] [MainThread]: Connection 'list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate' was left open.
+[0m11:36:38.913003 [debug] [MainThread]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate: Close
+[0m11:36:39.034338 [info ] [MainThread]: 
+[0m11:36:39.035894 [info ] [MainThread]: Finished running 3 table models in 0 hours 0 minutes and 11.42 seconds (11.42s).
+[0m11:36:39.038650 [debug] [MainThread]: Command end result
+[0m11:36:39.106000 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/manifest.json
+[0m11:36:39.109058 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/semantic_manifest.json
+[0m11:36:39.118933 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/run_results.json
+[0m11:36:39.119535 [info ] [MainThread]: 
+[0m11:36:39.120085 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m11:36:39.120526 [info ] [MainThread]: 
+[0m11:36:39.120989 [info ] [MainThread]: Done. PASS=3 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=3
+[0m11:36:39.123730 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 15.075788, "process_in_blocks": "0", "process_kernel_time": 0.626885, "process_mem_max_rss": "163205120", "process_out_blocks": "0", "process_user_time": 5.125944}
+[0m11:36:39.124458 [debug] [MainThread]: Command `dbt run` succeeded at 11:36:39.124274 after 15.08 seconds
+[0m11:36:39.125091 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108506280>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107170910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108c68640>]}
+[0m11:36:39.126182 [debug] [MainThread]: Flushing usage events
+[0m11:36:39.419402 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:38:14.508872 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a4e52b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ba1c8b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ba1c6d0>]}
+
+
+============================== 11:38:14.514443 | d14e71e9-a74a-4a0c-a673-569e90c8edd2 ==============================
+[0m11:38:14.514443 [info ] [MainThread]: Running with dbt=1.10.13
+[0m11:38:14.515233 [debug] [MainThread]: running dbt with arguments {'cache_selected_only': 'False', 'empty': 'False', 'use_experimental_parser': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'debug': 'False', 'invocation_command': 'dbt run --select fct_hn_technology_mentions fct_hn_role_mentions fct_monthly_technology_trends fct_monthly_role_trends', 'introspect': 'True', 'printer_width': '80', 'version_check': 'True', 'send_anonymous_usage_stats': 'True', 'profiles_dir': '/Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt', 'partial_parse': 'True', 'log_cache_events': 'False', 'fail_fast': 'False', 'no_print': 'None', 'static_parser': 'True', 'log_format': 'default', 'use_colors': 'True', 'write_json': 'True', 'target_path': 'None', 'log_path': '/Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/logs', 'indirect_selection': 'eager', 'warn_error': 'None', 'quiet': 'False'}
+[0m11:38:15.134601 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'd14e71e9-a74a-4a0c-a673-569e90c8edd2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c7e2e20>]}
+[0m11:38:15.227202 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'd14e71e9-a74a-4a0c-a673-569e90c8edd2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b9e7fa0>]}
+[0m11:38:15.228670 [info ] [MainThread]: Registered adapter: snowflake=1.10.2
+[0m11:38:15.433961 [debug] [MainThread]: checksum: 9f0c81e2574b4ff463f3d16d080df83c6982fc0372c9feeacae0504ac9ea3ffe, vars: {}, profile: , target: , version: 1.10.13
+[0m11:38:15.716469 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m11:38:15.717057 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m11:38:15.818535 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'd14e71e9-a74a-4a0c-a673-569e90c8edd2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ceed130>]}
+[0m11:38:16.018673 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/manifest.json
+[0m11:38:16.022145 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/semantic_manifest.json
+[0m11:38:16.045473 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'd14e71e9-a74a-4a0c-a673-569e90c8edd2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ce44be0>]}
+[0m11:38:16.046293 [info ] [MainThread]: Found 18 models, 3 seeds, 48 data tests, 5 sources, 608 macros
+[0m11:38:16.046821 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'd14e71e9-a74a-4a0c-a673-569e90c8edd2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dac01c0>]}
+[0m11:38:16.050328 [info ] [MainThread]: 
+[0m11:38:16.050917 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m11:38:16.051372 [info ] [MainThread]: 
+[0m11:38:16.052253 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m11:38:16.060146 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DATAEXPERT_STUDENT'
+[0m11:38:16.132315 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT"
+[0m11:38:16.132918 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT: show terse schemas in database DATAEXPERT_STUDENT
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT"} */
+[0m11:38:16.133367 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:38:20.287262 [debug] [ThreadPool]: SQL status: SUCCESS 427 in 4.154 seconds
+[0m11:38:20.310582 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT, now list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate)
+[0m11:38:20.311640 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts'
+[0m11:38:20.318212 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY'
+[0m11:38:20.329398 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging'
+[0m11:38:20.332309 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate"
+[0m11:38:20.337120 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts"
+[0m11:38:20.342310 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY"
+[0m11:38:20.346137 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging"
+[0m11:38:20.346690 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate: show objects in DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_intermediate
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate"} */;
+[0m11:38:20.347156 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts: show objects in DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts"} */;
+[0m11:38:20.347603 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY: show objects in DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY"} */;
+[0m11:38:20.348057 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging: show objects in DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_staging
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging"} */;
+[0m11:38:20.348718 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:38:20.350703 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:38:20.351452 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:38:20.556840 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 0.208 seconds
+[0m11:38:23.011437 [debug] [ThreadPool]: SQL status: SUCCESS 9 in 2.663 seconds
+[0m11:38:23.049511 [debug] [ThreadPool]: SQL status: SUCCESS 5 in 2.698 seconds
+[0m11:38:23.288156 [debug] [ThreadPool]: SQL status: SUCCESS 8 in 2.937 seconds
+[0m11:38:23.299206 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'd14e71e9-a74a-4a0c-a673-569e90c8edd2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112a28070>]}
+[0m11:38:23.304278 [debug] [Thread-1  ]: Began running node model.data_ai_index.fct_hn_role_mentions
+[0m11:38:23.306241 [debug] [Thread-2  ]: Began running node model.data_ai_index.fct_hn_technology_mentions
+[0m11:38:23.307757 [info ] [Thread-1  ]: 1 of 4 START sql table model KOUVERK_DATA_INDUSTRY_marts.fct_hn_role_mentions .. [RUN]
+[0m11:38:23.309017 [info ] [Thread-2  ]: 2 of 4 START sql table model KOUVERK_DATA_INDUSTRY_marts.fct_hn_technology_mentions  [RUN]
+[0m11:38:23.310026 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate, now model.data_ai_index.fct_hn_role_mentions)
+[0m11:38:23.310881 [debug] [Thread-2  ]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts, now model.data_ai_index.fct_hn_technology_mentions)
+[0m11:38:23.311682 [debug] [Thread-1  ]: Began compiling node model.data_ai_index.fct_hn_role_mentions
+[0m11:38:23.312478 [debug] [Thread-2  ]: Began compiling node model.data_ai_index.fct_hn_technology_mentions
+[0m11:38:23.353007 [debug] [Thread-1  ]: Writing injected SQL for node "model.data_ai_index.fct_hn_role_mentions"
+[0m11:38:23.354256 [debug] [Thread-2  ]: Writing injected SQL for node "model.data_ai_index.fct_hn_technology_mentions"
+[0m11:38:23.355899 [debug] [Thread-1  ]: Began executing node model.data_ai_index.fct_hn_role_mentions
+[0m11:38:23.362162 [debug] [Thread-2  ]: Began executing node model.data_ai_index.fct_hn_technology_mentions
+[0m11:38:23.443002 [debug] [Thread-2  ]: Writing runtime sql for node "model.data_ai_index.fct_hn_technology_mentions"
+[0m11:38:23.439850 [debug] [Thread-1  ]: Writing runtime sql for node "model.data_ai_index.fct_hn_role_mentions"
+[0m11:38:23.445854 [debug] [Thread-2  ]: Using snowflake connection "model.data_ai_index.fct_hn_technology_mentions"
+[0m11:38:23.446481 [debug] [Thread-2  ]: On model.data_ai_index.fct_hn_technology_mentions: create or replace transient table DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.fct_hn_technology_mentions
+    
+    
+    
+    as (with tech_extracted as (
+    select * from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_intermediate.int_hn__technologies_extracted
+),
+
+db_extracted as (
+    select
+        posting_id,
+        posting_month,
+        posting_year,
+        database_name as technology,
+        category,
+        era
+    from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_intermediate.int_hn__databases_extracted
+),
+
+combined as (
+    select * from tech_extracted
+    union all
+    select * from db_extracted
+),
+
+dim_tech as (
+    select * from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.dim_technologies
+)
+
+select
+    md5(cast(coalesce(cast(c.posting_id as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(c.technology as TEXT), '_dbt_utils_surrogate_key_null_') as TEXT)) as mention_id,
+    c.posting_id,
+    dt.technology_id,
+    c.technology as technology_name,
+    c.category,
+    c.era,
+    c.posting_month,
+    c.posting_year
+from combined c
+left join dim_tech dt on c.technology = dt.technology_name
+    )
+
+/* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "model.data_ai_index.fct_hn_technology_mentions"} */;
+[0m11:38:23.448840 [debug] [Thread-1  ]: Using snowflake connection "model.data_ai_index.fct_hn_role_mentions"
+[0m11:38:23.449785 [debug] [Thread-1  ]: On model.data_ai_index.fct_hn_role_mentions: create or replace transient table DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.fct_hn_role_mentions
+    
+    
+    
+    as (with role_extracted as (
+    select * from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_intermediate.int_hn__roles_extracted
+),
+
+dim_roles as (
+    select * from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.dim_roles
+)
+
+select
+    md5(cast(coalesce(cast(r.posting_id as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(r.role as TEXT), '_dbt_utils_surrogate_key_null_') as TEXT)) as mention_id,
+    r.posting_id,
+    dr.role_id,
+    r.role as role_name,
+    r.tier,
+    r.posting_month,
+    r.posting_year
+from role_extracted r
+left join dim_roles dr on r.role = dr.role_name
+    )
+
+/* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "model.data_ai_index.fct_hn_role_mentions"} */;
+[0m11:38:25.599256 [debug] [Thread-1  ]: SQL status: SUCCESS 1 in 2.149 seconds
+[0m11:38:25.601504 [debug] [Thread-2  ]: SQL status: SUCCESS 1 in 2.154 seconds
+[0m11:38:25.645948 [debug] [Thread-2  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd14e71e9-a74a-4a0c-a673-569e90c8edd2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c8c9460>]}
+[0m11:38:25.646536 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd14e71e9-a74a-4a0c-a673-569e90c8edd2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112c0abb0>]}
+[0m11:38:25.647445 [info ] [Thread-2  ]: 2 of 4 OK created sql table model KOUVERK_DATA_INDUSTRY_marts.fct_hn_technology_mentions  [[32mSUCCESS 1[0m in 2.33s]
+[0m11:38:25.648491 [info ] [Thread-1  ]: 1 of 4 OK created sql table model KOUVERK_DATA_INDUSTRY_marts.fct_hn_role_mentions  [[32mSUCCESS 1[0m in 2.34s]
+[0m11:38:25.649345 [debug] [Thread-2  ]: Finished running node model.data_ai_index.fct_hn_technology_mentions
+[0m11:38:25.650036 [debug] [Thread-1  ]: Finished running node model.data_ai_index.fct_hn_role_mentions
+[0m11:38:25.651370 [debug] [Thread-4  ]: Began running node model.data_ai_index.fct_monthly_role_trends
+[0m11:38:25.652030 [debug] [Thread-3  ]: Began running node model.data_ai_index.fct_monthly_technology_trends
+[0m11:38:25.652733 [info ] [Thread-4  ]: 3 of 4 START sql table model KOUVERK_DATA_INDUSTRY_marts.fct_monthly_role_trends  [RUN]
+[0m11:38:25.653873 [info ] [Thread-3  ]: 4 of 4 START sql table model KOUVERK_DATA_INDUSTRY_marts.fct_monthly_technology_trends  [RUN]
+[0m11:38:25.655078 [debug] [Thread-4  ]: Acquiring new snowflake connection 'model.data_ai_index.fct_monthly_role_trends'
+[0m11:38:25.655700 [debug] [Thread-3  ]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY, now model.data_ai_index.fct_monthly_technology_trends)
+[0m11:38:25.656444 [debug] [Thread-4  ]: Began compiling node model.data_ai_index.fct_monthly_role_trends
+[0m11:38:25.657063 [debug] [Thread-3  ]: Began compiling node model.data_ai_index.fct_monthly_technology_trends
+[0m11:38:25.661622 [debug] [Thread-4  ]: Writing injected SQL for node "model.data_ai_index.fct_monthly_role_trends"
+[0m11:38:25.667278 [debug] [Thread-3  ]: Writing injected SQL for node "model.data_ai_index.fct_monthly_technology_trends"
+[0m11:38:25.668741 [debug] [Thread-4  ]: Began executing node model.data_ai_index.fct_monthly_role_trends
+[0m11:38:25.669664 [debug] [Thread-3  ]: Began executing node model.data_ai_index.fct_monthly_technology_trends
+[0m11:38:25.675068 [debug] [Thread-4  ]: Writing runtime sql for node "model.data_ai_index.fct_monthly_role_trends"
+[0m11:38:25.679967 [debug] [Thread-3  ]: Writing runtime sql for node "model.data_ai_index.fct_monthly_technology_trends"
+[0m11:38:25.683264 [debug] [Thread-3  ]: Using snowflake connection "model.data_ai_index.fct_monthly_technology_trends"
+[0m11:38:25.683911 [debug] [Thread-3  ]: On model.data_ai_index.fct_monthly_technology_trends: create or replace transient table DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.fct_monthly_technology_trends
+    
+    
+    
+    as (with mentions as (
+    select * from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.fct_hn_technology_mentions
+),
+
+postings as (
+    select
+        posting_month,
+        count(distinct posting_id) as total_postings
+    from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_staging.stg_hn__job_postings
+    group by 1
+),
+
+monthly_counts as (
+    select
+        posting_month,
+        technology_name,
+        category,
+        era,
+        count(distinct posting_id) as mention_count
+    from mentions
+    group by 1, 2, 3, 4
+)
+
+select
+    mc.posting_month,
+    mc.technology_name,
+    mc.category,
+    mc.era,
+    mc.mention_count,
+    p.total_postings,
+    round(mc.mention_count * 100.0 / nullif(p.total_postings, 0), 2) as mention_pct,
+    -- Year-over-year comparison
+    lag(mc.mention_count, 12) over (
+        partition by mc.technology_name
+        order by mc.posting_month
+    ) as mentions_prev_year,
+    -- Month-over-month change
+    lag(mc.mention_count, 1) over (
+        partition by mc.technology_name
+        order by mc.posting_month
+    ) as mentions_prev_month
+from monthly_counts mc
+join postings p on mc.posting_month = p.posting_month
+    )
+
+/* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "model.data_ai_index.fct_monthly_technology_trends"} */;
+[0m11:38:25.686473 [debug] [Thread-4  ]: Using snowflake connection "model.data_ai_index.fct_monthly_role_trends"
+[0m11:38:25.687528 [debug] [Thread-4  ]: On model.data_ai_index.fct_monthly_role_trends: create or replace transient table DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.fct_monthly_role_trends
+    
+    
+    
+    as (with mentions as (
+    select * from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.fct_hn_role_mentions
+),
+
+postings as (
+    select
+        posting_month,
+        count(distinct posting_id) as total_postings
+    from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_staging.stg_hn__job_postings
+    group by 1
+),
+
+monthly_counts as (
+    select
+        posting_month,
+        role_name,
+        tier,
+        count(distinct posting_id) as mention_count
+    from mentions
+    group by 1, 2, 3
+)
+
+select
+    mc.posting_month,
+    mc.role_name,
+    mc.tier,
+    mc.mention_count,
+    p.total_postings,
+    round(mc.mention_count * 100.0 / nullif(p.total_postings, 0), 2) as mention_pct,
+    -- Year-over-year comparison
+    lag(mc.mention_count, 12) over (
+        partition by mc.role_name
+        order by mc.posting_month
+    ) as mentions_prev_year,
+    -- Month-over-month change
+    lag(mc.mention_count, 1) over (
+        partition by mc.role_name
+        order by mc.posting_month
+    ) as mentions_prev_month
+from monthly_counts mc
+join postings p on mc.posting_month = p.posting_month
+    )
+
+/* {"app": "dbt", "dbt_version": "1.10.13", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "model.data_ai_index.fct_monthly_role_trends"} */;
+[0m11:38:25.689670 [debug] [Thread-4  ]: Opening a new connection, currently in state init
+[0m11:38:27.449758 [debug] [Thread-4  ]: SQL status: SUCCESS 1 in 1.760 seconds
+[0m11:38:27.452440 [debug] [Thread-3  ]: SQL status: SUCCESS 1 in 1.768 seconds
+[0m11:38:27.460809 [debug] [Thread-4  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd14e71e9-a74a-4a0c-a673-569e90c8edd2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112b8ea90>]}
+[0m11:38:27.467274 [debug] [Thread-3  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd14e71e9-a74a-4a0c-a673-569e90c8edd2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112c6c130>]}
+[0m11:38:27.468896 [info ] [Thread-4  ]: 3 of 4 OK created sql table model KOUVERK_DATA_INDUSTRY_marts.fct_monthly_role_trends  [[32mSUCCESS 1[0m in 1.81s]
+[0m11:38:27.471462 [info ] [Thread-3  ]: 4 of 4 OK created sql table model KOUVERK_DATA_INDUSTRY_marts.fct_monthly_technology_trends  [[32mSUCCESS 1[0m in 1.81s]
+[0m11:38:27.473320 [debug] [Thread-4  ]: Finished running node model.data_ai_index.fct_monthly_role_trends
+[0m11:38:27.474499 [debug] [Thread-3  ]: Finished running node model.data_ai_index.fct_monthly_technology_trends
+[0m11:38:27.477038 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m11:38:27.477842 [debug] [MainThread]: Connection 'model.data_ai_index.fct_hn_role_mentions' was left open.
+[0m11:38:27.478548 [debug] [MainThread]: On model.data_ai_index.fct_hn_role_mentions: Close
+[0m11:38:27.616381 [debug] [MainThread]: Connection 'model.data_ai_index.fct_hn_technology_mentions' was left open.
+[0m11:38:27.617428 [debug] [MainThread]: On model.data_ai_index.fct_hn_technology_mentions: Close
+[0m11:38:27.759968 [debug] [MainThread]: Connection 'model.data_ai_index.fct_monthly_technology_trends' was left open.
+[0m11:38:27.761321 [debug] [MainThread]: On model.data_ai_index.fct_monthly_technology_trends: Close
+[0m11:38:27.911213 [debug] [MainThread]: Connection 'list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging' was left open.
+[0m11:38:27.912671 [debug] [MainThread]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging: Close
+[0m11:38:28.037605 [debug] [MainThread]: Connection 'model.data_ai_index.fct_monthly_role_trends' was left open.
+[0m11:38:28.039004 [debug] [MainThread]: On model.data_ai_index.fct_monthly_role_trends: Close
+[0m11:38:28.153457 [info ] [MainThread]: 
+[0m11:38:28.155372 [info ] [MainThread]: Finished running 4 table models in 0 hours 0 minutes and 12.10 seconds (12.10s).
+[0m11:38:28.159511 [debug] [MainThread]: Command end result
+[0m11:38:28.226461 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/manifest.json
+[0m11:38:28.229013 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/semantic_manifest.json
+[0m11:38:28.238561 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/run_results.json
+[0m11:38:28.239833 [info ] [MainThread]: 
+[0m11:38:28.240655 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m11:38:28.241525 [info ] [MainThread]: 
+[0m11:38:28.242105 [info ] [MainThread]: Done. PASS=4 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=4
+[0m11:38:28.244830 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 13.838427, "process_in_blocks": "0", "process_kernel_time": 0.585131, "process_mem_max_rss": "159535104", "process_out_blocks": "0", "process_user_time": 4.720852}
+[0m11:38:28.245483 [debug] [MainThread]: Command `dbt run` succeeded at 11:38:28.245355 after 13.84 seconds
+[0m11:38:28.246026 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a4e52b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b9e7fa0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ce554c0>]}
+[0m11:38:28.246561 [debug] [MainThread]: Flushing usage events
+[0m11:38:28.587514 [debug] [MainThread]: An error was encountered while trying to flush usage events

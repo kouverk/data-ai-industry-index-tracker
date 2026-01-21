@@ -17,6 +17,7 @@ tech_mappings as (
 ),
 
 -- Cross join postings with tech mappings and check for matches
+-- Using CONTAINS for case-insensitive keyword matching (Snowflake doesn't support \b word boundaries)
 matched as (
     select
         p.posting_id,
@@ -27,7 +28,7 @@ matched as (
         t.era
     from postings p
     cross join tech_mappings t
-    where regexp_like(lower(p.posting_text), '\\b' || lower(t.keyword) || '\\b')
+    where contains(lower(p.posting_text), lower(t.keyword))
 )
 
 select distinct
