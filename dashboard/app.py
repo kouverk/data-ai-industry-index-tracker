@@ -45,6 +45,27 @@ def run_query(query):
 # =============================================================================
 st.title("📊 Data & AI Industry Index")
 st.markdown("*Tracking what's hot, growing, and dying in the data/AI space*")
+
+# Data source disclaimers
+with st.expander("ℹ️ Data Sources & Limitations"):
+    st.markdown("""
+    **Data Sources:**
+    - **Hacker News "Who Is Hiring"** (2011-present): ~93K job postings from monthly hiring threads
+    - **LinkedIn Jobs** (Jan 2024): 1.3M job postings snapshot from [Kaggle dataset](https://www.kaggle.com/datasets/asaniczka/1-3m-linkedin-jobs-and-skills-2024)
+    - **GitHub Repository Stats**: 81 curated data/AI repositories tracked for stars, forks, activity
+
+    **Known Limitations:**
+    - **HN data skews toward startups and tech-native companies.** Enterprise/Fortune 500 hiring patterns may differ.
+    - **LinkedIn data is a single cross-sectional snapshot (Jan 2024)**, not a time series. Trend claims are based on HN data only.
+    - **GitHub repos are manually curated** based on relevance to data/AI ecosystem and minimum star thresholds.
+    - **Skill extraction uses keyword matching**, which may miss context-dependent mentions or capture false positives.
+
+    **Licensing:**
+    - LinkedIn dataset used under Kaggle's terms for academic/research purposes only.
+    - HN data is public via HuggingFace and HN Firebase API.
+    - GitHub data accessed via public REST API.
+    """)
+
 st.markdown("---")
 
 # =============================================================================
