@@ -101,3 +101,31 @@ models:
       - name: skill_name
         tests:
           - not_null
+
+  - name: fct_llm_technology_mentions
+    description: "Technology mentions extracted by LLM (Claude Haiku) from 10K HN post sample"
+    columns:
+      - name: mention_id
+        tests:
+          - unique
+          - not_null
+      - name: posting_id
+        tests:
+          - not_null
+      - name: technology_name
+        tests:
+          - not_null
+      - name: extraction_method
+        tests:
+          - accepted_values:
+              values: ['llm']
+
+  - name: fct_llm_vs_regex_comparison
+    description: "Side-by-side comparison of LLM vs regex technology extraction on overlapping posts"
+    columns:
+      - name: technology_name
+        tests:
+          - unique
+          - not_null
+      - name: agreement_pct
+        description: "Percentage of detections where both methods agree"

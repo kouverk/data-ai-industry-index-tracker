@@ -2,7 +2,7 @@
 
 **What's hot, what's growing, what's dying in the data/AI space?**
 
-A multi-source analytics platform that tracks interest, demand, and growth signals across the data engineering and AI ecosystem.
+A multi-source analytics platform that tracks interest, demand, and growth signals across the data engineering and AI ecosystem. Combines 93K+ job postings, 1.3M LinkedIn jobs, and 81 GitHub repositories with LLM-powered extraction to surface technology and role trends over time.
 
 ---
 
@@ -19,13 +19,28 @@ This project answers those questions with data.
 
 ---
 
+## Key Findings
+
+| Finding | Evidence |
+|---------|----------|
+| **Snowflake overtook Redshift** | 1.6% vs 0.2% of HN posts in 2024 (crossed ~2021) |
+| **PyTorch dominates TensorFlow** | 2.0% vs 0.4% in 2025 (5x lead, flipped in 2022) |
+| **OpenAI mentions exploded** | 0.4% (2022) to 2.7% (2025) - the ChatGPT effect |
+| **LLM extracts 4x more skills** | 6.4 technologies/post vs 1.5 from regex |
+| **PostgreSQL is king** | 14.6% of HN posts - 3x the next database |
+| **2021 was peak hiring** | 10,570 HN posts; 2023-2024 dropped to ~40% of peak |
+
+---
+
 ## What It Does
 
 1. **Ingests job postings** from Hacker News "Who Is Hiring" (93K posts, 2011-present) and LinkedIn (1.3M jobs)
-2. **Extracts skills/technologies** using keyword matching against a curated taxonomy
-3. **Tracks GitHub activity** for 81 key data/AI repositories
-4. **Aggregates trends** by month, technology, and role
-5. **Visualizes insights** via interactive Streamlit dashboard
+2. **Extracts skills/technologies** using keyword matching against a curated taxonomy (152 technologies, 27 roles)
+3. **LLM-powered extraction** via Claude Haiku on a 10K post sample for validation and taxonomy discovery
+4. **Tracks GitHub activity** for 81 key data/AI repositories
+5. **Compares extraction methods** with a dbt model that quantifies LLM vs regex agreement rates
+6. **Generates automated insights** with Claude Sonnet producing weekly market summaries
+7. **Visualizes everything** via interactive Streamlit dashboard
 
 ---
 
@@ -34,8 +49,9 @@ This project answers those questions with data.
 | Component | Technology |
 |-----------|------------|
 | **Warehouse** | Snowflake |
-| **Transformation** | dbt |
+| **Transformation** | dbt (21 models, 3 seeds) |
 | **Orchestration** | Airflow |
+| **LLM** | Claude API (Anthropic) |
 | **Visualization** | Streamlit |
 | **Language** | Python, SQL |
 
@@ -57,17 +73,24 @@ This project answers those questions with data.
 data-ai-industry-index-tracker/
 ├── dashboard/              # Streamlit app
 │   └── app.py
-├── dbt/                    # dbt project
+├── dbt/                    # dbt project (21 models)
 │   ├── models/
-│   │   ├── staging/        # Source-conformed views
-│   │   ├── intermediate/   # Business logic (skill extraction)
-│   │   └── marts/          # Analytics-ready facts & dims
-│   └── seeds/              # Taxonomy CSVs
+│   │   ├── staging/        # 6 source-conformed views
+│   │   │   ├── hn/         # HN job postings
+│   │   │   ├── linkedin/   # LinkedIn postings, skills, summaries
+│   │   │   ├── github/     # GitHub repo stats
+│   │   │   └── llm/        # LLM skill extractions
+│   │   ├── intermediate/   # 4 tables (keyword extraction logic)
+│   │   └── marts/          # 11 models (facts & dims)
+│   └── seeds/              # Taxonomy CSVs (technologies, roles, databases)
+├── extraction/             # LLM extraction scripts
+│   ├── llm_skill_extraction.py      # Claude Haiku skill extraction (10K posts)
+│   └── generate_weekly_insights.py  # Claude Sonnet weekly reports
 ├── airflow/dags/           # Airflow DAGs
+├── exploration/            # Data exploration scripts
 ├── infrastructure/         # Snowflake setup scripts
-├── exploration/            # Jupyter notebooks
 ├── data/raw/               # Raw data files
-└── docs/                   # Documentation (see below)
+└── docs/                   # Documentation
 ```
 
 ---
@@ -117,10 +140,48 @@ cd dashboard && streamlit run app.py
 ```
 HuggingFace (HN) ─┐
 Kaggle (LinkedIn) ┼──▶ Snowflake Raw ──▶ dbt Staging ──▶ dbt Intermediate ──▶ dbt Marts ──▶ Streamlit
-GitHub API ───────┘                         │                  │                  │
-                                            │                  │                  │
-                                      (1:1 clean)    (skill extraction)    (facts & dims)
+GitHub API ───────┘         │                 │                  │                  │
+                            │                 │                  │                  │
+                            │           (1:1 clean)    (skill extraction)    (facts & dims)
+                            │                                                      │
+                            ▼                                                      ▼
+                    ┌───────────────┐                                ┌──────────────────────┐
+                    │  LLM Layer    │                                │  LLM Comparison      │
+                    │  (Claude API) │                                │  fct_llm_vs_regex_   │
+                    └───────────────┘                                │  comparison          │
+                            │                                       └──────────────────────┘
+            ┌───────────────┴───────────────┐
+            ▼                               ▼
+   LLM Skill Extraction            Weekly Insights
+   (10K sample → 63K mentions)     (Automated reports)
 ```
+
+---
+
+## AI/LLM Components
+
+This project uses Claude (Anthropic API) for two agentic pipeline tasks:
+
+### 1. LLM Skill Extraction
+- **What:** Extracts structured technology and role mentions from job postings using Claude Haiku
+- **Scale:** 10,000 posts processed, 9,818 successful (98.2%), 63,013 technology mentions extracted
+- **Cost:** ~$4.50 total ($0.00045/post)
+- **Why:** Captures 4x more technologies per post than regex (6.4 vs 1.5 avg), identifies 4,569 unique technologies vs 152 in the seed taxonomy
+- **Output:** `raw_llm_skill_extractions` → `stg_llm__skill_extractions` → `fct_llm_technology_mentions`
+
+### 2. LLM vs Regex Comparison
+- **What:** dbt model that joins LLM and regex extractions on overlapping posts to quantify agreement
+- **Key finding:** PostgreSQL has highest agreement (66.1%), while React/JavaScript/TypeScript are found only by LLM (not in regex taxonomy)
+- **Output:** `fct_llm_vs_regex_comparison`
+
+### 3. Automated Weekly Insights
+- **What:** Claude Sonnet analyzes trend data and generates a written market summary
+- **Schedule:** Weekly (Airflow task)
+- **Output:** `weekly_insights` table + `docs/WEEKLY_INSIGHTS_*.md` files
+
+**Scripts:**
+- `extraction/llm_skill_extraction.py` - LLM-powered skill extraction
+- `extraction/generate_weekly_insights.py` - Automated insights generator
 
 ---
 
@@ -128,8 +189,10 @@ GitHub API ───────┘                         │                 
 
 | Table | Rows | Description |
 |-------|------|-------------|
-| `fct_monthly_technology_trends` | 9.8K | Technology mentions aggregated by month |
+| `fct_monthly_technology_trends` | 9.8K | Technology mentions aggregated by month (regex) |
 | `fct_monthly_role_trends` | 2.9K | Role mentions aggregated by month |
+| `fct_llm_technology_mentions` | 63K | LLM-extracted technology mentions (10K sample) |
+| `fct_llm_vs_regex_comparison` | ~150 | LLM vs regex agreement rates by technology |
 | `fct_linkedin_skill_counts` | 3.3M | LinkedIn skill demand |
 | `fct_github_repo_stats` | 81 | GitHub repository metrics |
 | `dim_technologies` | 152 | Technology master list |
@@ -152,7 +215,8 @@ GitHub API ───────┘                         │                 
 
 - **HN data skews toward startups** - Enterprise hiring patterns may differ
 - **LinkedIn is a single snapshot** - No time series, cross-sectional only
-- **Skill extraction uses keyword matching** - May miss context or have false positives
+- **Regex extraction is taxonomy-limited** - Only detects 152 curated technologies; LLM extraction covers the gap but at higher cost
+- **LLM extraction covers 10K posts** - Sample only; full 93K dataset uses regex for cost efficiency
 
 See the dashboard's "Data Sources & Limitations" section for full details.
 
@@ -160,7 +224,16 @@ See the dashboard's "Data Sources & Limitations" section for full details.
 
 ## Status
 
-🚧 **In Development** - Capstone project for DataExpert.io analytics engineering bootcamp
+**Complete** - DataExpert.io analytics engineering capstone project
+
+- [x] Data ingestion (HN, LinkedIn, GitHub)
+- [x] dbt models (6 staging + 4 intermediate + 11 marts)
+- [x] LLM skill extraction (10K posts, 98.2% success)
+- [x] LLM vs regex comparison analysis
+- [x] Automated weekly insights
+- [x] Airflow DAGs
+- [x] Streamlit dashboard
+- [ ] Process remaining 83K+ posts with LLM
 
 ---
 

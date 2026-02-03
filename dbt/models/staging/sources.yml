@@ -70,3 +70,21 @@ sources:
             description: "Fork count"
           - name: fetched_at
             description: "When stats were fetched"
+
+      - name: raw_llm_skill_extractions
+        description: "LLM-extracted skills from HN job postings (10K sample via Claude Haiku)"
+        columns:
+          - name: posting_id
+            description: "FK to HN job posting"
+          - name: technologies
+            description: "VARIANT array of {name, category, confidence} objects"
+          - name: roles
+            description: "VARIANT array of {name, tier, confidence} objects"
+          - name: extraction_method
+            description: "Always 'llm' for this table"
+          - name: model
+            description: "LLM model used (claude-3-haiku-20240307)"
+          - name: extracted_at
+            description: "When extraction was performed"
+          - name: error
+            description: "Error message if extraction failed, NULL on success"

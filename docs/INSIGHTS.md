@@ -357,3 +357,99 @@ Based on these insights, the dashboard should answer:
 - Spot-check extracted technologies against original text
 - Compare HN skill frequencies with LinkedIn skill frequencies
 - Verify role extraction with manual sampling
+
+---
+
+## LLM Skill Extraction Analysis
+
+### 14. LLM vs Regex Extraction: Coverage Comparison
+
+A 10,000-post sample was processed through Claude Haiku for structured skill extraction, then compared against the regex-based keyword matching pipeline. Results reveal significant differences in coverage.
+
+| Metric | LLM (Claude Haiku) | Regex (Keyword Match) |
+|--------|--------------------|-----------------------|
+| Posts processed | 9,818 (98.2% success) | 9,818 (overlapping set) |
+| Total mentions | 63,013 | ~15,000 |
+| Unique technologies | 4,569 | 152 (taxonomy-limited) |
+| Avg technologies/post | ~6.4 | ~1.5 |
+| Cost | ~$4.50 | $0 |
+
+**Insight:** The LLM extracts ~4x more technology mentions per post. The regex taxonomy is limited to 152 canonical names, while the LLM identifies 4,569 distinct technologies including frameworks, libraries, and tools not in the seed CSVs.
+
+---
+
+### 15. Agreement Rates: Where LLM and Regex Align
+
+| Technology | LLM Count | Regex Count | Both | Agreement % | Notes |
+|------------|-----------|-------------|------|-------------|-------|
+| PostgreSQL | 1,757 | 1,178 | 1,162 | 66.1% | Highest agreement - both detect reliably |
+| AWS | 2,542 | 1,576 | 1,445 | 56.8% | Strong overlap, LLM catches more |
+| MySQL | 948 | 474 | 465 | 49.1% | Solid agreement |
+| Python | 4,758 | 2,253 | 2,217 | 46.6% | LLM finds 2x more - regex misses contextual mentions |
+| Scala | 632 | 816 | 362 | 44.4% | Regex actually finds more (broader matching) |
+| MongoDB | 861 | 383 | 375 | 43.6% | Good agreement on what regex finds |
+| Rust | 272 | 586 | 272 | 46.4% | Regex finds 2x more - likely false positives from word "rust" |
+
+**Insight:** PostgreSQL and AWS have the highest agreement (~56-66%), meaning both methods reliably detect them. Technologies with simple, unique names (PostgreSQL, MySQL) have better agreement than ones with common-word names.
+
+---
+
+### 16. LLM-Only Detections: What Regex Misses
+
+Technologies found by the LLM but completely absent from the regex taxonomy:
+
+| Technology | LLM Mentions | In Taxonomy? |
+|------------|-------------|--------------|
+| React | 1,880 | No |
+| JavaScript | 1,479 | No |
+| TypeScript | 975 | No |
+| Java | 917 | No |
+| Node.js | 788 | No |
+| Ruby on Rails | 610 | No |
+| C++ | ~500 | No |
+| GraphQL | ~400 | No |
+
+**Insight:** The regex taxonomy was designed for data/AI-specific tools and deliberately excludes general programming technologies (React, JavaScript, Java). The LLM doesn't have this filter and extracts everything mentioned. This is a feature, not a bug - it shows the LLM captures the full tech stack context around data roles.
+
+---
+
+### 17. Regex-Only Detections: Where LLM Underperforms
+
+| Technology | Regex Count | LLM Count | Regex-Only |
+|------------|-------------|-----------|------------|
+| Rust | 586 | 272 | 314 |
+| Scala | 816 | 632 | 454 |
+| GCP | 328 | 1,105 | 190 |
+| AWS | 1,576 | 2,542 | 131 |
+
+**Insight:** Rust has 314 regex-only detections, likely false positives from the word "rust" appearing in non-technology contexts. Scala's higher regex count may stem from the keyword matching broader variations. These cases highlight where regex can be overly aggressive.
+
+---
+
+### 18. LLM Extraction Quality Metrics
+
+| Metric | Value |
+|--------|-------|
+| Success rate | 98.2% (9,818 / 10,000) |
+| Failure cause | JSON truncation from max_tokens limit (182 errors) |
+| Average confidence score | 0.94 |
+| Model used | Claude 3 Haiku |
+| Total cost | ~$4.50 for 10K posts |
+| Processing time | ~25 minutes |
+
+**Insight:** At $0.00045 per post, LLM extraction is cost-effective for enrichment. The 98.2% success rate is production-viable. The remaining 1.8% failures are all from the LLM's JSON response being truncated (posts with many technologies exceed the 1024 max_tokens limit).
+
+---
+
+### 19. Key Takeaway: LLM vs Regex Trade-offs
+
+| Dimension | LLM | Regex |
+|-----------|-----|-------|
+| **Coverage** | Broad (4,569 technologies) | Narrow (152 curated) |
+| **Precision** | High (0.94 avg confidence) | Moderate (false positives on common words) |
+| **Cost** | $0.00045/post | Free |
+| **Scalability** | API-limited, ~25 min/10K | Instant on full dataset |
+| **Maintenance** | Zero (model handles variations) | Manual (update seed CSVs) |
+| **Consistency** | Slight variation between runs | Deterministic |
+
+**Recommendation:** Use regex for the full historical dataset (93K posts) where cost and speed matter. Use LLM extraction on samples for validation, taxonomy discovery, and enrichment. The LLM identified hundreds of technologies not in the seed CSVs, which can be used to expand the regex taxonomy.

@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: stg_llm__skill_extractions
+    description: "Cleaned LLM skill extractions from HN job postings (10K sample)"
+    columns:
+      - name: posting_id
+        description: "HN posting ID (FK to stg_hn__job_postings)"
+        tests:
+          - not_null
+      - name: technologies
+        description: "VARIANT array of extracted technologies"
+      - name: roles
+        description: "VARIANT array of extracted roles"
+      - name: is_successful
+        description: "Whether extraction completed without error"
+        tests:
+          - not_null
+      - name: technology_count
+        description: "Number of technologies extracted"
+      - name: role_count
+        description: "Number of roles extracted"

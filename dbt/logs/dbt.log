@@ -4646,3 +4646,1720 @@ join postings p on mc.posting_month = p.posting_month
 [0m11:38:28.246026 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a4e52b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b9e7fa0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ce554c0>]}
 [0m11:38:28.246561 [debug] [MainThread]: Flushing usage events
 [0m11:38:28.587514 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:50:32.809703 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10aedc830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bd87890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bd879d0>]}
+
+
+============================== 14:50:32.817251 | 318b1793-d1a0-493e-95a4-6be88c95042d ==============================
+[0m14:50:32.817251 [info ] [MainThread]: Running with dbt=1.11.2
+[0m14:50:32.818435 [debug] [MainThread]: running dbt with arguments {'invocation_command': 'dbt compile --select stg_llm__skill_extractions fct_llm_technology_mentions fct_llm_vs_regex_comparison', 'target_path': 'None', 'use_experimental_parser': 'False', 'introspect': 'True', 'log_cache_events': 'False', 'cache_selected_only': 'False', 'profiles_dir': '/Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt', 'version_check': 'True', 'fail_fast': 'False', 'log_path': '/Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/logs', 'log_format': 'default', 'static_parser': 'True', 'warn_error': 'None', 'indirect_selection': 'eager', 'partial_parse': 'True', 'empty': 'False', 'write_json': 'True', 'debug': 'False', 'no_print': 'None', 'printer_width': '80', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'use_colors': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False'}
+[0m14:50:32.826535 [error] [MainThread]: Encountered an error:
+Parsing Error
+  Env var required but not provided: 'SNOWFLAKE_ACCOUNT'
+[0m14:50:32.829794 [debug] [MainThread]: Resource report: {"command_name": "compile", "command_success": false, "command_wall_clock_time": 0.12517007, "process_in_blocks": "0", "process_kernel_time": 0.281775, "process_mem_max_rss": "101097472", "process_out_blocks": "0", "process_user_time": 1.830941}
+[0m14:50:32.830482 [debug] [MainThread]: Command `dbt compile` failed at 14:50:32.830345 after 0.13 seconds
+[0m14:50:32.830909 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bda2b10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10be04dd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bc12140>]}
+[0m14:50:32.831325 [debug] [MainThread]: Flushing usage events
+[0m14:50:33.221545 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:50:42.704759 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1071d8830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1080bf890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1080bf9d0>]}
+
+
+============================== 14:50:42.710558 | 4b725396-b0b2-451c-9f06-7fc120300d6a ==============================
+[0m14:50:42.710558 [info ] [MainThread]: Running with dbt=1.11.2
+[0m14:50:42.711336 [debug] [MainThread]: running dbt with arguments {'indirect_selection': 'eager', 'no_print': 'None', 'fail_fast': 'False', 'cache_selected_only': 'False', 'profiles_dir': '/Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt', 'debug': 'False', 'log_cache_events': 'False', 'printer_width': '80', 'target_path': 'None', 'use_experimental_parser': 'False', 'version_check': 'True', 'log_format': 'default', 'send_anonymous_usage_stats': 'True', 'partial_parse': 'True', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'empty': 'False', 'use_colors': 'True', 'warn_error': 'None', 'invocation_command': 'dbt compile --select stg_llm__skill_extractions fct_llm_technology_mentions fct_llm_vs_regex_comparison', 'log_path': '/Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/logs', 'static_parser': 'True', 'write_json': 'True'}
+[0m14:50:42.719713 [error] [MainThread]: Encountered an error:
+Parsing Error
+  Env var required but not provided: 'SNOWFLAKE_ACCOUNT'
+[0m14:50:42.722582 [debug] [MainThread]: Resource report: {"command_name": "compile", "command_success": false, "command_wall_clock_time": 0.12164743, "process_in_blocks": "0", "process_kernel_time": 0.236645, "process_mem_max_rss": "101486592", "process_out_blocks": "0", "process_user_time": 1.809302}
+[0m14:50:42.723728 [debug] [MainThread]: Command `dbt compile` failed at 14:50:42.723349 after 0.12 seconds
+[0m14:50:42.724649 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1080dab10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108140dd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107f46140>]}
+[0m14:50:42.725391 [debug] [MainThread]: Flushing usage events
+[0m14:50:42.982231 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:50:54.219105 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c750830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d62f890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d62f9d0>]}
+
+
+============================== 14:50:54.224303 | a5dea862-6bc3-47ad-adfb-c68ecab28803 ==============================
+[0m14:50:54.224303 [info ] [MainThread]: Running with dbt=1.11.2
+[0m14:50:54.225657 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'no_print': 'None', 'cache_selected_only': 'False', 'introspect': 'True', 'target_path': 'None', 'log_cache_events': 'False', 'version_check': 'True', 'partial_parse': 'True', 'fail_fast': 'False', 'send_anonymous_usage_stats': 'True', 'invocation_command': 'dbt compile --select stg_llm__skill_extractions fct_llm_technology_mentions fct_llm_vs_regex_comparison', 'write_json': 'True', 'use_experimental_parser': 'False', 'debug': 'False', 'log_path': '/Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/logs', 'use_colors': 'True', 'quiet': 'False', 'empty': 'False', 'profiles_dir': '/Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt', 'indirect_selection': 'eager', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'warn_error': 'None', 'log_format': 'default'}
+[0m14:50:56.011268 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m14:50:56.011832 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m14:50:56.012229 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m14:50:56.295592 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'a5dea862-6bc3-47ad-adfb-c68ecab28803', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c91ce90>]}
+[0m14:50:56.384659 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'a5dea862-6bc3-47ad-adfb-c68ecab28803', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x118b057b0>]}
+[0m14:50:56.386378 [info ] [MainThread]: Registered adapter: snowflake=1.11.1
+[0m14:50:56.579675 [debug] [MainThread]: checksum: 3d40d8bbe1bef07db1c24822f2dbfff8bc07f2a48ed4fe2658a40653aec0b54b, vars: {}, profile: , target: , version: 1.11.2
+[0m14:50:56.746683 [info ] [MainThread]: Unable to do partial parsing because of a version mismatch
+[0m14:50:56.747292 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'a5dea862-6bc3-47ad-adfb-c68ecab28803', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x119248850>]}
+[0m14:50:59.129955 [warn ] [MainThread]: [[33mWARNING[0m][MissingArgumentsPropertyInGenericTestDeprecation]: Deprecated
+functionality
+Found top-level arguments to test `accepted_values` defined on 'dim_roles' in
+package 'data_ai_index' (models/marts/_marts__models.yml). Arguments to generic
+tests should be nested under the `arguments` property.
+[0m14:50:59.130895 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': 'a5dea862-6bc3-47ad-adfb-c68ecab28803', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11959b2f0>]}
+[0m14:50:59.553424 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'a5dea862-6bc3-47ad-adfb-c68ecab28803', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x119419ef0>]}
+[0m14:50:59.700858 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/manifest.json
+[0m14:50:59.704608 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/semantic_manifest.json
+[0m14:50:59.748123 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'a5dea862-6bc3-47ad-adfb-c68ecab28803', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11915e820>]}
+[0m14:50:59.748852 [info ] [MainThread]: Found 21 models, 3 seeds, 57 data tests, 6 sources, 638 macros
+[0m14:50:59.749333 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'a5dea862-6bc3-47ad-adfb-c68ecab28803', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1192a3350>]}
+[0m14:50:59.753335 [info ] [MainThread]: 
+[0m14:50:59.753887 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m14:50:59.754296 [info ] [MainThread]: 
+[0m14:50:59.754901 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m14:50:59.763765 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging'
+[0m14:50:59.764922 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate'
+[0m14:50:59.772351 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts'
+[0m14:50:59.784156 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY'
+[0m14:50:59.872821 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate"
+[0m14:50:59.873520 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging"
+[0m14:50:59.873955 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate: show objects in DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_intermediate
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate"} */;
+[0m14:50:59.874456 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts"
+[0m14:50:59.875002 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY"
+[0m14:50:59.875406 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging: show objects in DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_staging
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging"} */;
+[0m14:50:59.875771 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:50:59.876128 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts: show objects in DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts"} */;
+[0m14:50:59.876508 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY: show objects in DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY"} */;
+[0m14:50:59.876848 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:50:59.878312 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:50:59.878937 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:51:01.188074 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 1.312 seconds
+[0m14:51:01.227414 [debug] [ThreadPool]: SQL status: SUCCESS 5 in 1.350 seconds
+[0m14:51:01.229970 [debug] [ThreadPool]: SQL status: SUCCESS 9 in 1.351 seconds
+[0m14:51:01.237876 [debug] [ThreadPool]: SQL status: SUCCESS 10 in 1.359 seconds
+[0m14:51:01.254613 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'a5dea862-6bc3-47ad-adfb-c68ecab28803', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x119126af0>]}
+[0m14:51:01.259599 [debug] [Thread-2 (]: Began running node model.data_ai_index.stg_llm__skill_extractions
+[0m14:51:01.260362 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging, now model.data_ai_index.stg_llm__skill_extractions)
+[0m14:51:01.260947 [debug] [Thread-2 (]: Began compiling node model.data_ai_index.stg_llm__skill_extractions
+[0m14:51:01.272900 [debug] [Thread-2 (]: Writing injected SQL for node "model.data_ai_index.stg_llm__skill_extractions"
+[0m14:51:01.273962 [debug] [Thread-2 (]: Began executing node model.data_ai_index.stg_llm__skill_extractions
+[0m14:51:01.275214 [debug] [Thread-2 (]: Finished running node model.data_ai_index.stg_llm__skill_extractions
+[0m14:51:01.276753 [debug] [Thread-5 (]: Began running node test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e
+[0m14:51:01.277353 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY, now test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e)
+[0m14:51:01.277853 [debug] [Thread-5 (]: Began compiling node test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e
+[0m14:51:01.283797 [debug] [Thread-3 (]: Began running node model.data_ai_index.fct_llm_technology_mentions
+[0m14:51:01.291224 [debug] [Thread-5 (]: Writing injected SQL for node "test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e"
+[0m14:51:01.292004 [debug] [Thread-4 (]: Began running node test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3
+[0m14:51:01.292617 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate, now model.data_ai_index.fct_llm_technology_mentions)
+[0m14:51:01.293413 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts, now test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3)
+[0m14:51:01.294033 [debug] [Thread-3 (]: Began compiling node model.data_ai_index.fct_llm_technology_mentions
+[0m14:51:01.294607 [debug] [Thread-4 (]: Began compiling node test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3
+[0m14:51:01.302541 [debug] [Thread-3 (]: Writing injected SQL for node "model.data_ai_index.fct_llm_technology_mentions"
+[0m14:51:01.308879 [debug] [Thread-5 (]: Began executing node test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e
+[0m14:51:01.307831 [debug] [Thread-4 (]: Writing injected SQL for node "test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3"
+[0m14:51:01.310461 [debug] [Thread-5 (]: Finished running node test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e
+[0m14:51:01.311587 [debug] [Thread-3 (]: Began executing node model.data_ai_index.fct_llm_technology_mentions
+[0m14:51:01.312347 [debug] [Thread-3 (]: Finished running node model.data_ai_index.fct_llm_technology_mentions
+[0m14:51:01.313423 [debug] [Thread-4 (]: Began executing node test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3
+[0m14:51:01.314124 [debug] [Thread-2 (]: Began running node model.data_ai_index.fct_llm_vs_regex_comparison
+[0m14:51:01.314747 [debug] [Thread-5 (]: Began running node test.data_ai_index.accepted_values_fct_llm_technology_mentions_extraction_method__llm.79e16bd16a
+[0m14:51:01.315527 [debug] [Thread-4 (]: Finished running node test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3
+[0m14:51:01.315977 [debug] [Thread-3 (]: Began running node test.data_ai_index.not_null_fct_llm_technology_mentions_mention_id.5c54e01721
+[0m14:51:01.316638 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.data_ai_index.stg_llm__skill_extractions, now model.data_ai_index.fct_llm_vs_regex_comparison)
+[0m14:51:01.317138 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e, now test.data_ai_index.accepted_values_fct_llm_technology_mentions_extraction_method__llm.79e16bd16a)
+[0m14:51:01.317599 [debug] [Thread-4 (]: Began running node test.data_ai_index.not_null_fct_llm_technology_mentions_posting_id.f0caf69d33
+[0m14:51:01.318083 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.data_ai_index.fct_llm_technology_mentions, now test.data_ai_index.not_null_fct_llm_technology_mentions_mention_id.5c54e01721)
+[0m14:51:01.318623 [debug] [Thread-2 (]: Began compiling node model.data_ai_index.fct_llm_vs_regex_comparison
+[0m14:51:01.319068 [debug] [Thread-5 (]: Began compiling node test.data_ai_index.accepted_values_fct_llm_technology_mentions_extraction_method__llm.79e16bd16a
+[0m14:51:01.319497 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3, now test.data_ai_index.not_null_fct_llm_technology_mentions_posting_id.f0caf69d33)
+[0m14:51:01.319952 [debug] [Thread-3 (]: Began compiling node test.data_ai_index.not_null_fct_llm_technology_mentions_mention_id.5c54e01721
+[0m14:51:01.325423 [debug] [Thread-2 (]: Writing injected SQL for node "model.data_ai_index.fct_llm_vs_regex_comparison"
+[0m14:51:01.330857 [debug] [Thread-5 (]: Writing injected SQL for node "test.data_ai_index.accepted_values_fct_llm_technology_mentions_extraction_method__llm.79e16bd16a"
+[0m14:51:01.331638 [debug] [Thread-4 (]: Began compiling node test.data_ai_index.not_null_fct_llm_technology_mentions_posting_id.f0caf69d33
+[0m14:51:01.342786 [debug] [Thread-3 (]: Writing injected SQL for node "test.data_ai_index.not_null_fct_llm_technology_mentions_mention_id.5c54e01721"
+[0m14:51:01.348406 [debug] [Thread-4 (]: Writing injected SQL for node "test.data_ai_index.not_null_fct_llm_technology_mentions_posting_id.f0caf69d33"
+[0m14:51:01.349161 [debug] [Thread-5 (]: Began executing node test.data_ai_index.accepted_values_fct_llm_technology_mentions_extraction_method__llm.79e16bd16a
+[0m14:51:01.350120 [debug] [Thread-2 (]: Began executing node model.data_ai_index.fct_llm_vs_regex_comparison
+[0m14:51:01.351442 [debug] [Thread-5 (]: Finished running node test.data_ai_index.accepted_values_fct_llm_technology_mentions_extraction_method__llm.79e16bd16a
+[0m14:51:01.352359 [debug] [Thread-2 (]: Finished running node model.data_ai_index.fct_llm_vs_regex_comparison
+[0m14:51:01.353068 [debug] [Thread-5 (]: Began running node test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf
+[0m14:51:01.353866 [debug] [Thread-3 (]: Began executing node test.data_ai_index.not_null_fct_llm_technology_mentions_mention_id.5c54e01721
+[0m14:51:01.354716 [debug] [Thread-2 (]: Began running node test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c
+[0m14:51:01.355304 [debug] [Thread-4 (]: Began executing node test.data_ai_index.not_null_fct_llm_technology_mentions_posting_id.f0caf69d33
+[0m14:51:01.356393 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly test.data_ai_index.accepted_values_fct_llm_technology_mentions_extraction_method__llm.79e16bd16a, now test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf)
+[0m14:51:01.357581 [debug] [Thread-3 (]: Finished running node test.data_ai_index.not_null_fct_llm_technology_mentions_mention_id.5c54e01721
+[0m14:51:01.358226 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.data_ai_index.fct_llm_vs_regex_comparison, now test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c)
+[0m14:51:01.359188 [debug] [Thread-4 (]: Finished running node test.data_ai_index.not_null_fct_llm_technology_mentions_posting_id.f0caf69d33
+[0m14:51:01.359850 [debug] [Thread-5 (]: Began compiling node test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf
+[0m14:51:01.360508 [debug] [Thread-3 (]: Began running node test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903
+[0m14:51:01.361158 [debug] [Thread-2 (]: Began compiling node test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c
+[0m14:51:01.361918 [debug] [Thread-4 (]: Began running node test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3
+[0m14:51:01.368893 [debug] [Thread-5 (]: Writing injected SQL for node "test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf"
+[0m14:51:01.369582 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.data_ai_index.not_null_fct_llm_technology_mentions_mention_id.5c54e01721, now test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903)
+[0m14:51:01.375431 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.data_ai_index.not_null_fct_llm_technology_mentions_posting_id.f0caf69d33, now test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3)
+[0m14:51:01.378738 [debug] [Thread-2 (]: Writing injected SQL for node "test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c"
+[0m14:51:01.379722 [debug] [Thread-3 (]: Began compiling node test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903
+[0m14:51:01.380397 [debug] [Thread-4 (]: Began compiling node test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3
+[0m14:51:01.381177 [debug] [Thread-5 (]: Began executing node test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf
+[0m14:51:01.386747 [debug] [Thread-3 (]: Writing injected SQL for node "test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903"
+[0m14:51:01.392831 [debug] [Thread-4 (]: Writing injected SQL for node "test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3"
+[0m14:51:01.393550 [debug] [Thread-2 (]: Began executing node test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c
+[0m14:51:01.394323 [debug] [Thread-5 (]: Finished running node test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf
+[0m14:51:01.395509 [debug] [Thread-2 (]: Finished running node test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c
+[0m14:51:01.396652 [debug] [Thread-3 (]: Began executing node test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903
+[0m14:51:01.397287 [debug] [Thread-4 (]: Began executing node test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3
+[0m14:51:01.398968 [debug] [Thread-3 (]: Finished running node test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903
+[0m14:51:01.400322 [debug] [Thread-4 (]: Finished running node test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3
+[0m14:51:01.402188 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m14:51:01.402577 [debug] [MainThread]: Connection 'test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c' was left open.
+[0m14:51:01.402929 [debug] [MainThread]: On test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c: Close
+[0m14:51:01.539165 [debug] [MainThread]: Connection 'test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903' was left open.
+[0m14:51:01.540039 [debug] [MainThread]: On test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903: Close
+[0m14:51:01.705563 [debug] [MainThread]: Connection 'test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3' was left open.
+[0m14:51:01.706701 [debug] [MainThread]: On test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3: Close
+[0m14:51:01.841351 [debug] [MainThread]: Connection 'test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf' was left open.
+[0m14:51:01.842478 [debug] [MainThread]: On test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf: Close
+[0m14:51:01.994662 [debug] [MainThread]: Command end result
+[0m14:51:02.054188 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/manifest.json
+[0m14:51:02.057327 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/semantic_manifest.json
+[0m14:51:02.069747 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/run_results.json
+[0m14:51:02.070544 [debug] [MainThread]: Excluded node 'not_null_stg_llm__skill_extractions_posting_id' from results
+[0m14:51:02.071156 [debug] [MainThread]: Excluded node 'fct_llm_technology_mentions' from results
+[0m14:51:02.071748 [debug] [MainThread]: Excluded node 'not_null_stg_llm__skill_extractions_is_successful' from results
+[0m14:51:02.072279 [debug] [MainThread]: Excluded node 'accepted_values_fct_llm_technology_mentions_extraction_method__llm' from results
+[0m14:51:02.072772 [debug] [MainThread]: Excluded node 'fct_llm_vs_regex_comparison' from results
+[0m14:51:02.073282 [debug] [MainThread]: Excluded node 'not_null_fct_llm_technology_mentions_mention_id' from results
+[0m14:51:02.073837 [debug] [MainThread]: Excluded node 'not_null_fct_llm_technology_mentions_posting_id' from results
+[0m14:51:02.074455 [debug] [MainThread]: Excluded node 'not_null_fct_llm_technology_mentions_technology_name' from results
+[0m14:51:02.075053 [debug] [MainThread]: Excluded node 'unique_fct_llm_technology_mentions_mention_id' from results
+[0m14:51:02.075578 [debug] [MainThread]: Excluded node 'not_null_fct_llm_vs_regex_comparison_technology_name' from results
+[0m14:51:02.076066 [debug] [MainThread]: Excluded node 'unique_fct_llm_vs_regex_comparison_technology_name' from results
+[0m14:51:02.076702 [info ] [MainThread]: Compiled node 'stg_llm__skill_extractions' is:
+with source as (
+    select * from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY.raw_llm_skill_extractions
+),
+
+cleaned as (
+    select
+        posting_id,
+        technologies,
+        roles,
+        extraction_method,
+        model as llm_model,
+        extracted_at,
+        error,
+
+        -- Derived fields
+        array_size(technologies) as technology_count,
+        array_size(roles) as role_count,
+        error is null as is_successful
+
+    from source
+)
+
+select * from cleaned
+[0m14:51:02.078328 [warn ] [MainThread]: [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- MissingArgumentsPropertyInGenericTestDeprecation: 2 occurrences
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
+[0m14:51:02.084395 [debug] [MainThread]: Resource report: {"command_name": "compile", "command_success": true, "command_wall_clock_time": 7.9648633, "process_in_blocks": "0", "process_kernel_time": 0.837027, "process_mem_max_rss": "216899584", "process_out_blocks": "0", "process_user_time": 6.922594}
+[0m14:51:02.085050 [debug] [MainThread]: Command `dbt compile` succeeded at 14:51:02.084917 after 7.97 seconds
+[0m14:51:02.085693 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11905ec10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11c8e0050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1192b2d50>]}
+[0m14:51:02.086583 [debug] [MainThread]: Flushing usage events
+[0m14:51:02.439756 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:51:13.208415 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104e1c830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105cc7890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105cc79d0>]}
+
+
+============================== 14:51:13.213852 | 236210cb-9591-4a02-a994-ef698e6eb70d ==============================
+[0m14:51:13.213852 [info ] [MainThread]: Running with dbt=1.11.2
+[0m14:51:13.215019 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'log_cache_events': 'False', 'target_path': 'None', 'log_format': 'default', 'indirect_selection': 'eager', 'no_print': 'None', 'invocation_command': 'dbt run --select stg_llm__skill_extractions fct_llm_technology_mentions fct_llm_vs_regex_comparison', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'fail_fast': 'False', 'warn_error': 'None', 'send_anonymous_usage_stats': 'True', 'cache_selected_only': 'False', 'partial_parse': 'True', 'debug': 'False', 'profiles_dir': '/Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt', 'use_experimental_parser': 'False', 'printer_width': '80', 'use_colors': 'True', 'version_check': 'True', 'write_json': 'True', 'empty': 'False', 'log_path': '/Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/logs', 'quiet': 'False'}
+[0m14:51:14.535210 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m14:51:14.535809 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m14:51:14.536218 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m14:51:14.804761 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '236210cb-9591-4a02-a994-ef698e6eb70d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104fe8e90>]}
+[0m14:51:14.895763 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '236210cb-9591-4a02-a994-ef698e6eb70d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1111ed7b0>]}
+[0m14:51:14.896926 [info ] [MainThread]: Registered adapter: snowflake=1.11.1
+[0m14:51:15.076161 [debug] [MainThread]: checksum: 3d40d8bbe1bef07db1c24822f2dbfff8bc07f2a48ed4fe2658a40653aec0b54b, vars: {}, profile: , target: , version: 1.11.2
+[0m14:51:15.279518 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m14:51:15.280124 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m14:51:15.280473 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m14:51:15.360753 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '236210cb-9591-4a02-a994-ef698e6eb70d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1116bc550>]}
+[0m14:51:15.503939 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/manifest.json
+[0m14:51:15.507292 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/semantic_manifest.json
+[0m14:51:15.533128 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '236210cb-9591-4a02-a994-ef698e6eb70d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1114a1f40>]}
+[0m14:51:15.533777 [info ] [MainThread]: Found 21 models, 3 seeds, 57 data tests, 6 sources, 638 macros
+[0m14:51:15.534279 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '236210cb-9591-4a02-a994-ef698e6eb70d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11195b4d0>]}
+[0m14:51:15.538063 [info ] [MainThread]: 
+[0m14:51:15.538715 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m14:51:15.539178 [info ] [MainThread]: 
+[0m14:51:15.540077 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m14:51:15.545826 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DATAEXPERT_STUDENT'
+[0m14:51:15.546667 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DATAEXPERT_STUDENT'
+[0m14:51:15.609336 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT"
+[0m14:51:15.609960 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT"
+[0m14:51:15.610429 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT: show terse schemas in database DATAEXPERT_STUDENT
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT"} */
+[0m14:51:15.611105 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT: show terse schemas in database DATAEXPERT_STUDENT
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT"} */
+[0m14:51:15.611558 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:51:15.611910 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:51:16.539342 [debug] [ThreadPool]: SQL status: SUCCESS 503 in 0.928 seconds
+[0m14:51:17.290348 [debug] [ThreadPool]: SQL status: SUCCESS 503 in 1.678 seconds
+[0m14:51:17.312704 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT, now list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY)
+[0m14:51:17.313523 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT, now list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging)
+[0m14:51:17.319875 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate'
+[0m14:51:17.331213 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY"
+[0m14:51:17.332130 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts'
+[0m14:51:17.334493 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging"
+[0m14:51:17.336911 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate"
+[0m14:51:17.337308 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY: show objects in DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY"} */;
+[0m14:51:17.339765 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts"
+[0m14:51:17.340457 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging: show objects in DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_staging
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging"} */;
+[0m14:51:17.341199 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate: show objects in DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_intermediate
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate"} */;
+[0m14:51:17.342156 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts: show objects in DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts"} */;
+[0m14:51:17.344363 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:51:17.344915 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:51:17.490064 [debug] [ThreadPool]: SQL status: SUCCESS 10 in 0.148 seconds
+[0m14:51:17.517407 [debug] [ThreadPool]: SQL status: SUCCESS 5 in 0.174 seconds
+[0m14:51:17.868114 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 0.524 seconds
+[0m14:51:17.895875 [debug] [ThreadPool]: SQL status: SUCCESS 9 in 0.551 seconds
+[0m14:51:17.908635 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '236210cb-9591-4a02-a994-ef698e6eb70d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111e9cbb0>]}
+[0m14:51:17.915667 [debug] [Thread-2 (]: Began running node model.data_ai_index.stg_llm__skill_extractions
+[0m14:51:17.916944 [info ] [Thread-2 (]: 1 of 3 START sql view model KOUVERK_DATA_INDUSTRY_staging.stg_llm__skill_extractions  [RUN]
+[0m14:51:17.917970 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY, now model.data_ai_index.stg_llm__skill_extractions)
+[0m14:51:17.918806 [debug] [Thread-2 (]: Began compiling node model.data_ai_index.stg_llm__skill_extractions
+[0m14:51:17.931077 [debug] [Thread-2 (]: Writing injected SQL for node "model.data_ai_index.stg_llm__skill_extractions"
+[0m14:51:17.932123 [debug] [Thread-2 (]: Began executing node model.data_ai_index.stg_llm__skill_extractions
+[0m14:51:17.972092 [debug] [Thread-2 (]: Writing runtime sql for node "model.data_ai_index.stg_llm__skill_extractions"
+[0m14:51:17.974814 [debug] [Thread-2 (]: Using snowflake connection "model.data_ai_index.stg_llm__skill_extractions"
+[0m14:51:17.975391 [debug] [Thread-2 (]: On model.data_ai_index.stg_llm__skill_extractions: create or replace   view DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_staging.stg_llm__skill_extractions
+  
+  
+  
+  
+  as (
+    with source as (
+    select * from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY.raw_llm_skill_extractions
+),
+
+cleaned as (
+    select
+        posting_id,
+        technologies,
+        roles,
+        extraction_method,
+        model as llm_model,
+        extracted_at,
+        error,
+
+        -- Derived fields
+        array_size(technologies) as technology_count,
+        array_size(roles) as role_count,
+        error is null as is_successful
+
+    from source
+)
+
+select * from cleaned
+  )
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "model.data_ai_index.stg_llm__skill_extractions"} */;
+[0m14:51:18.305372 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.329 seconds
+[0m14:51:18.349524 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '236210cb-9591-4a02-a994-ef698e6eb70d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x114f8cdd0>]}
+[0m14:51:18.350576 [info ] [Thread-2 (]: 1 of 3 OK created sql view model KOUVERK_DATA_INDUSTRY_staging.stg_llm__skill_extractions  [[32mSUCCESS 1[0m in 0.43s]
+[0m14:51:18.351418 [debug] [Thread-2 (]: Finished running node model.data_ai_index.stg_llm__skill_extractions
+[0m14:51:18.352470 [debug] [Thread-3 (]: Began running node model.data_ai_index.fct_llm_technology_mentions
+[0m14:51:18.353013 [info ] [Thread-3 (]: 2 of 3 START sql table model KOUVERK_DATA_INDUSTRY_marts.fct_llm_technology_mentions  [RUN]
+[0m14:51:18.353625 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging, now model.data_ai_index.fct_llm_technology_mentions)
+[0m14:51:18.354088 [debug] [Thread-3 (]: Began compiling node model.data_ai_index.fct_llm_technology_mentions
+[0m14:51:18.373332 [debug] [Thread-3 (]: Writing injected SQL for node "model.data_ai_index.fct_llm_technology_mentions"
+[0m14:51:18.374787 [debug] [Thread-3 (]: Began executing node model.data_ai_index.fct_llm_technology_mentions
+[0m14:51:18.410778 [debug] [Thread-3 (]: Writing runtime sql for node "model.data_ai_index.fct_llm_technology_mentions"
+[0m14:51:18.412985 [debug] [Thread-3 (]: Using snowflake connection "model.data_ai_index.fct_llm_technology_mentions"
+[0m14:51:18.413480 [debug] [Thread-3 (]: On model.data_ai_index.fct_llm_technology_mentions: create or replace transient table DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.fct_llm_technology_mentions
+    
+    
+    
+    as (with extractions as (
+    select * from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_staging.stg_llm__skill_extractions
+    where is_successful
+),
+
+postings as (
+    select
+        posting_id,
+        posting_month,
+        posting_year
+    from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_staging.stg_hn__job_postings
+),
+
+-- Flatten the technologies VARIANT array into rows
+flattened_tech as (
+    select
+        e.posting_id,
+        f.value:name::varchar as technology_name,
+        f.value:category::varchar as category,
+        f.value:confidence::float as confidence
+    from extractions e,
+    lateral flatten(input => e.technologies) f
+),
+
+dim_tech as (
+    select * from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.dim_technologies
+)
+
+select
+    md5(cast(coalesce(cast(ft.posting_id as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(ft.technology_name as TEXT), '_dbt_utils_surrogate_key_null_') as TEXT)) as mention_id,
+    ft.posting_id,
+    dt.technology_id,
+    ft.technology_name,
+    ft.category as llm_category,
+    dt.category as taxonomy_category,
+    ft.confidence,
+    p.posting_month,
+    p.posting_year,
+    'llm' as extraction_method
+from flattened_tech ft
+inner join postings p on ft.posting_id::varchar = p.posting_id::varchar
+left join dim_tech dt on lower(ft.technology_name) = lower(dt.technology_name)
+where ft.technology_name is not null
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "model.data_ai_index.fct_llm_technology_mentions"} */;
+[0m14:51:21.683540 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 3.269 seconds
+[0m14:51:21.689827 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '236210cb-9591-4a02-a994-ef698e6eb70d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111ef3ac0>]}
+[0m14:51:21.692141 [info ] [Thread-3 (]: 2 of 3 OK created sql table model KOUVERK_DATA_INDUSTRY_marts.fct_llm_technology_mentions  [[32mSUCCESS 1[0m in 3.34s]
+[0m14:51:21.694082 [debug] [Thread-3 (]: Finished running node model.data_ai_index.fct_llm_technology_mentions
+[0m14:51:21.695882 [debug] [Thread-4 (]: Began running node model.data_ai_index.fct_llm_vs_regex_comparison
+[0m14:51:21.697338 [info ] [Thread-4 (]: 3 of 3 START sql table model KOUVERK_DATA_INDUSTRY_marts.fct_llm_vs_regex_comparison  [RUN]
+[0m14:51:21.698576 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate, now model.data_ai_index.fct_llm_vs_regex_comparison)
+[0m14:51:21.699419 [debug] [Thread-4 (]: Began compiling node model.data_ai_index.fct_llm_vs_regex_comparison
+[0m14:51:21.705294 [debug] [Thread-4 (]: Writing injected SQL for node "model.data_ai_index.fct_llm_vs_regex_comparison"
+[0m14:51:21.706633 [debug] [Thread-4 (]: Began executing node model.data_ai_index.fct_llm_vs_regex_comparison
+[0m14:51:21.712060 [debug] [Thread-4 (]: Writing runtime sql for node "model.data_ai_index.fct_llm_vs_regex_comparison"
+[0m14:51:21.716052 [debug] [Thread-4 (]: Using snowflake connection "model.data_ai_index.fct_llm_vs_regex_comparison"
+[0m14:51:21.716708 [debug] [Thread-4 (]: On model.data_ai_index.fct_llm_vs_regex_comparison: create or replace transient table DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.fct_llm_vs_regex_comparison
+    
+    
+    
+    as (
+
+with llm_mentions as (
+    select
+        posting_id,
+        technology_name,
+        llm_category as category,
+        confidence
+    from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.fct_llm_technology_mentions
+),
+
+regex_mentions as (
+    select
+        posting_id,
+        technology_name,
+        category
+    from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.fct_hn_technology_mentions
+),
+
+-- Get the set of postings that both methods processed
+llm_postings as (
+    select distinct posting_id
+    from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_staging.stg_llm__skill_extractions
+    where is_successful
+),
+
+-- Only compare on overlapping postings
+regex_on_llm_posts as (
+    select r.*
+    from regex_mentions r
+    inner join llm_postings lp on r.posting_id::varchar = lp.posting_id::varchar
+),
+
+-- Full outer join to see what each method found
+comparison as (
+    select
+        coalesce(l.posting_id, r.posting_id) as posting_id,
+        coalesce(l.technology_name, r.technology_name) as technology_name,
+        l.technology_name is not null as found_by_llm,
+        r.technology_name is not null as found_by_regex,
+        l.confidence as llm_confidence,
+        coalesce(l.category, r.category) as category,
+        case
+            when l.technology_name is not null and r.technology_name is not null then 'both'
+            when l.technology_name is not null then 'llm_only'
+            else 'regex_only'
+        end as detection_method
+    from llm_mentions l
+    full outer join regex_on_llm_posts r
+        on l.posting_id::varchar = r.posting_id::varchar
+        and lower(l.technology_name) = lower(r.technology_name)
+),
+
+-- Aggregate by technology
+tech_summary as (
+    select
+        technology_name,
+        category,
+        count(distinct posting_id) as total_postings,
+        count(distinct case when found_by_llm then posting_id end) as llm_count,
+        count(distinct case when found_by_regex then posting_id end) as regex_count,
+        count(distinct case when detection_method = 'both' then posting_id end) as both_count,
+        count(distinct case when detection_method = 'llm_only' then posting_id end) as llm_only_count,
+        count(distinct case when detection_method = 'regex_only' then posting_id end) as regex_only_count,
+        avg(case when found_by_llm then llm_confidence end) as avg_llm_confidence
+    from comparison
+    group by 1, 2
+)
+
+select
+    technology_name,
+    category,
+    total_postings,
+    llm_count,
+    regex_count,
+    both_count,
+    llm_only_count,
+    regex_only_count,
+    round(avg_llm_confidence, 3) as avg_llm_confidence,
+    round(both_count * 100.0 / nullif(greatest(llm_count, regex_count), 0), 1) as agreement_pct,
+    round(llm_only_count * 100.0 / nullif(llm_count, 0), 1) as llm_unique_pct,
+    round(regex_only_count * 100.0 / nullif(regex_count, 0), 1) as regex_unique_pct
+from tech_summary
+where total_postings >= 5
+order by total_postings desc
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "model.data_ai_index.fct_llm_vs_regex_comparison"} */;
+[0m14:51:23.730922 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 2.013 seconds
+[0m14:51:23.736463 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '236210cb-9591-4a02-a994-ef698e6eb70d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111fd3750>]}
+[0m14:51:23.737888 [info ] [Thread-4 (]: 3 of 3 OK created sql table model KOUVERK_DATA_INDUSTRY_marts.fct_llm_vs_regex_comparison  [[32mSUCCESS 1[0m in 2.04s]
+[0m14:51:23.740243 [debug] [Thread-4 (]: Finished running node model.data_ai_index.fct_llm_vs_regex_comparison
+[0m14:51:23.743507 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m14:51:23.744216 [debug] [MainThread]: Connection 'model.data_ai_index.stg_llm__skill_extractions' was left open.
+[0m14:51:23.744850 [debug] [MainThread]: On model.data_ai_index.stg_llm__skill_extractions: Close
+[0m14:51:23.863688 [debug] [MainThread]: Connection 'model.data_ai_index.fct_llm_technology_mentions' was left open.
+[0m14:51:23.864690 [debug] [MainThread]: On model.data_ai_index.fct_llm_technology_mentions: Close
+[0m14:51:23.993100 [debug] [MainThread]: Connection 'model.data_ai_index.fct_llm_vs_regex_comparison' was left open.
+[0m14:51:23.994061 [debug] [MainThread]: On model.data_ai_index.fct_llm_vs_regex_comparison: Close
+[0m14:51:24.132530 [debug] [MainThread]: Connection 'list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts' was left open.
+[0m14:51:24.133534 [debug] [MainThread]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts: Close
+[0m14:51:24.291607 [info ] [MainThread]: 
+[0m14:51:24.292982 [info ] [MainThread]: Finished running 2 table models, 1 view model in 0 hours 0 minutes and 8.75 seconds (8.75s).
+[0m14:51:24.295575 [debug] [MainThread]: Command end result
+[0m14:51:24.351225 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/manifest.json
+[0m14:51:24.354201 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/semantic_manifest.json
+[0m14:51:24.362730 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/run_results.json
+[0m14:51:24.363280 [info ] [MainThread]: 
+[0m14:51:24.363789 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m14:51:24.364146 [info ] [MainThread]: 
+[0m14:51:24.364543 [info ] [MainThread]: Done. PASS=3 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=3
+[0m14:51:24.369028 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 11.261981, "process_in_blocks": "0", "process_kernel_time": 0.648521, "process_mem_max_rss": "212643840", "process_out_blocks": "0", "process_user_time": 4.524535}
+[0m14:51:24.369819 [debug] [MainThread]: Command `dbt run` succeeded at 14:51:24.369673 after 11.26 seconds
+[0m14:51:24.370396 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1116c21d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1117f6550>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105cfe430>]}
+[0m14:51:24.370833 [debug] [MainThread]: Flushing usage events
+[0m14:51:24.614581 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:51:33.376838 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108e08830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109cef890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109cef9d0>]}
+
+
+============================== 14:51:33.382657 | 6d9caef3-1ef9-43ce-b08d-136ca8785350 ==============================
+[0m14:51:33.382657 [info ] [MainThread]: Running with dbt=1.11.2
+[0m14:51:33.383829 [debug] [MainThread]: running dbt with arguments {'invocation_command': 'dbt test --select stg_llm__skill_extractions fct_llm_technology_mentions fct_llm_vs_regex_comparison', 'warn_error': 'None', 'empty': 'None', 'introspect': 'True', 'profiles_dir': '/Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt', 'fail_fast': 'False', 'log_cache_events': 'False', 'send_anonymous_usage_stats': 'True', 'target_path': 'None', 'write_json': 'True', 'use_colors': 'True', 'log_path': '/Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/logs', 'static_parser': 'True', 'version_check': 'True', 'partial_parse': 'True', 'use_experimental_parser': 'False', 'debug': 'False', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'no_print': 'None', 'log_format': 'default', 'printer_width': '80', 'cache_selected_only': 'False', 'indirect_selection': 'eager'}
+[0m14:51:34.373294 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m14:51:34.373840 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m14:51:34.374227 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m14:51:34.634251 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '6d9caef3-1ef9-43ce-b08d-136ca8785350', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108fdce90>]}
+[0m14:51:34.729049 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '6d9caef3-1ef9-43ce-b08d-136ca8785350', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1152717b0>]}
+[0m14:51:34.730095 [info ] [MainThread]: Registered adapter: snowflake=1.11.1
+[0m14:51:34.908737 [debug] [MainThread]: checksum: 3d40d8bbe1bef07db1c24822f2dbfff8bc07f2a48ed4fe2658a40653aec0b54b, vars: {}, profile: , target: , version: 1.11.2
+[0m14:51:35.115388 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m14:51:35.115923 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m14:51:35.116611 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m14:51:35.192902 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '6d9caef3-1ef9-43ce-b08d-136ca8785350', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x115648750>]}
+[0m14:51:35.333774 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/manifest.json
+[0m14:51:35.336333 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/semantic_manifest.json
+[0m14:51:35.375706 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '6d9caef3-1ef9-43ce-b08d-136ca8785350', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x115acac60>]}
+[0m14:51:35.376309 [info ] [MainThread]: Found 21 models, 3 seeds, 57 data tests, 6 sources, 638 macros
+[0m14:51:35.377026 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '6d9caef3-1ef9-43ce-b08d-136ca8785350', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x115ac3d90>]}
+[0m14:51:35.382317 [info ] [MainThread]: 
+[0m14:51:35.382873 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m14:51:35.383317 [info ] [MainThread]: 
+[0m14:51:35.383968 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m14:51:35.390445 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging'
+[0m14:51:35.410847 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate'
+[0m14:51:35.412312 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY'
+[0m14:51:35.433085 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts'
+[0m14:51:35.472025 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging"
+[0m14:51:35.472801 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY"
+[0m14:51:35.473313 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging: show objects in DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_staging
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging"} */;
+[0m14:51:35.473823 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate"
+[0m14:51:35.474378 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts"
+[0m14:51:35.474756 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY: show objects in DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY"} */;
+[0m14:51:35.475135 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:51:35.475496 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate: show objects in DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_intermediate
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate"} */;
+[0m14:51:35.475872 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts: show objects in DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts"} */;
+[0m14:51:35.476231 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:51:35.477067 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:51:35.477717 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:51:37.077826 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 1.601 seconds
+[0m14:51:37.131485 [debug] [ThreadPool]: SQL status: SUCCESS 6 in 1.656 seconds
+[0m14:51:37.133606 [debug] [ThreadPool]: SQL status: SUCCESS 11 in 1.656 seconds
+[0m14:51:37.147378 [debug] [ThreadPool]: SQL status: SUCCESS 10 in 1.671 seconds
+[0m14:51:37.153126 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '6d9caef3-1ef9-43ce-b08d-136ca8785350', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x115a7fad0>]}
+[0m14:51:37.156261 [debug] [Thread-2 (]: Began running node test.data_ai_index.accepted_values_fct_llm_technology_mentions_extraction_method__llm.79e16bd16a
+[0m14:51:37.156846 [debug] [Thread-3 (]: Began running node test.data_ai_index.not_null_fct_llm_technology_mentions_mention_id.5c54e01721
+[0m14:51:37.157315 [debug] [Thread-5 (]: Began running node test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf
+[0m14:51:37.157787 [info ] [Thread-2 (]: 1 of 9 START test accepted_values_fct_llm_technology_mentions_extraction_method__llm  [RUN]
+[0m14:51:37.158351 [debug] [Thread-4 (]: Began running node test.data_ai_index.not_null_fct_llm_technology_mentions_posting_id.f0caf69d33
+[0m14:51:37.158837 [info ] [Thread-3 (]: 2 of 9 START test not_null_fct_llm_technology_mentions_mention_id .............. [RUN]
+[0m14:51:37.159380 [info ] [Thread-5 (]: 4 of 9 START test not_null_fct_llm_technology_mentions_technology_name ......... [RUN]
+[0m14:51:37.160349 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging, now test.data_ai_index.accepted_values_fct_llm_technology_mentions_extraction_method__llm.79e16bd16a)
+[0m14:51:37.161127 [info ] [Thread-4 (]: 3 of 9 START test not_null_fct_llm_technology_mentions_posting_id .............. [RUN]
+[0m14:51:37.162221 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate, now test.data_ai_index.not_null_fct_llm_technology_mentions_mention_id.5c54e01721)
+[0m14:51:37.162809 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts, now test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf)
+[0m14:51:37.163614 [debug] [Thread-2 (]: Began compiling node test.data_ai_index.accepted_values_fct_llm_technology_mentions_extraction_method__llm.79e16bd16a
+[0m14:51:37.164289 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY, now test.data_ai_index.not_null_fct_llm_technology_mentions_posting_id.f0caf69d33)
+[0m14:51:37.164864 [debug] [Thread-3 (]: Began compiling node test.data_ai_index.not_null_fct_llm_technology_mentions_mention_id.5c54e01721
+[0m14:51:37.165483 [debug] [Thread-5 (]: Began compiling node test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf
+[0m14:51:37.171519 [debug] [Thread-4 (]: Began compiling node test.data_ai_index.not_null_fct_llm_technology_mentions_posting_id.f0caf69d33
+[0m14:51:37.194796 [debug] [Thread-2 (]: Writing injected SQL for node "test.data_ai_index.accepted_values_fct_llm_technology_mentions_extraction_method__llm.79e16bd16a"
+[0m14:51:37.201114 [debug] [Thread-3 (]: Writing injected SQL for node "test.data_ai_index.not_null_fct_llm_technology_mentions_mention_id.5c54e01721"
+[0m14:51:37.206528 [debug] [Thread-5 (]: Writing injected SQL for node "test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf"
+[0m14:51:37.211399 [debug] [Thread-4 (]: Writing injected SQL for node "test.data_ai_index.not_null_fct_llm_technology_mentions_posting_id.f0caf69d33"
+[0m14:51:37.213420 [debug] [Thread-5 (]: Began executing node test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf
+[0m14:51:37.214085 [debug] [Thread-3 (]: Began executing node test.data_ai_index.not_null_fct_llm_technology_mentions_mention_id.5c54e01721
+[0m14:51:37.214628 [debug] [Thread-2 (]: Began executing node test.data_ai_index.accepted_values_fct_llm_technology_mentions_extraction_method__llm.79e16bd16a
+[0m14:51:37.244744 [debug] [Thread-5 (]: Writing runtime sql for node "test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf"
+[0m14:51:37.252280 [debug] [Thread-3 (]: Writing runtime sql for node "test.data_ai_index.not_null_fct_llm_technology_mentions_mention_id.5c54e01721"
+[0m14:51:37.252814 [debug] [Thread-4 (]: Began executing node test.data_ai_index.not_null_fct_llm_technology_mentions_posting_id.f0caf69d33
+[0m14:51:37.255377 [debug] [Thread-2 (]: Writing runtime sql for node "test.data_ai_index.accepted_values_fct_llm_technology_mentions_extraction_method__llm.79e16bd16a"
+[0m14:51:37.258521 [debug] [Thread-4 (]: Writing runtime sql for node "test.data_ai_index.not_null_fct_llm_technology_mentions_posting_id.f0caf69d33"
+[0m14:51:37.260015 [debug] [Thread-5 (]: Using snowflake connection "test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf"
+[0m14:51:37.261122 [debug] [Thread-3 (]: Using snowflake connection "test.data_ai_index.not_null_fct_llm_technology_mentions_mention_id.5c54e01721"
+[0m14:51:37.263032 [debug] [Thread-2 (]: Using snowflake connection "test.data_ai_index.accepted_values_fct_llm_technology_mentions_extraction_method__llm.79e16bd16a"
+[0m14:51:37.263609 [debug] [Thread-5 (]: On test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select technology_name
+from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.fct_llm_technology_mentions
+where technology_name is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf"} */
+[0m14:51:37.264353 [debug] [Thread-3 (]: On test.data_ai_index.not_null_fct_llm_technology_mentions_mention_id.5c54e01721: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select mention_id
+from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.fct_llm_technology_mentions
+where mention_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "test.data_ai_index.not_null_fct_llm_technology_mentions_mention_id.5c54e01721"} */
+[0m14:51:37.265252 [debug] [Thread-4 (]: Using snowflake connection "test.data_ai_index.not_null_fct_llm_technology_mentions_posting_id.f0caf69d33"
+[0m14:51:37.265705 [debug] [Thread-2 (]: On test.data_ai_index.accepted_values_fct_llm_technology_mentions_extraction_method__llm.79e16bd16a: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        extraction_method as value_field,
+        count(*) as n_records
+
+    from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.fct_llm_technology_mentions
+    group by extraction_method
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'llm'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "test.data_ai_index.accepted_values_fct_llm_technology_mentions_extraction_method__llm.79e16bd16a"} */
+[0m14:51:37.266861 [debug] [Thread-4 (]: On test.data_ai_index.not_null_fct_llm_technology_mentions_posting_id.f0caf69d33: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select posting_id
+from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.fct_llm_technology_mentions
+where posting_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "test.data_ai_index.not_null_fct_llm_technology_mentions_posting_id.f0caf69d33"} */
+[0m14:51:37.398103 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.131 seconds
+[0m14:51:37.423405 [info ] [Thread-3 (]: 2 of 9 PASS not_null_fct_llm_technology_mentions_mention_id .................... [[32mPASS[0m in 0.26s]
+[0m14:51:37.424629 [debug] [Thread-3 (]: Finished running node test.data_ai_index.not_null_fct_llm_technology_mentions_mention_id.5c54e01721
+[0m14:51:37.425350 [debug] [Thread-3 (]: Began running node test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903
+[0m14:51:37.425989 [info ] [Thread-3 (]: 5 of 9 START test not_null_fct_llm_vs_regex_comparison_technology_name ......... [RUN]
+[0m14:51:37.427220 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.data_ai_index.not_null_fct_llm_technology_mentions_mention_id.5c54e01721, now test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903)
+[0m14:51:37.428017 [debug] [Thread-3 (]: Began compiling node test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903
+[0m14:51:37.434253 [debug] [Thread-3 (]: Writing injected SQL for node "test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903"
+[0m14:51:37.435225 [debug] [Thread-3 (]: Began executing node test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903
+[0m14:51:37.438801 [debug] [Thread-3 (]: Writing runtime sql for node "test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903"
+[0m14:51:37.440019 [debug] [Thread-3 (]: Using snowflake connection "test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903"
+[0m14:51:37.440500 [debug] [Thread-3 (]: On test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select technology_name
+from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.fct_llm_vs_regex_comparison
+where technology_name is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903"} */
+[0m14:51:37.472391 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.204 seconds
+[0m14:51:37.478219 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.210 seconds
+[0m14:51:37.476453 [info ] [Thread-4 (]: 3 of 9 PASS not_null_fct_llm_technology_mentions_posting_id .................... [[32mPASS[0m in 0.31s]
+[0m14:51:37.482095 [info ] [Thread-2 (]: 1 of 9 PASS accepted_values_fct_llm_technology_mentions_extraction_method__llm . [[32mPASS[0m in 0.32s]
+[0m14:51:37.483148 [debug] [Thread-4 (]: Finished running node test.data_ai_index.not_null_fct_llm_technology_mentions_posting_id.f0caf69d33
+[0m14:51:37.483954 [debug] [Thread-2 (]: Finished running node test.data_ai_index.accepted_values_fct_llm_technology_mentions_extraction_method__llm.79e16bd16a
+[0m14:51:37.484559 [debug] [Thread-4 (]: Began running node test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3
+[0m14:51:37.485124 [debug] [Thread-2 (]: Began running node test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e
+[0m14:51:37.485755 [info ] [Thread-4 (]: 6 of 9 START test not_null_stg_llm__skill_extractions_is_successful ............ [RUN]
+[0m14:51:37.486314 [info ] [Thread-2 (]: 7 of 9 START test not_null_stg_llm__skill_extractions_posting_id ............... [RUN]
+[0m14:51:37.486900 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.data_ai_index.not_null_fct_llm_technology_mentions_posting_id.f0caf69d33, now test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3)
+[0m14:51:37.487407 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.data_ai_index.accepted_values_fct_llm_technology_mentions_extraction_method__llm.79e16bd16a, now test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e)
+[0m14:51:37.487886 [debug] [Thread-4 (]: Began compiling node test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3
+[0m14:51:37.488348 [debug] [Thread-2 (]: Began compiling node test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e
+[0m14:51:37.493200 [debug] [Thread-4 (]: Writing injected SQL for node "test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3"
+[0m14:51:37.500029 [debug] [Thread-2 (]: Writing injected SQL for node "test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e"
+[0m14:51:37.501005 [debug] [Thread-2 (]: Began executing node test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e
+[0m14:51:37.503781 [debug] [Thread-2 (]: Writing runtime sql for node "test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e"
+[0m14:51:37.504344 [debug] [Thread-4 (]: Began executing node test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3
+[0m14:51:37.507253 [debug] [Thread-4 (]: Writing runtime sql for node "test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3"
+[0m14:51:37.509018 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 0.243 seconds
+[0m14:51:37.512554 [info ] [Thread-5 (]: 4 of 9 PASS not_null_fct_llm_technology_mentions_technology_name ............... [[32mPASS[0m in 0.35s]
+[0m14:51:37.513632 [debug] [Thread-2 (]: Using snowflake connection "test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e"
+[0m14:51:37.514502 [debug] [Thread-5 (]: Finished running node test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf
+[0m14:51:37.515183 [debug] [Thread-2 (]: On test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select posting_id
+from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_staging.stg_llm__skill_extractions
+where posting_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e"} */
+[0m14:51:37.515855 [debug] [Thread-5 (]: Began running node test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c
+[0m14:51:37.516747 [debug] [Thread-4 (]: Using snowflake connection "test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3"
+[0m14:51:37.517786 [info ] [Thread-5 (]: 8 of 9 START test unique_fct_llm_technology_mentions_mention_id ................ [RUN]
+[0m14:51:37.518388 [debug] [Thread-4 (]: On test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select is_successful
+from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_staging.stg_llm__skill_extractions
+where is_successful is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3"} */
+[0m14:51:37.519804 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf, now test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c)
+[0m14:51:37.521363 [debug] [Thread-5 (]: Began compiling node test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c
+[0m14:51:37.529758 [debug] [Thread-5 (]: Writing injected SQL for node "test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c"
+[0m14:51:37.532063 [debug] [Thread-5 (]: Began executing node test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c
+[0m14:51:37.536564 [debug] [Thread-5 (]: Writing runtime sql for node "test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c"
+[0m14:51:37.538348 [debug] [Thread-5 (]: Using snowflake connection "test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c"
+[0m14:51:37.538843 [debug] [Thread-5 (]: On test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    mention_id as unique_field,
+    count(*) as n_records
+
+from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.fct_llm_technology_mentions
+where mention_id is not null
+group by mention_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c"} */
+[0m14:51:37.606947 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.166 seconds
+[0m14:51:37.613409 [info ] [Thread-3 (]: 5 of 9 PASS not_null_fct_llm_vs_regex_comparison_technology_name ............... [[32mPASS[0m in 0.19s]
+[0m14:51:37.614997 [debug] [Thread-3 (]: Finished running node test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903
+[0m14:51:37.615992 [debug] [Thread-3 (]: Began running node test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3
+[0m14:51:37.616888 [info ] [Thread-3 (]: 9 of 9 START test unique_fct_llm_vs_regex_comparison_technology_name ........... [RUN]
+[0m14:51:37.617749 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903, now test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3)
+[0m14:51:37.618517 [debug] [Thread-3 (]: Began compiling node test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3
+[0m14:51:37.625607 [debug] [Thread-3 (]: Writing injected SQL for node "test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3"
+[0m14:51:37.626912 [debug] [Thread-3 (]: Began executing node test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3
+[0m14:51:37.632038 [debug] [Thread-3 (]: Writing runtime sql for node "test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3"
+[0m14:51:37.634227 [debug] [Thread-3 (]: Using snowflake connection "test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3"
+[0m14:51:37.634920 [debug] [Thread-3 (]: On test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    technology_name as unique_field,
+    count(*) as n_records
+
+from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.fct_llm_vs_regex_comparison
+where technology_name is not null
+group by technology_name
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3"} */
+[0m14:51:37.698037 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 0.159 seconds
+[0m14:51:37.701920 [error] [Thread-5 (]: 8 of 9 FAIL 40 unique_fct_llm_technology_mentions_mention_id ................... [[31mFAIL 40[0m in 0.18s]
+[0m14:51:37.704023 [debug] [Thread-5 (]: Finished running node test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c
+[0m14:51:37.706244 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.189 seconds
+[0m14:51:37.707572 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.187 seconds
+[0m14:51:37.710784 [info ] [Thread-2 (]: 7 of 9 PASS not_null_stg_llm__skill_extractions_posting_id ..................... [[32mPASS[0m in 0.22s]
+[0m14:51:37.714546 [info ] [Thread-4 (]: 6 of 9 PASS not_null_stg_llm__skill_extractions_is_successful .................. [[32mPASS[0m in 0.23s]
+[0m14:51:37.715623 [debug] [Thread-2 (]: Finished running node test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e
+[0m14:51:37.716339 [debug] [Thread-4 (]: Finished running node test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3
+[0m14:51:37.889743 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.254 seconds
+[0m14:51:37.895917 [error] [Thread-3 (]: 9 of 9 FAIL 153 unique_fct_llm_vs_regex_comparison_technology_name ............. [[31mFAIL 153[0m in 0.28s]
+[0m14:51:37.897788 [debug] [Thread-3 (]: Finished running node test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3
+[0m14:51:37.900997 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m14:51:37.901784 [debug] [MainThread]: Connection 'test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e' was left open.
+[0m14:51:37.902512 [debug] [MainThread]: On test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e: Close
+[0m14:51:38.049416 [debug] [MainThread]: Connection 'test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3' was left open.
+[0m14:51:38.050573 [debug] [MainThread]: On test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3: Close
+[0m14:51:38.195064 [debug] [MainThread]: Connection 'test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3' was left open.
+[0m14:51:38.197084 [debug] [MainThread]: On test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3: Close
+[0m14:51:38.339872 [debug] [MainThread]: Connection 'test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c' was left open.
+[0m14:51:38.341064 [debug] [MainThread]: On test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c: Close
+[0m14:51:38.491960 [info ] [MainThread]: 
+[0m14:51:38.493475 [info ] [MainThread]: Finished running 9 data tests in 0 hours 0 minutes and 3.11 seconds (3.11s).
+[0m14:51:38.499741 [debug] [MainThread]: Command end result
+[0m14:51:38.569158 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/manifest.json
+[0m14:51:38.573238 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/semantic_manifest.json
+[0m14:51:38.589074 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/run_results.json
+[0m14:51:38.589774 [info ] [MainThread]: 
+[0m14:51:38.590590 [info ] [MainThread]: [31mCompleted with 2 errors, 0 partial successes, and 0 warnings:[0m
+[0m14:51:38.591367 [info ] [MainThread]: 
+[0m14:51:38.592268 [error] [MainThread]: [31mFailure in test unique_fct_llm_technology_mentions_mention_id (models/marts/_marts__models.yml)[0m
+[0m14:51:38.593186 [error] [MainThread]:   Got 40 results, configured to fail if != 0
+[0m14:51:38.593940 [info ] [MainThread]: 
+[0m14:51:38.595037 [info ] [MainThread]:   compiled code at target/compiled/data_ai_index/models/marts/_marts__models.yml/unique_fct_llm_technology_mentions_mention_id.sql
+[0m14:51:38.596214 [info ] [MainThread]: 
+[0m14:51:38.597168 [error] [MainThread]: [31mFailure in test unique_fct_llm_vs_regex_comparison_technology_name (models/marts/_marts__models.yml)[0m
+[0m14:51:38.598061 [error] [MainThread]:   Got 153 results, configured to fail if != 0
+[0m14:51:38.598823 [info ] [MainThread]: 
+[0m14:51:38.599668 [info ] [MainThread]:   compiled code at target/compiled/data_ai_index/models/marts/_marts__models.yml/unique_fct_llm_vs_regex_comparison_technology_name.sql
+[0m14:51:38.600430 [info ] [MainThread]: 
+[0m14:51:38.601237 [info ] [MainThread]: Done. PASS=7 WARN=0 ERROR=2 SKIP=0 NO-OP=0 TOTAL=9
+[0m14:51:38.607876 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": false, "command_wall_clock_time": 5.3279824, "process_in_blocks": "0", "process_kernel_time": 0.619469, "process_mem_max_rss": "214650880", "process_out_blocks": "0", "process_user_time": 4.481028}
+[0m14:51:38.609128 [debug] [MainThread]: Command `dbt test` failed at 14:51:38.608798 after 5.33 seconds
+[0m14:51:38.610112 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109aef650>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x115b10100>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x118f7bee0>]}
+[0m14:51:38.611074 [debug] [MainThread]: Flushing usage events
+[0m14:51:38.835025 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:53:13.728819 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106ba4830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107a87890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107a879d0>]}
+
+
+============================== 14:53:13.735620 | 5cb3d7e7-fcd7-4535-b385-4665ae800ade ==============================
+[0m14:53:13.735620 [info ] [MainThread]: Running with dbt=1.11.2
+[0m14:53:13.736841 [debug] [MainThread]: running dbt with arguments {'warn_error': 'None', 'profiles_dir': '/Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt', 'quiet': 'False', 'log_format': 'default', 'version_check': 'True', 'partial_parse': 'True', 'use_experimental_parser': 'False', 'static_parser': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'write_json': 'True', 'no_print': 'None', 'send_anonymous_usage_stats': 'True', 'invocation_command': 'dbt run --select stg_llm__skill_extractions fct_llm_technology_mentions fct_llm_vs_regex_comparison', 'debug': 'False', 'log_path': '/Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/logs', 'cache_selected_only': 'False', 'use_colors': 'True', 'empty': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'indirect_selection': 'eager', 'printer_width': '80', 'fail_fast': 'False'}
+[0m14:53:14.789018 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m14:53:14.789618 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m14:53:14.790033 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m14:53:15.071651 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '5cb3d7e7-fcd7-4535-b385-4665ae800ade', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106d74e90>]}
+[0m14:53:15.171365 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '5cb3d7e7-fcd7-4535-b385-4665ae800ade', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112f917b0>]}
+[0m14:53:15.172601 [info ] [MainThread]: Registered adapter: snowflake=1.11.1
+[0m14:53:15.364753 [debug] [MainThread]: checksum: 3d40d8bbe1bef07db1c24822f2dbfff8bc07f2a48ed4fe2658a40653aec0b54b, vars: {}, profile: , target: , version: 1.11.2
+[0m14:53:15.581817 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 2 files changed.
+[0m14:53:15.582835 [debug] [MainThread]: Partial parsing: updated file: data_ai_index://models/marts/fct_llm_technology_mentions.sql
+[0m14:53:15.583371 [debug] [MainThread]: Partial parsing: updated file: data_ai_index://models/marts/fct_llm_vs_regex_comparison.sql
+[0m14:53:16.129942 [warn ] [MainThread]: [[33mWARNING[0m][MissingArgumentsPropertyInGenericTestDeprecation]: Deprecated
+functionality
+Found top-level arguments to test `accepted_values` defined on
+'fct_llm_technology_mentions' in package 'data_ai_index'
+(models/marts/_marts__models.yml). Arguments to generic tests should be nested
+under the `arguments` property.
+[0m14:53:16.130708 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '5cb3d7e7-fcd7-4535-b385-4665ae800ade', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113454b50>]}
+[0m14:53:16.278456 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '5cb3d7e7-fcd7-4535-b385-4665ae800ade', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113823a70>]}
+[0m14:53:16.425841 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/manifest.json
+[0m14:53:16.428843 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/semantic_manifest.json
+[0m14:53:16.454301 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '5cb3d7e7-fcd7-4535-b385-4665ae800ade', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11384c670>]}
+[0m14:53:16.454940 [info ] [MainThread]: Found 21 models, 3 seeds, 57 data tests, 6 sources, 638 macros
+[0m14:53:16.455462 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '5cb3d7e7-fcd7-4535-b385-4665ae800ade', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113b1e000>]}
+[0m14:53:16.459277 [info ] [MainThread]: 
+[0m14:53:16.459772 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m14:53:16.460128 [info ] [MainThread]: 
+[0m14:53:16.460848 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m14:53:16.467379 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DATAEXPERT_STUDENT'
+[0m14:53:16.473878 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DATAEXPERT_STUDENT'
+[0m14:53:16.540688 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT"
+[0m14:53:16.541485 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT"
+[0m14:53:16.541940 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT: show terse schemas in database DATAEXPERT_STUDENT
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT"} */
+[0m14:53:16.542355 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT: show terse schemas in database DATAEXPERT_STUDENT
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT"} */
+[0m14:53:16.542880 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:53:16.543250 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:53:17.814764 [debug] [ThreadPool]: SQL status: SUCCESS 503 in 1.271 seconds
+[0m14:53:17.819695 [debug] [ThreadPool]: SQL status: SUCCESS 503 in 1.277 seconds
+[0m14:53:17.846613 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT, now list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate)
+[0m14:53:17.847368 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT, now list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY)
+[0m14:53:17.848129 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts'
+[0m14:53:17.854532 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging'
+[0m14:53:17.864870 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate"
+[0m14:53:17.868201 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY"
+[0m14:53:17.873863 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts"
+[0m14:53:17.876213 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging"
+[0m14:53:17.876667 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate: show objects in DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_intermediate
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate"} */;
+[0m14:53:17.877085 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY: show objects in DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY"} */;
+[0m14:53:17.877486 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts: show objects in DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts"} */;
+[0m14:53:17.877860 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging: show objects in DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_staging
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging"} */;
+[0m14:53:17.879673 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:53:17.881520 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:53:18.021490 [debug] [ThreadPool]: SQL status: SUCCESS 10 in 0.143 seconds
+[0m14:53:18.035700 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 0.157 seconds
+[0m14:53:18.411227 [debug] [ThreadPool]: SQL status: SUCCESS 6 in 0.530 seconds
+[0m14:53:18.418640 [debug] [ThreadPool]: SQL status: SUCCESS 11 in 0.539 seconds
+[0m14:53:18.425314 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '5cb3d7e7-fcd7-4535-b385-4665ae800ade', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x116d7c590>]}
+[0m14:53:18.429223 [debug] [Thread-2 (]: Began running node model.data_ai_index.stg_llm__skill_extractions
+[0m14:53:18.430029 [info ] [Thread-2 (]: 1 of 3 START sql view model KOUVERK_DATA_INDUSTRY_staging.stg_llm__skill_extractions  [RUN]
+[0m14:53:18.430681 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate, now model.data_ai_index.stg_llm__skill_extractions)
+[0m14:53:18.431177 [debug] [Thread-2 (]: Began compiling node model.data_ai_index.stg_llm__skill_extractions
+[0m14:53:18.440370 [debug] [Thread-2 (]: Writing injected SQL for node "model.data_ai_index.stg_llm__skill_extractions"
+[0m14:53:18.441347 [debug] [Thread-2 (]: Began executing node model.data_ai_index.stg_llm__skill_extractions
+[0m14:53:18.480663 [debug] [Thread-2 (]: Writing runtime sql for node "model.data_ai_index.stg_llm__skill_extractions"
+[0m14:53:18.482589 [debug] [Thread-2 (]: Using snowflake connection "model.data_ai_index.stg_llm__skill_extractions"
+[0m14:53:18.483287 [debug] [Thread-2 (]: On model.data_ai_index.stg_llm__skill_extractions: create or replace   view DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_staging.stg_llm__skill_extractions
+  
+  
+  
+  
+  as (
+    with source as (
+    select * from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY.raw_llm_skill_extractions
+),
+
+cleaned as (
+    select
+        posting_id,
+        technologies,
+        roles,
+        extraction_method,
+        model as llm_model,
+        extracted_at,
+        error,
+
+        -- Derived fields
+        array_size(technologies) as technology_count,
+        array_size(roles) as role_count,
+        error is null as is_successful
+
+    from source
+)
+
+select * from cleaned
+  )
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "model.data_ai_index.stg_llm__skill_extractions"} */;
+[0m14:53:18.836511 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.352 seconds
+[0m14:53:18.868442 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '5cb3d7e7-fcd7-4535-b385-4665ae800ade', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1170094f0>]}
+[0m14:53:18.869251 [info ] [Thread-2 (]: 1 of 3 OK created sql view model KOUVERK_DATA_INDUSTRY_staging.stg_llm__skill_extractions  [[32mSUCCESS 1[0m in 0.44s]
+[0m14:53:18.870060 [debug] [Thread-2 (]: Finished running node model.data_ai_index.stg_llm__skill_extractions
+[0m14:53:18.871026 [debug] [Thread-3 (]: Began running node model.data_ai_index.fct_llm_technology_mentions
+[0m14:53:18.871583 [info ] [Thread-3 (]: 2 of 3 START sql table model KOUVERK_DATA_INDUSTRY_marts.fct_llm_technology_mentions  [RUN]
+[0m14:53:18.872175 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY, now model.data_ai_index.fct_llm_technology_mentions)
+[0m14:53:18.872577 [debug] [Thread-3 (]: Began compiling node model.data_ai_index.fct_llm_technology_mentions
+[0m14:53:18.878320 [debug] [Thread-3 (]: Writing injected SQL for node "model.data_ai_index.fct_llm_technology_mentions"
+[0m14:53:18.879488 [debug] [Thread-3 (]: Began executing node model.data_ai_index.fct_llm_technology_mentions
+[0m14:53:18.910841 [debug] [Thread-3 (]: Writing runtime sql for node "model.data_ai_index.fct_llm_technology_mentions"
+[0m14:53:18.913948 [debug] [Thread-3 (]: Using snowflake connection "model.data_ai_index.fct_llm_technology_mentions"
+[0m14:53:18.914547 [debug] [Thread-3 (]: On model.data_ai_index.fct_llm_technology_mentions: create or replace transient table DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.fct_llm_technology_mentions
+    
+    
+    
+    as (with extractions as (
+    select * from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_staging.stg_llm__skill_extractions
+    where is_successful
+),
+
+postings as (
+    select
+        posting_id,
+        posting_month,
+        posting_year
+    from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_staging.stg_hn__job_postings
+),
+
+-- Flatten the technologies VARIANT array into rows
+flattened_tech as (
+    select
+        e.posting_id,
+        f.value:name::varchar as technology_name,
+        f.value:category::varchar as category,
+        f.value:confidence::float as confidence
+    from extractions e,
+    lateral flatten(input => e.technologies) f
+),
+
+-- Deduplicate: same posting + technology, keep highest confidence
+deduped as (
+    select *
+    from flattened_tech
+    qualify row_number() over (
+        partition by posting_id, lower(technology_name)
+        order by confidence desc
+    ) = 1
+),
+
+dim_tech as (
+    select * from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.dim_technologies
+)
+
+select
+    md5(cast(coalesce(cast(d.posting_id as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(d.technology_name as TEXT), '_dbt_utils_surrogate_key_null_') as TEXT)) as mention_id,
+    d.posting_id,
+    dt.technology_id,
+    d.technology_name,
+    d.category as llm_category,
+    dt.category as taxonomy_category,
+    d.confidence,
+    p.posting_month,
+    p.posting_year,
+    'llm' as extraction_method
+from deduped d
+inner join postings p on d.posting_id::varchar = p.posting_id::varchar
+left join dim_tech dt on lower(d.technology_name) = lower(dt.technology_name)
+where d.technology_name is not null
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "model.data_ai_index.fct_llm_technology_mentions"} */;
+[0m14:53:21.902807 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 2.987 seconds
+[0m14:53:21.910345 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '5cb3d7e7-fcd7-4535-b385-4665ae800ade', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11712c5f0>]}
+[0m14:53:21.911646 [info ] [Thread-3 (]: 2 of 3 OK created sql table model KOUVERK_DATA_INDUSTRY_marts.fct_llm_technology_mentions  [[32mSUCCESS 1[0m in 3.04s]
+[0m14:53:21.912895 [debug] [Thread-3 (]: Finished running node model.data_ai_index.fct_llm_technology_mentions
+[0m14:53:21.914472 [debug] [Thread-4 (]: Began running node model.data_ai_index.fct_llm_vs_regex_comparison
+[0m14:53:21.915811 [info ] [Thread-4 (]: 3 of 3 START sql table model KOUVERK_DATA_INDUSTRY_marts.fct_llm_vs_regex_comparison  [RUN]
+[0m14:53:21.917162 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts, now model.data_ai_index.fct_llm_vs_regex_comparison)
+[0m14:53:21.918097 [debug] [Thread-4 (]: Began compiling node model.data_ai_index.fct_llm_vs_regex_comparison
+[0m14:53:21.923620 [debug] [Thread-4 (]: Writing injected SQL for node "model.data_ai_index.fct_llm_vs_regex_comparison"
+[0m14:53:21.924823 [debug] [Thread-4 (]: Began executing node model.data_ai_index.fct_llm_vs_regex_comparison
+[0m14:53:21.929591 [debug] [Thread-4 (]: Writing runtime sql for node "model.data_ai_index.fct_llm_vs_regex_comparison"
+[0m14:53:21.934925 [debug] [Thread-4 (]: Using snowflake connection "model.data_ai_index.fct_llm_vs_regex_comparison"
+[0m14:53:21.935968 [debug] [Thread-4 (]: On model.data_ai_index.fct_llm_vs_regex_comparison: create or replace transient table DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.fct_llm_vs_regex_comparison
+    
+    
+    
+    as (
+
+with llm_mentions as (
+    select
+        posting_id,
+        technology_name,
+        llm_category as category,
+        confidence
+    from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.fct_llm_technology_mentions
+),
+
+regex_mentions as (
+    select
+        posting_id,
+        technology_name,
+        category
+    from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.fct_hn_technology_mentions
+),
+
+-- Get the set of postings that both methods processed
+llm_postings as (
+    select distinct posting_id
+    from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_staging.stg_llm__skill_extractions
+    where is_successful
+),
+
+-- Only compare on overlapping postings
+regex_on_llm_posts as (
+    select r.*
+    from regex_mentions r
+    inner join llm_postings lp on r.posting_id::varchar = lp.posting_id::varchar
+),
+
+-- Full outer join to see what each method found
+comparison as (
+    select
+        coalesce(l.posting_id, r.posting_id) as posting_id,
+        coalesce(l.technology_name, r.technology_name) as technology_name,
+        l.technology_name is not null as found_by_llm,
+        r.technology_name is not null as found_by_regex,
+        l.confidence as llm_confidence,
+        coalesce(l.category, r.category) as category,
+        case
+            when l.technology_name is not null and r.technology_name is not null then 'both'
+            when l.technology_name is not null then 'llm_only'
+            else 'regex_only'
+        end as detection_method
+    from llm_mentions l
+    full outer join regex_on_llm_posts r
+        on l.posting_id::varchar = r.posting_id::varchar
+        and lower(l.technology_name) = lower(r.technology_name)
+),
+
+-- Aggregate by technology (use lower for consistent grouping)
+tech_summary as (
+    select
+        lower(technology_name) as technology_name_lower,
+        min(technology_name) as technology_name,
+        min(category) as category,
+        count(distinct posting_id) as total_postings,
+        count(distinct case when found_by_llm then posting_id end) as llm_count,
+        count(distinct case when found_by_regex then posting_id end) as regex_count,
+        count(distinct case when detection_method = 'both' then posting_id end) as both_count,
+        count(distinct case when detection_method = 'llm_only' then posting_id end) as llm_only_count,
+        count(distinct case when detection_method = 'regex_only' then posting_id end) as regex_only_count,
+        avg(case when found_by_llm then llm_confidence end) as avg_llm_confidence
+    from comparison
+    group by 1
+)
+
+select
+    technology_name,
+    category,
+    total_postings,
+    llm_count,
+    regex_count,
+    both_count,
+    llm_only_count,
+    regex_only_count,
+    round(avg_llm_confidence, 3) as avg_llm_confidence,
+    round(both_count * 100.0 / nullif(greatest(llm_count, regex_count), 0), 1) as agreement_pct,
+    round(llm_only_count * 100.0 / nullif(llm_count, 0), 1) as llm_unique_pct,
+    round(regex_only_count * 100.0 / nullif(regex_count, 0), 1) as regex_unique_pct
+from tech_summary
+where total_postings >= 5
+order by total_postings desc
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "model.data_ai_index.fct_llm_vs_regex_comparison"} */;
+[0m14:53:23.745278 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 1.808 seconds
+[0m14:53:23.752537 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '5cb3d7e7-fcd7-4535-b385-4665ae800ade', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113a32dd0>]}
+[0m14:53:23.754116 [info ] [Thread-4 (]: 3 of 3 OK created sql table model KOUVERK_DATA_INDUSTRY_marts.fct_llm_vs_regex_comparison  [[32mSUCCESS 1[0m in 1.84s]
+[0m14:53:23.755673 [debug] [Thread-4 (]: Finished running node model.data_ai_index.fct_llm_vs_regex_comparison
+[0m14:53:23.758725 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m14:53:23.759486 [debug] [MainThread]: Connection 'model.data_ai_index.stg_llm__skill_extractions' was left open.
+[0m14:53:23.760138 [debug] [MainThread]: On model.data_ai_index.stg_llm__skill_extractions: Close
+[0m14:53:23.915175 [debug] [MainThread]: Connection 'model.data_ai_index.fct_llm_technology_mentions' was left open.
+[0m14:53:23.916459 [debug] [MainThread]: On model.data_ai_index.fct_llm_technology_mentions: Close
+[0m14:53:24.072145 [debug] [MainThread]: Connection 'model.data_ai_index.fct_llm_vs_regex_comparison' was left open.
+[0m14:53:24.073130 [debug] [MainThread]: On model.data_ai_index.fct_llm_vs_regex_comparison: Close
+[0m14:53:24.225430 [debug] [MainThread]: Connection 'list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging' was left open.
+[0m14:53:24.226413 [debug] [MainThread]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging: Close
+[0m14:53:24.392959 [info ] [MainThread]: 
+[0m14:53:24.394255 [info ] [MainThread]: Finished running 2 table models, 1 view model in 0 hours 0 minutes and 7.93 seconds (7.93s).
+[0m14:53:24.396693 [debug] [MainThread]: Command end result
+[0m14:53:24.457859 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/manifest.json
+[0m14:53:24.460412 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/semantic_manifest.json
+[0m14:53:24.468025 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/run_results.json
+[0m14:53:24.468480 [info ] [MainThread]: 
+[0m14:53:24.468908 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m14:53:24.469397 [info ] [MainThread]: 
+[0m14:53:24.469884 [info ] [MainThread]: Done. PASS=3 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=3
+[0m14:53:24.470460 [warn ] [MainThread]: [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- MissingArgumentsPropertyInGenericTestDeprecation: 1 occurrence
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
+[0m14:53:24.475032 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 10.8507, "process_in_blocks": "0", "process_kernel_time": 0.690038, "process_mem_max_rss": "219455488", "process_out_blocks": "0", "process_user_time": 5.235649}
+[0m14:53:24.475713 [debug] [MainThread]: Command `dbt run` succeeded at 14:53:24.475587 after 10.85 seconds
+[0m14:53:24.476235 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107abe430>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10331def0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106258770>]}
+[0m14:53:24.476703 [debug] [MainThread]: Flushing usage events
+[0m14:53:24.845318 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:53:27.386332 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105058830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105f03890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105f039d0>]}
+
+
+============================== 14:53:27.392478 | f9f9806e-aaef-465a-bee9-8a8b6c330ad8 ==============================
+[0m14:53:27.392478 [info ] [MainThread]: Running with dbt=1.11.2
+[0m14:53:27.393193 [debug] [MainThread]: running dbt with arguments {'send_anonymous_usage_stats': 'True', 'profiles_dir': '/Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt', 'log_cache_events': 'False', 'empty': 'None', 'warn_error': 'None', 'write_json': 'True', 'introspect': 'True', 'log_format': 'default', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'debug': 'False', 'fail_fast': 'False', 'static_parser': 'True', 'partial_parse': 'True', 'no_print': 'None', 'target_path': 'None', 'use_experimental_parser': 'False', 'cache_selected_only': 'False', 'quiet': 'False', 'version_check': 'True', 'printer_width': '80', 'log_path': '/Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/logs', 'use_colors': 'True', 'invocation_command': 'dbt test --select stg_llm__skill_extractions fct_llm_technology_mentions fct_llm_vs_regex_comparison', 'indirect_selection': 'eager'}
+[0m14:53:28.420858 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m14:53:28.421708 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m14:53:28.422192 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m14:53:28.684068 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'f9f9806e-aaef-465a-bee9-8a8b6c330ad8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105224e90>]}
+[0m14:53:28.779621 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'f9f9806e-aaef-465a-bee9-8a8b6c330ad8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1114b57b0>]}
+[0m14:53:28.780901 [info ] [MainThread]: Registered adapter: snowflake=1.11.1
+[0m14:53:28.958722 [debug] [MainThread]: checksum: 3d40d8bbe1bef07db1c24822f2dbfff8bc07f2a48ed4fe2658a40653aec0b54b, vars: {}, profile: , target: , version: 1.11.2
+[0m14:53:29.162170 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m14:53:29.162870 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m14:53:29.163469 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m14:53:29.241603 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'f9f9806e-aaef-465a-bee9-8a8b6c330ad8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111888750>]}
+[0m14:53:29.387582 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/manifest.json
+[0m14:53:29.390497 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/semantic_manifest.json
+[0m14:53:29.428294 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'f9f9806e-aaef-465a-bee9-8a8b6c330ad8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111c96c60>]}
+[0m14:53:29.429112 [info ] [MainThread]: Found 21 models, 3 seeds, 57 data tests, 6 sources, 638 macros
+[0m14:53:29.429886 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f9f9806e-aaef-465a-bee9-8a8b6c330ad8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111c93d90>]}
+[0m14:53:29.435173 [info ] [MainThread]: 
+[0m14:53:29.436182 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m14:53:29.436848 [info ] [MainThread]: 
+[0m14:53:29.437613 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m14:53:29.445940 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY'
+[0m14:53:29.446789 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate'
+[0m14:53:29.454076 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging'
+[0m14:53:29.472786 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts'
+[0m14:53:29.521506 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY"
+[0m14:53:29.522368 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate"
+[0m14:53:29.522891 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY: show objects in DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY"} */;
+[0m14:53:29.523383 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging"
+[0m14:53:29.523954 [debug] [ThreadPool]: Using snowflake connection "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts"
+[0m14:53:29.524319 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate: show objects in DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_intermediate
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate"} */;
+[0m14:53:29.524709 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:53:29.525104 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging: show objects in DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_staging
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging"} */;
+[0m14:53:29.525504 [debug] [ThreadPool]: On list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts: show objects in DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "connection_name": "list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts"} */;
+[0m14:53:29.525837 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:53:29.527543 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:53:29.528203 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:53:30.453844 [debug] [ThreadPool]: SQL status: SUCCESS 10 in 0.929 seconds
+[0m14:53:30.532946 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 1.007 seconds
+[0m14:53:30.541393 [debug] [ThreadPool]: SQL status: SUCCESS 6 in 1.014 seconds
+[0m14:53:30.542842 [debug] [ThreadPool]: SQL status: SUCCESS 11 in 1.015 seconds
+[0m14:53:30.554429 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f9f9806e-aaef-465a-bee9-8a8b6c330ad8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111900940>]}
+[0m14:53:30.557638 [debug] [Thread-2 (]: Began running node test.data_ai_index.accepted_values_fct_llm_technology_mentions_extraction_method__llm.79e16bd16a
+[0m14:53:30.558263 [debug] [Thread-3 (]: Began running node test.data_ai_index.not_null_fct_llm_technology_mentions_mention_id.5c54e01721
+[0m14:53:30.558757 [debug] [Thread-5 (]: Began running node test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf
+[0m14:53:30.559232 [info ] [Thread-2 (]: 1 of 9 START test accepted_values_fct_llm_technology_mentions_extraction_method__llm  [RUN]
+[0m14:53:30.559797 [debug] [Thread-4 (]: Began running node test.data_ai_index.not_null_fct_llm_technology_mentions_posting_id.f0caf69d33
+[0m14:53:30.560286 [info ] [Thread-3 (]: 2 of 9 START test not_null_fct_llm_technology_mentions_mention_id .............. [RUN]
+[0m14:53:30.560886 [info ] [Thread-5 (]: 4 of 9 START test not_null_fct_llm_technology_mentions_technology_name ......... [RUN]
+[0m14:53:30.561603 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY, now test.data_ai_index.accepted_values_fct_llm_technology_mentions_extraction_method__llm.79e16bd16a)
+[0m14:53:30.562094 [info ] [Thread-4 (]: 3 of 9 START test not_null_fct_llm_technology_mentions_posting_id .............. [RUN]
+[0m14:53:30.562722 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_intermediate, now test.data_ai_index.not_null_fct_llm_technology_mentions_mention_id.5c54e01721)
+[0m14:53:30.563160 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_marts, now test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf)
+[0m14:53:30.563582 [debug] [Thread-2 (]: Began compiling node test.data_ai_index.accepted_values_fct_llm_technology_mentions_extraction_method__llm.79e16bd16a
+[0m14:53:30.563984 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly list_DATAEXPERT_STUDENT_KOUVERK_DATA_INDUSTRY_staging, now test.data_ai_index.not_null_fct_llm_technology_mentions_posting_id.f0caf69d33)
+[0m14:53:30.564395 [debug] [Thread-3 (]: Began compiling node test.data_ai_index.not_null_fct_llm_technology_mentions_mention_id.5c54e01721
+[0m14:53:30.564845 [debug] [Thread-5 (]: Began compiling node test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf
+[0m14:53:30.571539 [debug] [Thread-4 (]: Began compiling node test.data_ai_index.not_null_fct_llm_technology_mentions_posting_id.f0caf69d33
+[0m14:53:30.600050 [debug] [Thread-2 (]: Writing injected SQL for node "test.data_ai_index.accepted_values_fct_llm_technology_mentions_extraction_method__llm.79e16bd16a"
+[0m14:53:30.605619 [debug] [Thread-5 (]: Writing injected SQL for node "test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf"
+[0m14:53:30.606107 [debug] [Thread-3 (]: Writing injected SQL for node "test.data_ai_index.not_null_fct_llm_technology_mentions_mention_id.5c54e01721"
+[0m14:53:30.610235 [debug] [Thread-4 (]: Writing injected SQL for node "test.data_ai_index.not_null_fct_llm_technology_mentions_posting_id.f0caf69d33"
+[0m14:53:30.611540 [debug] [Thread-2 (]: Began executing node test.data_ai_index.accepted_values_fct_llm_technology_mentions_extraction_method__llm.79e16bd16a
+[0m14:53:30.625400 [debug] [Thread-5 (]: Began executing node test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf
+[0m14:53:30.632023 [debug] [Thread-3 (]: Began executing node test.data_ai_index.not_null_fct_llm_technology_mentions_mention_id.5c54e01721
+[0m14:53:30.644597 [debug] [Thread-4 (]: Began executing node test.data_ai_index.not_null_fct_llm_technology_mentions_posting_id.f0caf69d33
+[0m14:53:30.673953 [debug] [Thread-2 (]: Writing runtime sql for node "test.data_ai_index.accepted_values_fct_llm_technology_mentions_extraction_method__llm.79e16bd16a"
+[0m14:53:30.674991 [debug] [Thread-5 (]: Writing runtime sql for node "test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf"
+[0m14:53:30.676392 [debug] [Thread-3 (]: Writing runtime sql for node "test.data_ai_index.not_null_fct_llm_technology_mentions_mention_id.5c54e01721"
+[0m14:53:30.679089 [debug] [Thread-4 (]: Writing runtime sql for node "test.data_ai_index.not_null_fct_llm_technology_mentions_posting_id.f0caf69d33"
+[0m14:53:30.680714 [debug] [Thread-2 (]: Using snowflake connection "test.data_ai_index.accepted_values_fct_llm_technology_mentions_extraction_method__llm.79e16bd16a"
+[0m14:53:30.681855 [debug] [Thread-2 (]: On test.data_ai_index.accepted_values_fct_llm_technology_mentions_extraction_method__llm.79e16bd16a: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        extraction_method as value_field,
+        count(*) as n_records
+
+    from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.fct_llm_technology_mentions
+    group by extraction_method
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'llm'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "test.data_ai_index.accepted_values_fct_llm_technology_mentions_extraction_method__llm.79e16bd16a"} */
+[0m14:53:30.683009 [debug] [Thread-5 (]: Using snowflake connection "test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf"
+[0m14:53:30.683912 [debug] [Thread-3 (]: Using snowflake connection "test.data_ai_index.not_null_fct_llm_technology_mentions_mention_id.5c54e01721"
+[0m14:53:30.685014 [debug] [Thread-5 (]: On test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select technology_name
+from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.fct_llm_technology_mentions
+where technology_name is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf"} */
+[0m14:53:30.687114 [debug] [Thread-3 (]: On test.data_ai_index.not_null_fct_llm_technology_mentions_mention_id.5c54e01721: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select mention_id
+from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.fct_llm_technology_mentions
+where mention_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "test.data_ai_index.not_null_fct_llm_technology_mentions_mention_id.5c54e01721"} */
+[0m14:53:30.688252 [debug] [Thread-4 (]: Using snowflake connection "test.data_ai_index.not_null_fct_llm_technology_mentions_posting_id.f0caf69d33"
+[0m14:53:30.692261 [debug] [Thread-4 (]: On test.data_ai_index.not_null_fct_llm_technology_mentions_posting_id.f0caf69d33: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select posting_id
+from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.fct_llm_technology_mentions
+where posting_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "test.data_ai_index.not_null_fct_llm_technology_mentions_posting_id.f0caf69d33"} */
+[0m14:53:30.814955 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.121 seconds
+[0m14:53:30.838322 [info ] [Thread-4 (]: 3 of 9 PASS not_null_fct_llm_technology_mentions_posting_id .................... [[32mPASS[0m in 0.27s]
+[0m14:53:30.839384 [debug] [Thread-4 (]: Finished running node test.data_ai_index.not_null_fct_llm_technology_mentions_posting_id.f0caf69d33
+[0m14:53:30.840012 [debug] [Thread-4 (]: Began running node test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903
+[0m14:53:30.840560 [info ] [Thread-4 (]: 5 of 9 START test not_null_fct_llm_vs_regex_comparison_technology_name ......... [RUN]
+[0m14:53:30.841329 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.data_ai_index.not_null_fct_llm_technology_mentions_posting_id.f0caf69d33, now test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903)
+[0m14:53:30.841958 [debug] [Thread-4 (]: Began compiling node test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903
+[0m14:53:30.847205 [debug] [Thread-4 (]: Writing injected SQL for node "test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903"
+[0m14:53:30.848306 [debug] [Thread-4 (]: Began executing node test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903
+[0m14:53:30.852214 [debug] [Thread-4 (]: Writing runtime sql for node "test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903"
+[0m14:53:30.853741 [debug] [Thread-4 (]: Using snowflake connection "test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903"
+[0m14:53:30.854274 [debug] [Thread-4 (]: On test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select technology_name
+from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.fct_llm_vs_regex_comparison
+where technology_name is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903"} */
+[0m14:53:30.930573 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.240 seconds
+[0m14:53:30.936893 [info ] [Thread-3 (]: 2 of 9 PASS not_null_fct_llm_technology_mentions_mention_id .................... [[32mPASS[0m in 0.37s]
+[0m14:53:30.938259 [debug] [Thread-3 (]: Finished running node test.data_ai_index.not_null_fct_llm_technology_mentions_mention_id.5c54e01721
+[0m14:53:30.939086 [debug] [Thread-3 (]: Began running node test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3
+[0m14:53:30.939764 [info ] [Thread-3 (]: 6 of 9 START test not_null_stg_llm__skill_extractions_is_successful ............ [RUN]
+[0m14:53:30.940652 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.data_ai_index.not_null_fct_llm_technology_mentions_mention_id.5c54e01721, now test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3)
+[0m14:53:30.941376 [debug] [Thread-3 (]: Began compiling node test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3
+[0m14:53:30.947434 [debug] [Thread-3 (]: Writing injected SQL for node "test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3"
+[0m14:53:30.948677 [debug] [Thread-3 (]: Began executing node test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3
+[0m14:53:30.953382 [debug] [Thread-3 (]: Writing runtime sql for node "test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3"
+[0m14:53:30.955817 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.271 seconds
+[0m14:53:30.958338 [info ] [Thread-2 (]: 1 of 9 PASS accepted_values_fct_llm_technology_mentions_extraction_method__llm . [[32mPASS[0m in 0.40s]
+[0m14:53:30.959602 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 0.270 seconds
+[0m14:53:30.960383 [debug] [Thread-2 (]: Finished running node test.data_ai_index.accepted_values_fct_llm_technology_mentions_extraction_method__llm.79e16bd16a
+[0m14:53:30.963179 [info ] [Thread-5 (]: 4 of 9 PASS not_null_fct_llm_technology_mentions_technology_name ............... [[32mPASS[0m in 0.40s]
+[0m14:53:30.964272 [debug] [Thread-3 (]: Using snowflake connection "test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3"
+[0m14:53:30.965108 [debug] [Thread-2 (]: Began running node test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e
+[0m14:53:30.966066 [debug] [Thread-5 (]: Finished running node test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf
+[0m14:53:30.966785 [debug] [Thread-3 (]: On test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select is_successful
+from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_staging.stg_llm__skill_extractions
+where is_successful is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3"} */
+[0m14:53:30.967441 [info ] [Thread-2 (]: 7 of 9 START test not_null_stg_llm__skill_extractions_posting_id ............... [RUN]
+[0m14:53:30.968031 [debug] [Thread-5 (]: Began running node test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c
+[0m14:53:30.969303 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.data_ai_index.accepted_values_fct_llm_technology_mentions_extraction_method__llm.79e16bd16a, now test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e)
+[0m14:53:30.970240 [info ] [Thread-5 (]: 8 of 9 START test unique_fct_llm_technology_mentions_mention_id ................ [RUN]
+[0m14:53:30.971878 [debug] [Thread-2 (]: Began compiling node test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e
+[0m14:53:30.972800 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly test.data_ai_index.not_null_fct_llm_technology_mentions_technology_name.e9f9b55fcf, now test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c)
+[0m14:53:30.977656 [debug] [Thread-2 (]: Writing injected SQL for node "test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e"
+[0m14:53:30.978509 [debug] [Thread-5 (]: Began compiling node test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c
+[0m14:53:30.988345 [debug] [Thread-5 (]: Writing injected SQL for node "test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c"
+[0m14:53:30.989139 [debug] [Thread-2 (]: Began executing node test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e
+[0m14:53:30.992778 [debug] [Thread-2 (]: Writing runtime sql for node "test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e"
+[0m14:53:30.993722 [debug] [Thread-5 (]: Began executing node test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c
+[0m14:53:30.997165 [debug] [Thread-5 (]: Writing runtime sql for node "test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c"
+[0m14:53:30.998717 [debug] [Thread-2 (]: Using snowflake connection "test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e"
+[0m14:53:31.000251 [debug] [Thread-5 (]: Using snowflake connection "test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c"
+[0m14:53:31.000835 [debug] [Thread-2 (]: On test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select posting_id
+from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_staging.stg_llm__skill_extractions
+where posting_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e"} */
+[0m14:53:31.001356 [debug] [Thread-5 (]: On test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    mention_id as unique_field,
+    count(*) as n_records
+
+from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.fct_llm_technology_mentions
+where mention_id is not null
+group by mention_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c"} */
+[0m14:53:31.033982 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.179 seconds
+[0m14:53:31.037964 [info ] [Thread-4 (]: 5 of 9 PASS not_null_fct_llm_vs_regex_comparison_technology_name ............... [[32mPASS[0m in 0.20s]
+[0m14:53:31.039303 [debug] [Thread-4 (]: Finished running node test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903
+[0m14:53:31.040063 [debug] [Thread-4 (]: Began running node test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3
+[0m14:53:31.040661 [info ] [Thread-4 (]: 9 of 9 START test unique_fct_llm_vs_regex_comparison_technology_name ........... [RUN]
+[0m14:53:31.041426 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.data_ai_index.not_null_fct_llm_vs_regex_comparison_technology_name.3cbb479903, now test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3)
+[0m14:53:31.042035 [debug] [Thread-4 (]: Began compiling node test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3
+[0m14:53:31.047616 [debug] [Thread-4 (]: Writing injected SQL for node "test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3"
+[0m14:53:31.049166 [debug] [Thread-4 (]: Began executing node test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3
+[0m14:53:31.053418 [debug] [Thread-4 (]: Writing runtime sql for node "test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3"
+[0m14:53:31.054898 [debug] [Thread-4 (]: Using snowflake connection "test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3"
+[0m14:53:31.055380 [debug] [Thread-4 (]: On test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    technology_name as unique_field,
+    count(*) as n_records
+
+from DATAEXPERT_STUDENT.KOUVERK_DATA_INDUSTRY_marts.fct_llm_vs_regex_comparison
+where technology_name is not null
+group by technology_name
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "data_ai_index", "target_name": "dev", "node_id": "test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3"} */
+[0m14:53:31.150043 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.148 seconds
+[0m14:53:31.154773 [info ] [Thread-2 (]: 7 of 9 PASS not_null_stg_llm__skill_extractions_posting_id ..................... [[32mPASS[0m in 0.19s]
+[0m14:53:31.156667 [debug] [Thread-2 (]: Finished running node test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e
+[0m14:53:31.158106 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.189 seconds
+[0m14:53:31.161658 [info ] [Thread-3 (]: 6 of 9 PASS not_null_stg_llm__skill_extractions_is_successful .................. [[32mPASS[0m in 0.22s]
+[0m14:53:31.162725 [debug] [Thread-3 (]: Finished running node test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3
+[0m14:53:31.173732 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 0.171 seconds
+[0m14:53:31.176986 [info ] [Thread-5 (]: 8 of 9 PASS unique_fct_llm_technology_mentions_mention_id ...................... [[32mPASS[0m in 0.20s]
+[0m14:53:31.178050 [debug] [Thread-5 (]: Finished running node test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c
+[0m14:53:31.314563 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.258 seconds
+[0m14:53:31.321483 [info ] [Thread-4 (]: 9 of 9 PASS unique_fct_llm_vs_regex_comparison_technology_name ................. [[32mPASS[0m in 0.28s]
+[0m14:53:31.323017 [debug] [Thread-4 (]: Finished running node test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3
+[0m14:53:31.326326 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m14:53:31.327150 [debug] [MainThread]: Connection 'test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e' was left open.
+[0m14:53:31.327794 [debug] [MainThread]: On test.data_ai_index.not_null_stg_llm__skill_extractions_posting_id.31bf17989e: Close
+[0m14:53:31.463408 [debug] [MainThread]: Connection 'test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3' was left open.
+[0m14:53:31.464449 [debug] [MainThread]: On test.data_ai_index.not_null_stg_llm__skill_extractions_is_successful.48e302e9d3: Close
+[0m14:53:31.603056 [debug] [MainThread]: Connection 'test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3' was left open.
+[0m14:53:31.604086 [debug] [MainThread]: On test.data_ai_index.unique_fct_llm_vs_regex_comparison_technology_name.8dc90056d3: Close
+[0m14:53:31.731572 [debug] [MainThread]: Connection 'test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c' was left open.
+[0m14:53:31.733460 [debug] [MainThread]: On test.data_ai_index.unique_fct_llm_technology_mentions_mention_id.adf6d8a65c: Close
+[0m14:53:31.888460 [info ] [MainThread]: 
+[0m14:53:31.889799 [info ] [MainThread]: Finished running 9 data tests in 0 hours 0 minutes and 2.45 seconds (2.45s).
+[0m14:53:31.894332 [debug] [MainThread]: Command end result
+[0m14:53:31.960229 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/manifest.json
+[0m14:53:31.963766 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/semantic_manifest.json
+[0m14:53:31.978667 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/kouverbingham/development/data-expert-analytics/data-ai-industry-index-tracker/dbt/target/run_results.json
+[0m14:53:31.979450 [info ] [MainThread]: 
+[0m14:53:31.980347 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m14:53:31.980953 [info ] [MainThread]: 
+[0m14:53:31.981836 [info ] [MainThread]: Done. PASS=9 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=9
+[0m14:53:31.988553 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": true, "command_wall_clock_time": 4.7135653, "process_in_blocks": "0", "process_kernel_time": 0.614899, "process_mem_max_rss": "214728704", "process_out_blocks": "0", "process_user_time": 4.48925}
+[0m14:53:31.989569 [debug] [MainThread]: Command `dbt test` succeeded at 14:53:31.989349 after 4.71 seconds
+[0m14:53:31.990311 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105d0b650>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111bf3ee0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1151c7ee0>]}
+[0m14:53:31.991020 [debug] [MainThread]: Flushing usage events
+[0m14:53:32.239714 [debug] [MainThread]: An error was encountered while trying to flush usage events
