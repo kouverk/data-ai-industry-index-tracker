@@ -29,6 +29,8 @@ x-airflow-common:
   volumes:
     - ./dags:/opt/airflow/dags
     - ../dbt:/opt/airflow/dbt
+    - ../extraction:/opt/airflow/extraction
+    - ../data:/opt/airflow/data
     - ./logs:/opt/airflow/logs
     - ./plugins:/opt/airflow/plugins
   user: "${AIRFLOW_UID:-50000}:0"
@@ -57,7 +59,7 @@ services:
     command:
       - -c
       - |
-        pip install dbt-snowflake apache-airflow-providers-snowflake requests pandas
+        pip install dbt-snowflake apache-airflow-providers-snowflake requests pandas datasets anthropic python-dotenv pyarrow
         airflow db init
         airflow users create \
           --username admin \
@@ -87,7 +89,7 @@ services:
 
   airflow-scheduler:
     <<: *airflow-common
-    command: bash -c "pip install dbt-snowflake apache-airflow-providers-snowflake requests pandas && airflow scheduler"
+    command: bash -c "pip install dbt-snowflake apache-airflow-providers-snowflake requests pandas datasets anthropic python-dotenv pyarrow && airflow scheduler"
     healthcheck:
       test: ["CMD-SHELL", 'airflow jobs check --job-type SchedulerJob --hostname "$${HOSTNAME}"']
       interval: 10s

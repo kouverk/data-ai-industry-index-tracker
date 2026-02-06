@@ -500,3 +500,75 @@ data-ai-interest-index/
 - Taxonomy discovery is part of the analysis, not just pre-defined
 - Skip correlation analysis, let dashboard users draw conclusions
 - Build narrow first, expand later (The Boner Principle™)
+
+---
+
+## Implementation Status (Complete)
+
+### What Was Built
+
+**Data Pipeline:**
+- 93K+ HN job postings (2011-present) loaded to Snowflake
+- 1.3M LinkedIn jobs snapshot loaded
+- 81 GitHub repos tracked via API
+- 10K posts processed through Claude Haiku for LLM skill extraction
+
+**dbt Project (21 models):**
+- 6 staging models (hn, linkedin, github, llm)
+- 4 intermediate models (technology/role/database extraction)
+- 11 mart models (facts + dimensions)
+- 3 seed files (technology, role, database mappings)
+
+**LLM Components:**
+- `extraction/llm_skill_extraction.py` - Claude Haiku structured extraction
+- `extraction/generate_weekly_insights.py` - Claude Sonnet market analysis
+- `fct_llm_technology_mentions` - 63K technology mentions from 10K posts
+- `fct_llm_vs_regex_comparison` - Agreement analysis between methods
+
+### Dashboard Features (7 Pages)
+
+| Page | Key Features |
+|------|--------------|
+| **Executive Summary** | Key metrics, headline findings, trend charts |
+| **Technology Trends** | Time-series, YoY gainers/decliners, co-occurrence analysis, top technology pairs |
+| **Role Trends** | Role mentions over time, tier filtering, top roles |
+| **GitHub & LinkedIn** | Repo stats, LinkedIn skills, HN vs LinkedIn cross-validation |
+| **LLM vs Regex** | Agreement rates, method comparison, LLM trends over time, side-by-side extraction comparison |
+| **Data Explorer** | Table browser, job posting keyword search |
+| **Methodology** | Data sources, pipeline, extraction methods, taxonomy, limitations |
+
+### Key Findings (Validated)
+
+| Finding | Evidence |
+|---------|----------|
+| Snowflake overtook Redshift | 1.6% vs 0.4% in 2024 (crossed in 2022) |
+| PyTorch dominates TensorFlow | 2.0% vs 0.5% in 2025 (4x lead, flipped 2022) |
+| OpenAI mentions exploded | 0.4% → 2.7% (2022-2025) |
+| LLM extracts 4x more skills | 6.4 vs 1.5 technologies/post |
+| PostgreSQL is king | 14% of HN posts (6x next database) |
+| 2021 was peak hiring | 10,570 posts; 2023-24 ~40% of peak |
+
+### Files Added Beyond Original Plan
+
+```
+extraction/
+├── llm_skill_extraction.py      # Claude Haiku extraction (10K posts)
+└── generate_weekly_insights.py  # Claude Sonnet weekly reports
+
+dbt/models/staging/llm/
+└── stg_llm__skill_extractions.sql
+
+dbt/models/marts/
+├── fct_llm_technology_mentions.sql
+└── fct_llm_vs_regex_comparison.sql
+
+docs/
+├── WEEKLY_INSIGHTS_*.md         # Generated weekly reports
+└── INSIGHTS.md                  # LLM vs regex analysis section
+```
+
+### What's Left
+
+- [ ] Process remaining 83K+ posts with LLM (~$37, 4-6 hours)
+- [ ] Expand regex taxonomy with LLM discoveries
+- [ ] Deploy dashboard to Streamlit Cloud

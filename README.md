@@ -23,11 +23,11 @@ This project answers those questions with data.
 
 | Finding | Evidence |
 |---------|----------|
-| **Snowflake overtook Redshift** | 1.6% vs 0.2% of HN posts in 2024 (crossed ~2021) |
-| **PyTorch dominates TensorFlow** | 2.0% vs 0.4% in 2025 (5x lead, flipped in 2022) |
+| **Snowflake overtook Redshift** | 1.6% vs 0.4% of HN posts in 2024 (crossed in 2022) |
+| **PyTorch dominates TensorFlow** | 2.0% vs 0.5% in 2025 (4x lead, flipped in 2022) |
 | **OpenAI mentions exploded** | 0.4% (2022) to 2.7% (2025) - the ChatGPT effect |
 | **LLM extracts 4x more skills** | 6.4 technologies/post vs 1.5 from regex |
-| **PostgreSQL is king** | 14.6% of HN posts - 3x the next database |
+| **PostgreSQL is king** | 14% of HN posts (2024-25) - 6x the next database |
 | **2021 was peak hiring** | 10,570 HN posts; 2023-2024 dropped to ~40% of peak |
 
 ---
@@ -41,6 +41,22 @@ This project answers those questions with data.
 5. **Compares extraction methods** with a dbt model that quantifies LLM vs regex agreement rates
 6. **Generates automated insights** with Claude Sonnet producing weekly market summaries
 7. **Visualizes everything** via interactive Streamlit dashboard
+
+---
+
+## Dashboard Features
+
+The Streamlit dashboard provides 7 pages of interactive analysis:
+
+| Page | Features |
+|------|----------|
+| **Executive Summary** | Key metrics, headline findings, trend charts, LLM performance stats |
+| **Technology Trends** | Time-series visualization, YoY comparison, technology co-occurrence analysis, top technology pairs |
+| **Role Trends** | Role mentions over time, tier filtering, top roles ranking |
+| **GitHub & LinkedIn** | Repository stats, LinkedIn skill rankings, HN vs LinkedIn cross-validation comparison |
+| **LLM vs Regex** | Agreement rates, method breakdown, LLM time-series trends, side-by-side extraction comparison |
+| **Data Explorer** | Browse raw tables, job posting keyword search with preview |
+| **Methodology** | Data sources, pipeline architecture, extraction methods, taxonomy, limitations |
 
 ---
 

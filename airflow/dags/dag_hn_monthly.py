@@ -1,139 +1,39 @@
 """
 DAG: Hacker News "Who Is Hiring" - Monthly Extraction
 
-Fetches the latest "Who Is Hiring" thread from HN each month.
+Fetches the full HN "Who Is Hiring" dataset from HuggingFace.
+The HuggingFace dataset is updated monthly with new threads.
 Runs on the 2nd of each month to catch the new thread.
+
+Uses extraction scripts:
+- extraction/fetch_hn_data.py - Fetches from HuggingFace
+- extraction/load_to_snowflake.py - Loads to Snowflake
 """
 
 from datetime import datetime, timedelta
-import requests
-import pandas as pd
-import re
+import os
 
 from airflow import DAG
+from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
-from airflow.providers.snowflake.hooks.snowflake import SnowflakeHook
 
 
-HN_API_BASE = "https://hacker-news.firebaseio.com/v0"
+# Path to project root (extraction scripts are in extraction/)
+# Astronomer uses /usr/local/airflow/include, docker-compose uses /opt/airflow
+PROJECT_ROOT = os.environ.get('PROJECT_ROOT')
+if not PROJECT_ROOT:
+    # Auto-detect based on environment
+    if os.path.exists('/usr/local/airflow/include/extraction'):
+        PROJECT_ROOT = '/usr/local/airflow/include'  # Astronomer
+    else:
+        PROJECT_ROOT = '/opt/airflow'  # Docker Compose
 
 
-def find_latest_hiring_thread(**context):
-    """Find the most recent 'Who Is Hiring' thread ID."""
-    # Get whoishiring's submissions
-    url = f"{HN_API_BASE}/user/whoishiring.json"
-    response = requests.get(url, timeout=30)
-    response.raise_for_status()
-    user_data = response.json()
-
-    submitted = user_data.get('submitted', [])[:20]  # Check last 20 submissions
-
-    # Find the most recent "Who is hiring" thread
-    for story_id in submitted:
-        story_url = f"{HN_API_BASE}/item/{story_id}.json"
-        story = requests.get(story_url, timeout=10).json()
-
-        if story and story.get('title'):
-            title = story['title'].lower()
-            if 'who is hiring' in title and 'freelancer' not in title:
-                # Extract month/year from title like "Ask HN: Who is hiring? (January 2024)"
-                match = re.search(r'\((\w+ \d{4})\)', story.get('title', ''))
-                thread_month = match.group(1) if match else 'Unknown'
-
-                context['ti'].xcom_push(key='thread_id', value=story_id)
-                context['ti'].xcom_push(key='thread_month', value=thread_month)
-                context['ti'].xcom_push(key='thread_title', value=story['title'])
-
-                print(f"Found thread: {story['title']} (ID: {story_id})")
-                return story_id
-
-    raise ValueError("Could not find 'Who is hiring' thread")
-
-
-def extract_job_postings(**context):
-    """Extract all job postings from the hiring thread."""
-    thread_id = context['ti'].xcom_pull(key='thread_id', task_ids='find_latest_thread')
-    thread_month = context['ti'].xcom_pull(key='thread_month', task_ids='find_latest_thread')
-
-    # Get the thread to find comment IDs
-    thread_url = f"{HN_API_BASE}/item/{thread_id}.json"
-    thread = requests.get(thread_url, timeout=30).json()
-
-    comment_ids = thread.get('kids', [])
-    print(f"Found {len(comment_ids)} top-level comments")
-
-    job_postings = []
-    for comment_id in comment_ids:
-        try:
-            comment_url = f"{HN_API_BASE}/item/{comment_id}.json"
-            comment = requests.get(comment_url, timeout=10).json()
-
-            if comment and not comment.get('deleted') and not comment.get('dead'):
-                job_postings.append({
-                    'id': str(comment_id),
-                    'thread_id': str(thread_id),
-                    'thread_month': thread_month,
-                    'author': comment.get('by', 'unknown'),
-                    'text': comment.get('text', ''),
-                    'posted_at': datetime.fromtimestamp(comment.get('time', 0)).isoformat()
-                })
-        except Exception as e:
-            print(f"Error fetching comment {comment_id}: {e}")
-
-    context['ti'].xcom_push(key='job_postings', value=job_postings)
-    print(f"Extracted {len(job_postings)} job postings")
-    return len(job_postings)
-
-
-def load_to_snowflake(**context):
-    """Load new job postings to Snowflake."""
-    job_postings = context['ti'].xcom_pull(key='job_postings', task_ids='extract_job_postings')
-    thread_month = context['ti'].xcom_pull(key='thread_month', task_ids='find_latest_thread')
-
-    if not job_postings:
-        print("No job postings to load")
-        return 0
-
-    hook = SnowflakeHook(snowflake_conn_id='snowflake_default')
-    conn = hook.get_conn()
-    cursor = conn.cursor()
-
-    # Check if this month already exists
-    cursor.execute(
-        "SELECT COUNT(*) FROM raw_hn_job_postings WHERE thread_month = %s",
-        (thread_month,)
-    )
-    existing_count = cursor.fetchone()[0]
-
-    if existing_count > 0:
-        print(f"Thread for {thread_month} already exists ({existing_count} posts). Skipping.")
-        return 0
-
-    # Insert new postings
-    inserted = 0
-    for post in job_postings:
-        try:
-            cursor.execute("""
-                INSERT INTO raw_hn_job_postings
-                (id, thread_id, thread_month, author, text, posted_at)
-                VALUES (%s, %s, %s, %s, %s, %s)
-            """, (
-                post['id'],
-                post['thread_id'],
-                post['thread_month'],
-                post['author'],
-                post['text'],
-                post['posted_at']
-            ))
-            inserted += 1
-        except Exception as e:
-            print(f"Error inserting post {post['id']}: {e}")
-
-    conn.commit()
-    cursor.close()
-
-    print(f"Loaded {inserted} new job postings for {thread_month}")
-    return inserted
+def log_extraction_complete(**context):
+    """Log completion of HN extraction."""
+    execution_date = context['execution_date']
+    print(f"HN extraction complete for {execution_date.strftime('%B %Y')}")
+    print("Data refreshed from HuggingFace dataset")
 
 
 # DAG Definition
@@ -156,19 +56,28 @@ with DAG(
     tags=['hn', 'monthly', 'extraction'],
 ) as dag:
 
-    find_thread = PythonOperator(
-        task_id='find_latest_thread',
-        python_callable=find_latest_hiring_thread,
+    # Step 1: Fetch HN data from HuggingFace
+    fetch_hn_data = BashOperator(
+        task_id='fetch_hn_data',
+        bash_command=f'''
+            cd {PROJECT_ROOT} && \
+            python extraction/fetch_hn_data.py
+        ''',
     )
 
-    extract_posts = PythonOperator(
-        task_id='extract_job_postings',
-        python_callable=extract_job_postings,
-    )
-
-    load_posts = PythonOperator(
+    # Step 2: Load to Snowflake
+    load_to_snowflake = BashOperator(
         task_id='load_to_snowflake',
-        python_callable=load_to_snowflake,
+        bash_command=f'''
+            cd {PROJECT_ROOT} && \
+            python extraction/load_to_snowflake.py hn
+        ''',
     )
 
-    find_thread >> extract_posts >> load_posts
+    # Step 3: Log completion
+    log_complete = PythonOperator(
+        task_id='log_completion',
+        python_callable=log_extraction_complete,
+    )
+
+    fetch_hn_data >> load_to_snowflake >> log_complete

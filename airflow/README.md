@@ -5,9 +5,10 @@
 | DAG | Schedule | Description |
 |-----|----------|-------------|
 | `github_daily_stats` | Daily @ 6 AM UTC | Fetches GitHub repo stats (stars, forks, activity) |
-| `hn_monthly_hiring` | 2nd of month @ 12 PM UTC | Extracts new HN "Who Is Hiring" thread |
+| `hn_monthly_hiring` | 2nd of month @ 12 PM UTC | Extracts HN "Who Is Hiring" from HuggingFace |
 | `dbt_transform` | Manual trigger | Runs dbt models (staging → intermediate → marts) |
 | `dbt_full_refresh` | Daily @ 7 AM UTC | Full dbt refresh after GitHub data load |
+| `weekly_insights` | Mondays @ 8 AM UTC | Generates AI-powered market insights with Claude |
 
 ## Pipeline Flow
 
@@ -21,29 +22,82 @@
 ┌──────────────────────────────────────────────────┐
 │              dbt_full_refresh                    │
 │              (Daily @ 7 AM)                      │
-│                                                  │
-│  1. dbt deps                                     │
-│  2. dbt seed (taxonomy mappings)                 │
-│  3. dbt run (all models)                         │
-│  4. dbt test                                     │
+└──────────────────────────────────────────────────┘
+           │
+           ▼
+┌──────────────────────────────────────────────────┐
+│              weekly_insights                     │
+│              (Mondays @ 8 AM)                    │
+│              Claude Sonnet analysis              │
 └──────────────────────────────────────────────────┘
 ```
 
-## Running Locally with Docker
+---
+
+## Astronomer Cloud Deployment
+
+### Prerequisites
+
+1. Install Astro CLI: https://docs.astronomer.io/astro/cli/install-cli
+2. Create Astronomer account: https://www.astronomer.io/
+
+### Setup
+
+```bash
+# Clone and navigate to airflow directory
+cd airflow
+
+# Prepare for deployment (replaces symlinks with actual files)
+./scripts/prepare_deploy.sh
+
+# Login to Astronomer
+astro login
+
+# Create a new deployment (first time only)
+astro deployment create
+
+# Deploy
+astro deploy
+```
+
+### Environment Variables
+
+Set these in Astronomer UI (Deployment → Variables):
+
+| Variable | Description |
+|----------|-------------|
+| `SNOWFLAKE_ACCOUNT` | Snowflake account identifier |
+| `SNOWFLAKE_USER` | Snowflake username |
+| `SNOWFLAKE_PASSWORD` | Snowflake password |
+| `SNOWFLAKE_DATABASE` | Target database (KOUVERK_DATA_INDUSTRY) |
+| `SNOWFLAKE_WAREHOUSE` | Compute warehouse |
+| `SNOWFLAKE_SCHEMA` | Target schema (raw) |
+| `GITHUB_TOKEN` | GitHub PAT for API (optional, increases rate limit) |
+| `ANTHROPIC_API_KEY` | Anthropic API key (for weekly insights) |
+
+### Connections
+
+Create a Snowflake connection in Airflow UI:
+- **Conn ID:** `snowflake_default`
+- **Conn Type:** Snowflake
+- Fill in account, user, password, database, warehouse, schema
+
+---
+
+## Local Development with Docker Compose
 
 ### 1. Set Environment Variables
 
-Create a `.env` file in the `airflow/` directory (copy from project root):
-
 ```bash
-cp ../.env .env
+cp .env.example .env
+# Edit .env with your credentials
 ```
 
 ### 2. Start Airflow
 
 ```bash
 # Set Airflow user ID (Linux/Mac)
-echo -e "AIRFLOW_UID=$(id -u)" >> .env
+echo "AIRFLOW_UID=$(id -u)" >> .env
 
 # Start services
 docker-compose up -d
@@ -58,16 +112,7 @@ docker-compose logs -f airflow-init
 - Username: `admin`
 - Password: `admin`
 
-### 4. Configure Snowflake Connection
-
-The Snowflake connection is auto-configured from environment variables.
-If you need to modify it:
-
-1. Go to Admin → Connections
-2. Edit `snowflake_default`
-3. Update credentials
-
-### 5. Trigger a DAG
+### 4. Trigger a DAG
 
 ```bash
 # Via CLI
@@ -76,44 +121,49 @@ docker-compose exec airflow-scheduler airflow dags trigger dbt_full_refresh
 # Or use the UI
 ```
 
-## Running Without Docker
+---
 
-If you have Airflow installed locally:
+## Local Development with Astro CLI
+
+For a more production-like local experience:
 
 ```bash
-# Set AIRFLOW_HOME
-export AIRFLOW_HOME=/path/to/this/airflow/folder
+# Start local Airflow
+astro dev start
 
-# Initialize DB
-airflow db init
+# Access UI at http://localhost:8080
+# Username: admin, Password: admin
 
-# Create admin user
-airflow users create \
-  --username admin \
-  --password admin \
-  --firstname Admin \
-  --lastname User \
-  --role Admin \
-  --email admin@example.com
-
-# Start scheduler (in one terminal)
-airflow scheduler
-
-# Start webserver (in another terminal)
-airflow webserver --port 8080
+# Stop
+astro dev stop
 ```
 
-## Environment Variables Required
+---
 
-| Variable | Description |
-|----------|-------------|
-| `SNOWFLAKE_ACCOUNT` | Snowflake account identifier |
-| `SNOWFLAKE_USER` | Snowflake username |
-| `SNOWFLAKE_PASSWORD` | Snowflake password |
-| `SNOWFLAKE_DATABASE` | Target database |
-| `SNOWFLAKE_WAREHOUSE` | Compute warehouse |
-| `SNOWFLAKE_SCHEMA` | Target schema |
-| `GITHUB_TOKEN` | Optional: GitHub PAT for higher API rate limits |
+## Project Structure
+
+```
+airflow/
+├── Dockerfile              # Astronomer runtime image
+├── requirements.txt        # Python dependencies
+├── packages.txt           # System packages
+├── docker-compose.yml     # Local Docker setup
+├── .env.example           # Environment template
+├── dags/                  # Airflow DAGs
+│   ├── dag_github_daily.py
+│   ├── dag_hn_monthly.py
+│   ├── dag_dbt_transform.py
+│   └── dag_weekly_insights.py
+├── include/               # Shared code (symlinks to parent dirs)
+│   ├── extraction/        # → ../../extraction
+│   └── dbt/              # → ../../dbt
+├── plugins/              # Airflow plugins
+├── logs/                 # Airflow logs
+└── scripts/
+    └── prepare_deploy.sh # Prepares for Astronomer deploy
+```
+
+---
 
 ## Testing DAGs
 
@@ -122,7 +172,11 @@ airflow webserver --port 8080
 python dags/dag_github_daily.py
 python dags/dag_hn_monthly.py
 python dags/dag_dbt_transform.py
+python dags/dag_weekly_insights.py
 
-# Test individual tasks
-docker-compose exec airflow-scheduler airflow tasks test github_daily_stats fetch_github_stats 2024-01-01
+# Test individual tasks (Docker Compose)
+docker-compose exec airflow-scheduler airflow tasks test github_daily_stats fetch_github_data 2024-01-01
+
+# Test individual tasks (Astro CLI)
+astro dev run tasks test github_daily_stats fetch_github_data 2024-01-01
 ```

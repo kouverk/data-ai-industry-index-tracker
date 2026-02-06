@@ -88,8 +88,8 @@ def render_executive_summary():
         st.markdown("""
         | Finding | Evidence |
         |---------|----------|
-        | **Snowflake overtook Redshift** | 1.6% vs 0.2% of HN posts in 2024 |
-        | **PyTorch dominates TensorFlow** | 2.0% vs 0.4% in 2025 (5x lead) |
+        | **Snowflake overtook Redshift** | 1.6% vs 0.4% of HN posts in 2024 (crossed in 2022) |
+        | **PyTorch dominates TensorFlow** | 2.0% vs 0.5% in 2025 (4x lead, flipped 2022) |
         | **OpenAI mentions exploded** | 0.4% → 2.7% (2022-2025) |
         """)
 
@@ -98,7 +98,7 @@ def render_executive_summary():
         | Finding | Evidence |
         |---------|----------|
         | **LLM extracts 4x more skills** | 6.4 vs 1.5 technologies/post |
-        | **PostgreSQL is king** | 14.6% of HN posts (3x next DB) |
+        | **PostgreSQL is king** | 14% of HN posts 2024-25 (6x next DB) |
         | **2021 was peak hiring** | 10,570 posts; 2023-24 ~40% of peak |
         """)
 
@@ -316,6 +316,123 @@ def render_technology_trends(year_range):
                 fig.update_layout(height=350, yaxis={'categoryorder': 'total descending'}, showlegend=False)
                 st.plotly_chart(fig, use_container_width=True)
 
+        # Technology Co-occurrence Analysis
+        st.divider()
+        st.subheader("Technology Co-occurrence")
+        st.markdown("*Which technologies appear together in job postings?*")
+
+        # Let user select a technology to see what it's commonly paired with
+        cooc_base_query = """
+        SELECT DISTINCT technology_name
+        FROM KOUVERK_DATA_INDUSTRY_marts.fct_hn_technology_mentions
+        ORDER BY technology_name
+        """
+        cooc_techs_df = run_query(cooc_base_query)
+
+        if not cooc_techs_df.empty:
+            col1, col2 = st.columns([1, 3])
+
+            with col1:
+                tech_options = cooc_techs_df['TECHNOLOGY_NAME'].tolist()
+                default_tech = 'Snowflake' if 'Snowflake' in tech_options else tech_options[0]
+                selected_cooc_tech = st.selectbox(
+                    "Select a technology",
+                    options=tech_options,
+                    index=tech_options.index(default_tech),
+                    key="cooc_tech_select"
+                )
+
+            with col2:
+                if selected_cooc_tech:
+                    cooc_query = f"""
+                    WITH base_posts AS (
+                        SELECT DISTINCT posting_id
+                        FROM KOUVERK_DATA_INDUSTRY_marts.fct_hn_technology_mentions
+                        WHERE technology_name = '{selected_cooc_tech}'
+                    ),
+                    paired_techs AS (
+                        SELECT
+                            m.technology_name,
+                            COUNT(DISTINCT m.posting_id) as co_occurrence_count
+                        FROM KOUVERK_DATA_INDUSTRY_marts.fct_hn_technology_mentions m
+                        INNER JOIN base_posts b ON m.posting_id = b.posting_id
+                        WHERE m.technology_name != '{selected_cooc_tech}'
+                        GROUP BY m.technology_name
+                    )
+                    SELECT
+                        technology_name,
+                        co_occurrence_count,
+                        ROUND(co_occurrence_count * 100.0 / (SELECT COUNT(*) FROM base_posts), 1) as pct_of_base
+                    FROM paired_techs
+                    ORDER BY co_occurrence_count DESC
+                    LIMIT 15
+                    """
+                    cooc_df = run_query(cooc_query)
+
+                    if not cooc_df.empty:
+                        fig = px.bar(
+                            cooc_df,
+                            x='CO_OCCURRENCE_COUNT',
+                            y='TECHNOLOGY_NAME',
+                            orientation='h',
+                            color='PCT_OF_BASE',
+                            color_continuous_scale='Blues',
+                            title=f'Top Technologies Appearing with {selected_cooc_tech}',
+                            labels={
+                                'CO_OCCURRENCE_COUNT': 'Co-occurrences',
+                                'TECHNOLOGY_NAME': 'Technology',
+                                'PCT_OF_BASE': '% of Posts'
+                            },
+                            hover_data=['PCT_OF_BASE']
+                        )
+                        fig.update_layout(height=450, yaxis={'categoryorder': 'total ascending'})
+                        st.plotly_chart(fig, use_container_width=True)
+
+                        st.caption(f"Shows technologies that appear in the same job postings as {selected_cooc_tech}")
+                    else:
+                        st.info("No co-occurrence data found")
+
+            # Popular technology pairs
+            st.markdown("### Top Technology Pairs")
+            st.markdown("*Most common technology combinations across all job postings*")
+
+            pairs_query = """
+            WITH tech_pairs AS (
+                SELECT
+                    a.technology_name as tech_a,
+                    b.technology_name as tech_b,
+                    COUNT(DISTINCT a.posting_id) as pair_count
+                FROM KOUVERK_DATA_INDUSTRY_marts.fct_hn_technology_mentions a
+                INNER JOIN KOUVERK_DATA_INDUSTRY_marts.fct_hn_technology_mentions b
+                    ON a.posting_id = b.posting_id
+                    AND a.technology_name < b.technology_name
+                GROUP BY a.technology_name, b.technology_name
+            )
+            SELECT
+                tech_a || ' + ' || tech_b as tech_pair,
+                tech_a,
+                tech_b,
+                pair_count
+            FROM tech_pairs
+            ORDER BY pair_count DESC
+            LIMIT 20
+            """
+            pairs_df = run_query(pairs_query)
+
+            if not pairs_df.empty:
+                fig = px.bar(
+                    pairs_df,
+                    x='PAIR_COUNT',
+                    y='TECH_PAIR',
+                    orientation='h',
+                    title='Top 20 Technology Pairs in Job Postings',
+                    labels={'PAIR_COUNT': 'Co-occurrences', 'TECH_PAIR': 'Technology Pair'},
+                    color='PAIR_COUNT',
+                    color_continuous_scale='Viridis'
+                )
+                fig.update_layout(height=550, yaxis={'categoryorder': 'total ascending'}, showlegend=False)
+                st.plotly_chart(fig, use_container_width=True)
+
     except Exception as e:
         st.error(f"Error loading technology data: {e}")
 
@@ -428,7 +545,7 @@ def render_github_linkedin():
     st.header("⭐ GitHub & LinkedIn Data")
     st.markdown("*Cross-sectional views of repository activity and skill demand*")
 
-    tab1, tab2 = st.tabs(["GitHub Repos", "LinkedIn Skills"])
+    tab1, tab2, tab3 = st.tabs(["GitHub Repos", "LinkedIn Skills", "HN vs LinkedIn Comparison"])
 
     with tab1:
         try:
@@ -513,6 +630,149 @@ def render_github_linkedin():
 
         except Exception as e:
             st.error(f"Error loading LinkedIn data: {e}")
+
+    with tab3:
+        st.markdown("**HN vs LinkedIn: Do Startup Trends Match the Broader Market?**")
+        st.caption("Comparing skill demand between HN (startup-focused) and LinkedIn (enterprise-focused)")
+
+        try:
+            # Get HN top skills (2024 data to match LinkedIn snapshot)
+            hn_query = """
+            SELECT
+                technology_name as skill,
+                ROUND(AVG(mention_pct), 2) as hn_pct,
+                'HN 2024' as source
+            FROM KOUVERK_DATA_INDUSTRY_marts.fct_monthly_technology_trends
+            WHERE EXTRACT(YEAR FROM posting_month) = 2024
+            GROUP BY 1
+            HAVING AVG(mention_pct) >= 0.5
+            ORDER BY 2 DESC
+            LIMIT 25
+            """
+            hn_df = run_query(hn_query)
+
+            # Get LinkedIn top skills (standardized only)
+            linkedin_query = """
+            SELECT
+                skill_name as skill,
+                pct_of_jobs as linkedin_pct,
+                'LinkedIn' as source
+            FROM KOUVERK_DATA_INDUSTRY_marts.fct_linkedin_skill_counts
+            WHERE is_standardized = TRUE
+              AND pct_of_jobs >= 0.5
+            ORDER BY pct_of_jobs DESC
+            LIMIT 25
+            """
+            linkedin_df = run_query(linkedin_query)
+
+            if not hn_df.empty and not linkedin_df.empty:
+                col1, col2 = st.columns(2)
+
+                with col1:
+                    st.markdown("### Top Skills: HN (2024)")
+                    fig = px.bar(
+                        hn_df.head(15),
+                        x='HN_PCT',
+                        y='SKILL',
+                        orientation='h',
+                        title='Top 15 Technologies in HN Job Posts',
+                        labels={'HN_PCT': '% of Posts', 'SKILL': 'Technology'},
+                        color_discrete_sequence=['#e74c3c']
+                    )
+                    fig.update_layout(height=450, yaxis={'categoryorder': 'total ascending'})
+                    st.plotly_chart(fig, use_container_width=True)
+
+                with col2:
+                    st.markdown("### Top Skills: LinkedIn (Jan 2024)")
+                    fig = px.bar(
+                        linkedin_df.head(15),
+                        x='LINKEDIN_PCT',
+                        y='SKILL',
+                        orientation='h',
+                        title='Top 15 Skills in LinkedIn Job Posts',
+                        labels={'LINKEDIN_PCT': '% of Jobs', 'SKILL': 'Skill'},
+                        color_discrete_sequence=['#3498db']
+                    )
+                    fig.update_layout(height=450, yaxis={'categoryorder': 'total ascending'})
+                    st.plotly_chart(fig, use_container_width=True)
+
+                # Find overlapping skills for direct comparison
+                st.divider()
+                st.markdown("### Direct Comparison: Skills in Both Datasets")
+
+                # Join the datasets on skill name
+                hn_skills = set(hn_df['SKILL'].str.lower())
+                linkedin_skills = set(linkedin_df['SKILL'].str.lower())
+                common_skills = hn_skills.intersection(linkedin_skills)
+
+                if common_skills:
+                    comparison_query = f"""
+                    WITH hn_data AS (
+                        SELECT
+                            technology_name as skill,
+                            ROUND(AVG(mention_pct), 2) as pct
+                        FROM KOUVERK_DATA_INDUSTRY_marts.fct_monthly_technology_trends
+                        WHERE EXTRACT(YEAR FROM posting_month) = 2024
+                        GROUP BY 1
+                    ),
+                    linkedin_data AS (
+                        SELECT
+                            skill_name as skill,
+                            pct_of_jobs as pct
+                        FROM KOUVERK_DATA_INDUSTRY_marts.fct_linkedin_skill_counts
+                        WHERE is_standardized = TRUE
+                    )
+                    SELECT
+                        h.skill,
+                        h.pct as hn_pct,
+                        l.pct as linkedin_pct,
+                        h.pct - l.pct as diff
+                    FROM hn_data h
+                    INNER JOIN linkedin_data l ON LOWER(h.skill) = LOWER(l.skill)
+                    WHERE h.pct >= 0.3 OR l.pct >= 0.3
+                    ORDER BY ABS(h.pct - l.pct) DESC
+                    LIMIT 15
+                    """
+                    comparison_df = run_query(comparison_query)
+
+                    if not comparison_df.empty:
+                        # Create a diverging bar chart
+                        fig = go.Figure()
+                        fig.add_trace(go.Bar(
+                            y=comparison_df['SKILL'],
+                            x=comparison_df['HN_PCT'],
+                            name='HN (Startups)',
+                            orientation='h',
+                            marker_color='#e74c3c'
+                        ))
+                        fig.add_trace(go.Bar(
+                            y=comparison_df['SKILL'],
+                            x=comparison_df['LINKEDIN_PCT'],
+                            name='LinkedIn (Enterprise)',
+                            orientation='h',
+                            marker_color='#3498db'
+                        ))
+                        fig.update_layout(
+                            barmode='group',
+                            title='HN vs LinkedIn: Same Skills, Different Demand',
+                            xaxis_title='% of Job Posts',
+                            yaxis_title='Skill/Technology',
+                            height=500,
+                            yaxis={'categoryorder': 'total ascending'}
+                        )
+                        st.plotly_chart(fig, use_container_width=True)
+
+                        st.markdown("""
+                        **Key Observations:**
+                        - Higher HN % = more popular in startups/tech companies
+                        - Higher LinkedIn % = more popular in enterprise/traditional companies
+                        - Large differences indicate startup vs enterprise preference
+                        """)
+                else:
+                    st.info("No overlapping skills found between datasets")
+
+        except Exception as e:
+            st.error(f"Error loading comparison data: {e}")
 
 
 # =============================================================================
@@ -659,6 +919,150 @@ def render_llm_analysis():
             | **Maintenance** | None (model handles variations) | Manual (update seed CSVs) |
             """)
 
+        # Time-series of LLM-extracted technologies
+        st.divider()
+        st.subheader("LLM Technology Trends Over Time")
+        st.markdown("*How do LLM-extracted technologies trend within the 10K post sample?*")
+
+        # Get top technologies from LLM data for selection
+        top_llm_techs_query = """
+        SELECT
+            technology_name,
+            COUNT(*) as mention_count
+        FROM KOUVERK_DATA_INDUSTRY_marts.fct_llm_technology_mentions
+        GROUP BY technology_name
+        ORDER BY mention_count DESC
+        LIMIT 50
+        """
+        top_llm_techs = run_query(top_llm_techs_query)
+
+        if not top_llm_techs.empty:
+            available_techs = top_llm_techs['TECHNOLOGY_NAME'].tolist()
+            default_techs = [t for t in ['Python', 'PostgreSQL', 'AWS', 'React', 'TypeScript', 'Docker'] if t in available_techs]
+
+            col1, col2 = st.columns([1, 3])
+
+            with col1:
+                selected_llm_techs = st.multiselect(
+                    "Select technologies",
+                    options=available_techs,
+                    default=default_techs[:5],
+                    key="llm_tech_multiselect"
+                )
+
+            with col2:
+                if selected_llm_techs:
+                    tech_list = "', '".join(selected_llm_techs)
+                    llm_trend_query = f"""
+                    SELECT
+                        posting_month,
+                        technology_name,
+                        COUNT(*) as mention_count
+                    FROM KOUVERK_DATA_INDUSTRY_marts.fct_llm_technology_mentions
+                    WHERE technology_name IN ('{tech_list}')
+                    GROUP BY posting_month, technology_name
+                    ORDER BY posting_month
+                    """
+                    llm_trend_df = run_query(llm_trend_query)
+
+                    if not llm_trend_df.empty:
+                        fig = px.line(
+                            llm_trend_df,
+                            x='POSTING_MONTH',
+                            y='MENTION_COUNT',
+                            color='TECHNOLOGY_NAME',
+                            title='LLM-Extracted Technology Mentions by Month (10K Sample)',
+                            labels={
+                                'POSTING_MONTH': 'Month',
+                                'MENTION_COUNT': 'Mentions',
+                                'TECHNOLOGY_NAME': 'Technology'
+                            },
+                            markers=True
+                        )
+                        fig.update_layout(height=400)
+                        st.plotly_chart(fig, use_container_width=True)
+                    else:
+                        st.info("No trend data for selected technologies")
+                else:
+                    st.info("Select technologies to view LLM extraction trends")
+
+            # Show monthly sample distribution
+            st.caption("Note: This reflects the 10K post sample distribution, which may not be uniform across months.")
+
+            # Side-by-side comparison for overlapping technologies
+            st.divider()
+            st.subheader("LLM vs Regex: Side-by-Side Trend Comparison")
+            st.markdown("*Compare extraction methods for technologies in both taxonomies*")
+
+            # Get technologies that appear in both LLM and regex
+            overlapping_query = """
+            SELECT technology_name, both_count
+            FROM KOUVERK_DATA_INDUSTRY_marts.fct_llm_vs_regex_comparison
+            WHERE both_count > 50
+            ORDER BY both_count DESC
+            LIMIT 20
+            """
+            overlapping_df = run_query(overlapping_query)
+
+            if not overlapping_df.empty:
+                overlap_techs = overlapping_df['TECHNOLOGY_NAME'].tolist()
+                default_overlap = [t for t in ['Python', 'PostgreSQL', 'AWS', 'Kafka', 'Spark'] if t in overlap_techs]
+
+                selected_overlap_tech = st.selectbox(
+                    "Select technology to compare",
+                    options=overlap_techs,
+                    index=overlap_techs.index(default_overlap[0]) if default_overlap else 0,
+                    key="overlap_tech_select"
+                )
+
+                if selected_overlap_tech:
+                    # Get LLM trend
+                    llm_single_query = f"""
+                    SELECT
+                        posting_month,
+                        COUNT(*) as mention_count,
+                        'LLM' as method
+                    FROM KOUVERK_DATA_INDUSTRY_marts.fct_llm_technology_mentions
+                    WHERE LOWER(technology_name) = LOWER('{selected_overlap_tech}')
+                    GROUP BY posting_month
+                    """
+                    llm_single_df = run_query(llm_single_query)
+
+                    # Get Regex trend (from fct_monthly_technology_trends)
+                    regex_single_query = f"""
+                    SELECT
+                        posting_month,
+                        mention_count,
+                        'Regex' as method
+                    FROM KOUVERK_DATA_INDUSTRY_marts.fct_monthly_technology_trends
+                    WHERE LOWER(technology_name) = LOWER('{selected_overlap_tech}')
+                    """
+                    regex_single_df = run_query(regex_single_query)
+
+                    # Combine for comparison chart
+                    if not llm_single_df.empty or not regex_single_df.empty:
+                        combined_df = pd.concat([llm_single_df, regex_single_df], ignore_index=True)
+
+                        if not combined_df.empty:
+                            fig = px.line(
+                                combined_df,
+                                x='POSTING_MONTH',
+                                y='MENTION_COUNT',
+                                color='METHOD',
+                                title=f'{selected_overlap_tech}: LLM vs Regex Extraction Over Time',
+                                labels={
+                                    'POSTING_MONTH': 'Month',
+                                    'MENTION_COUNT': 'Mentions',
+                                    'METHOD': 'Method'
+                                },
+                                markers=True,
+                                color_discrete_map={'LLM': '#e74c3c', 'Regex': '#3498db'}
+                            )
+                            fig.update_layout(height=400)
+                            st.plotly_chart(fig, use_container_width=True)
+
+                            st.caption("LLM data covers 10K posts; Regex data covers full 93K posts. Compare relative shapes, not absolute counts.")
+
     except Exception as e:
         st.error(f"Error loading LLM comparison data: {e}")
 
@@ -705,6 +1109,79 @@ def render_data_explorer():
             )
         except Exception as e:
             st.error(f"Error loading data: {e}")
+
+    # Job Posting Search
+    st.divider()
+    st.subheader("🔎 Job Posting Search")
+    st.markdown("*Search the raw HN job postings for specific keywords*")
+
+    col1, col2, col3 = st.columns([2, 1, 1])
+
+    with col1:
+        search_term = st.text_input(
+            "Search term",
+            placeholder="e.g., 'Snowflake', 'remote', 'Series A'",
+            key="job_search_term"
+        )
+
+    with col2:
+        year_filter = st.selectbox(
+            "Year",
+            options=['All'] + list(range(2025, 2010, -1)),
+            key="job_search_year"
+        )
+
+    with col3:
+        result_limit = st.selectbox(
+            "Max results",
+            options=[10, 25, 50, 100],
+            index=1,
+            key="job_search_limit"
+        )
+
+    if st.button("Search Posts", key="search_posts_btn"):
+        if search_term:
+            try:
+                # Build query with search term
+                year_clause = ""
+                if year_filter != 'All':
+                    year_clause = f"AND posting_year = {year_filter}"
+
+                # Escape single quotes in search term
+                safe_search = search_term.replace("'", "''")
+
+                search_query = f"""
+                SELECT
+                    posting_id,
+                    posting_month,
+                    posting_year,
+                    LEFT(post_text, 500) as post_preview,
+                    LENGTH(post_text) as full_length
+                FROM KOUVERK_DATA_INDUSTRY_staging.stg_hn__job_postings
+                WHERE LOWER(post_text) LIKE LOWER('%{safe_search}%')
+                {year_clause}
+                ORDER BY posting_month DESC
+                LIMIT {result_limit}
+                """
+                search_results = run_query(search_query)
+
+                if not search_results.empty:
+                    st.success(f"Found {len(search_results)} posts containing '{search_term}'")
+
+                    for idx, row in search_results.iterrows():
+                        with st.expander(f"📄 Post from {row['POSTING_MONTH']} (ID: {row['POSTING_ID'][:8]}...)"):
+                            # Highlight the search term in the preview
+                            preview = row['POST_PREVIEW']
+                            st.markdown(f"**Preview:** {preview}...")
+                            if row['FULL_LENGTH'] > 500:
+                                st.caption(f"Showing first 500 of {row['FULL_LENGTH']} characters")
+                else:
+                    st.warning(f"No posts found containing '{search_term}'")
+
+            except Exception as e:
+                st.error(f"Search error: {e}")
+        else:
+            st.info("Enter a search term to find job postings")
 
 
 # =============================================================================
