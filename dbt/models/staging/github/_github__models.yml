@@ -9,11 +9,30 @@ models:
         tests:
           - unique
           - not_null
-      - name: category
-        description: "Technology category (orchestration, warehouses, llm, etc.)"
+      - name: repo_name
+        description: "Repository name"
         tests:
           - not_null
+      - name: category
+        description: "Technology category (orchestration, warehouse, llm, etc.)"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['orchestration', 'transformation', 'warehouse', 'streaming', 'table_format', 'etl_elt', 'bi', 'ml_framework', 'llm', 'mlops', 'vector_db', 'data_quality', 'database', 'infrastructure']
       - name: stars
         description: "GitHub star count"
         tests:
           - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+      - name: forks
+        description: "Fork count"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+      - name: open_issues
+        description: "Open issue count"
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0

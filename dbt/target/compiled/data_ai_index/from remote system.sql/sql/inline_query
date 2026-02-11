@@ -1,0 +1,1 @@
+SELECT DISTINCT category FROM KOUVERK_DATA_INDUSTRY_staging.stg_github__repo_stats ORDER BY category

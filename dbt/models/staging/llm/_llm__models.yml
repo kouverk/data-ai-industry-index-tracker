@@ -8,6 +8,12 @@ models:
         description: "HN posting ID (FK to stg_hn__job_postings)"
         tests:
           - not_null
+          - unique
+          - relationships:
+              to: ref('stg_hn__job_postings')
+              field: posting_id
+              config:
+                severity: warn
       - name: technologies
         description: "VARIANT array of extracted technologies"
       - name: roles
@@ -16,7 +22,21 @@ models:
         description: "Whether extraction completed without error"
         tests:
           - not_null
+          - accepted_values:
+              values: [true, false]
       - name: technology_count
         description: "Number of technologies extracted"
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
       - name: role_count
         description: "Number of roles extracted"
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+      - name: llm_model
+        description: "Model used for extraction"
+        tests:
+          - not_null:
+              config:
+                severity: warn

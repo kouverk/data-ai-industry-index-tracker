@@ -118,6 +118,7 @@ Detailed documentation lives in the `docs/` folder:
 | File | Description |
 |------|-------------|
 | [DATA_DICTIONARY.md](docs/DATA_DICTIONARY.md) | Complete schema reference for all tables, columns, and data sources |
+| [DATA_QUALITY.md](docs/DATA_QUALITY.md) | Data quality checks (77 dbt tests across 4 sources) |
 | [INSIGHTS.md](docs/INSIGHTS.md) | Key findings and observations from the data |
 | [GITHUB_REPOS.md](docs/GITHUB_REPOS.md) | Selection criteria and methodology for the 81 tracked repositories |
 | [CAPSTONE_FEEDBACK.md](docs/CAPSTONE_FEEDBACK.md) | Instructor feedback on the capstone proposal |
@@ -235,6 +236,59 @@ This project uses Claude (Anthropic API) for two agentic pipeline tasks:
 - **LLM extraction covers 10K posts** - Sample only; full 93K dataset uses regex for cost efficiency
 
 See the dashboard's "Data Sources & Limitations" section for full details.
+
+---
+
+## Challenges & Solutions
+
+### 1. Unstructured Job Posting Text
+**Challenge:** HN "Who Is Hiring" posts are freeform HTML with no consistent structure. Company names, roles, and technologies are embedded in prose.
+
+**Solution:** Two-pronged extraction approach:
+- Regex-based keyword matching against a curated 152-technology taxonomy for full dataset coverage
+- LLM extraction (Claude Haiku) on a 10K sample for validation and taxonomy discovery
+- dbt model `fct_llm_vs_regex_comparison` quantifies method agreement rates
+
+### 2. LLM Extraction Failures
+**Challenge:** 182 of 10,000 posts (1.8%) failed LLM extraction due to context length limits or malformed content.
+
+**Solution:**
+- Graceful error handling with `is_successful` flag
+- Failed extractions logged with null `llm_model` field
+- dbt tests configured with `severity: warn` to allow pipeline to continue
+- Dashboard filters to successful extractions only
+
+### 3. LinkedIn Single Snapshot
+**Challenge:** LinkedIn dataset is a January 2024 snapshot with no historical data, making time-series analysis impossible.
+
+**Solution:**
+- Used LinkedIn for cross-platform validation, not trend analysis
+- Built `fct_linkedin_skill_counts` to compare skill demand between platforms
+- HN data (2011-present) provides the time-series dimension
+
+### 4. Taxonomy Coverage vs. LLM Cost
+**Challenge:** Regex taxonomy only covers 152 technologies, but LLM extraction found 4,569 unique technologies. Full LLM processing would cost ~$42 for 93K posts.
+
+**Solution:**
+- LLM on 10K sample (~$4.50) to validate approach and discover new technologies
+- Regex on full 93K posts for cost-efficient coverage
+- LLM finds 4x more technologies per post (6.4 vs 1.5), quantified in comparison model
+
+### 5. Source Data Quality Issues
+**Challenge:** LinkedIn has 11 null company names, LLM extractions have 182 null model names (failed runs).
+
+**Solution:**
+- dbt tests with `severity: warn` for known source data quirks
+- 77 data quality tests total: 74 PASS, 3 WARN, 0 ERROR
+- Documented in [DATA_QUALITY.md](docs/DATA_QUALITY.md)
+
+### 6. GitHub Category Classification
+**Challenge:** Mapping 81 repositories to technology categories required domain expertise.
+
+**Solution:**
+- Created 14 categories: orchestration, transformation, warehouse, streaming, table_format, etl_elt, bi, ml_framework, llm, mlops, vector_db, data_quality, database, infrastructure
+- Documented selection criteria in [GITHUB_REPOS.md](docs/GITHUB_REPOS.md)
+- dbt `accepted_values` test ensures all repos have valid categories
 
 ---
 

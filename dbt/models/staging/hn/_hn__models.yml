@@ -15,5 +15,16 @@ models:
           - not_null
       - name: posting_month
         description: "First day of the posting month"
+        tests:
+          - not_null
       - name: posting_year
         description: "Year of posting"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 2011
+              max_value: 2030
+      - name: thread_id
+        description: "Parent thread ID"
+        tests:
+          - not_null

@@ -10,8 +10,22 @@ models:
           - unique
           - not_null
       - name: job_title
+        description: "Job title"
         tests:
           - not_null
+      - name: company
+        description: "Company name"
+        tests:
+          - not_null:
+              config:
+                severity: warn
+      - name: job_level
+        description: "Seniority level (Entry, Mid-Senior, Director, etc.)"
+        tests:
+          - accepted_values:
+              values: ['Entry level', 'Mid-Senior level', 'Director', 'Executive', 'Associate', 'Internship', 'Not Applicable']
+              config:
+                severity: warn
 
   - name: stg_linkedin__skills
     description: "LinkedIn skills exploded to one row per skill per posting"
@@ -20,6 +34,11 @@ models:
         description: "FK to job posting"
         tests:
           - not_null
+          - relationships:
+              to: ref('stg_linkedin__postings')
+              field: posting_id
+              config:
+                severity: warn
       - name: skill_name
         description: "Individual skill extracted from comma-separated list"
         tests:
@@ -33,3 +52,8 @@ models:
         tests:
           - unique
           - not_null
+          - relationships:
+              to: ref('stg_linkedin__postings')
+              field: posting_id
+              config:
+                severity: warn
