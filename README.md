@@ -81,6 +81,11 @@ The Streamlit dashboard provides 7 pages of interactive analysis:
 | **LinkedIn Jobs** | 1.3M jobs | January 2024 snapshot from Kaggle |
 | **GitHub Repos** | 81 repos | Stars, forks, activity for key data/AI tools |
 
+**Data Licensing:**
+- **LinkedIn:** [Kaggle dataset](https://www.kaggle.com/datasets/asaniczka/1-3m-linkedin-jobs-and-skills-2024) used under Kaggle terms for academic/research purposes
+- **HN:** Public data via [HuggingFace](https://huggingface.co/datasets/brusic/hacker-news-who-is-hiring-posts) and HN Firebase API
+- **GitHub:** Public REST API
+
 ---
 
 ## Project Structure
