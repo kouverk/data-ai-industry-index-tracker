@@ -67,3 +67,7 @@ urllib3==2.6.3
 webencodings==0.5.1
 xxhash==3.6.0
 yarl==1.22.0
+
+# Dashboard dependencies (added for Streamlit Cloud)
+streamlit>=1.32.0
+plotly>=5.18.0
