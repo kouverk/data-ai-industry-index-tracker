@@ -112,7 +112,6 @@ When continuing this project, pick up with:
 
 ```
 data-ai-industry-index-tracker/
-├── CLAUDE.md                           # Project context
 ├── PROJECT_PROPOSAL.md                 # Original proposal
 ├── requirements.txt                    # Python dependencies
 ├── docs/

@@ -136,7 +136,6 @@ Additional project context:
 |------|-------------|
 | [PROJECT_PROPOSAL.md](docs/PROJECT_PROPOSAL.md) | Original detailed project proposal with motivation and scope |
 | [CAPSTONE_PROPOSAL.md](docs/CAPSTONE_PROPOSAL.md) | Combined capstone proposal (this project + AI Influence Monitor) |
-| [CLAUDE.md](CLAUDE.md) | Context file for Claude Code AI assistant |
 
 ---
 

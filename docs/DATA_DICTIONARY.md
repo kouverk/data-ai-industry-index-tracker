@@ -580,6 +580,5 @@ data-ai-industry-index-tracker/
 │   └── processed/
 ├── infrastructure/
 ├── requirements.txt
-├── CLAUDE.md
 └── README.md
 ```
