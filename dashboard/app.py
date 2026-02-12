@@ -1156,10 +1156,10 @@ def render_data_explorer():
                     posting_id,
                     posting_month,
                     posting_year,
-                    LEFT(post_text, 500) as post_preview,
-                    LENGTH(post_text) as full_length
+                    LEFT(posting_text, 500) as post_preview,
+                    LENGTH(posting_text) as full_length
                 FROM KOUVERK_DATA_INDUSTRY_staging.stg_hn__job_postings
-                WHERE LOWER(post_text) LIKE LOWER('%{safe_search}%')
+                WHERE LOWER(posting_text) LIKE LOWER('%{safe_search}%')
                 {year_clause}
                 ORDER BY posting_month DESC
                 LIMIT {result_limit}
