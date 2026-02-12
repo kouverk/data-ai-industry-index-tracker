@@ -297,6 +297,12 @@ See the dashboard's "Data Sources & Limitations" section for full details.
 
 ---
 
+## Live Demo
+
+**[Data & AI Industry Index Dashboard](https://data-ai-industry-index-tracker-kouverk.streamlit.app/)**
+
+---
+
 ## Status
 
 **Complete** - DataExpert.io analytics engineering capstone project
