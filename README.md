@@ -4,6 +4,8 @@
 
 A multi-source analytics platform that tracks interest, demand, and growth signals across the data engineering and AI ecosystem. Combines 93K+ job postings, 1.3M LinkedIn jobs, and 81 GitHub repositories with LLM-powered extraction to surface technology and role trends over time.
 
+**[Live Demo](https://data-ai-industry-index-tracker-kouverk.streamlit.app/)** - Try the dashboard
+
 ---
 
 ## The Problem
@@ -294,12 +296,6 @@ See the dashboard's "Data Sources & Limitations" section for full details.
 - Created 14 categories: orchestration, transformation, warehouse, streaming, table_format, etl_elt, bi, ml_framework, llm, mlops, vector_db, data_quality, database, infrastructure
 - Documented selection criteria in [GITHUB_REPOS.md](docs/GITHUB_REPOS.md)
 - dbt `accepted_values` test ensures all repos have valid categories
-
----
-
-## Live Demo
-
-**[Data & AI Industry Index Dashboard](https://data-ai-industry-index-tracker-kouverk.streamlit.app/)**
 
 ---
 
