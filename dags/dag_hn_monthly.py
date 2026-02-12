@@ -6,8 +6,8 @@ The HuggingFace dataset is updated monthly with new threads.
 Runs on the 2nd of each month to catch the new thread.
 
 Uses extraction scripts:
-- extraction/fetch_hn_data.py - Fetches from HuggingFace
-- extraction/load_to_snowflake.py - Loads to Snowflake
+- include/extraction/fetch_hn_data.py - Fetches from HuggingFace
+- include/extraction/load_to_snowflake.py - Loads to Snowflake
 """
 
 from datetime import datetime, timedelta
@@ -18,15 +18,8 @@ from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
 
 
-# Path to project root (extraction scripts are in extraction/)
-# Astronomer uses /usr/local/airflow/include, docker-compose uses /opt/airflow
-PROJECT_ROOT = os.environ.get('PROJECT_ROOT')
-if not PROJECT_ROOT:
-    # Auto-detect based on environment
-    if os.path.exists('/usr/local/airflow/include/extraction'):
-        PROJECT_ROOT = '/usr/local/airflow/include'  # Astronomer
-    else:
-        PROJECT_ROOT = '/opt/airflow'  # Docker Compose
+# Astronomer path (project root is /usr/local/airflow)
+AIRFLOW_HOME = os.environ.get('AIRFLOW_HOME', '/usr/local/airflow')
 
 
 def log_extraction_complete(**context):
@@ -59,19 +52,13 @@ with DAG(
     # Step 1: Fetch HN data from HuggingFace
     fetch_hn_data = BashOperator(
         task_id='fetch_hn_data',
-        bash_command=f'''
-            cd {PROJECT_ROOT} && \
-            python extraction/fetch_hn_data.py
-        ''',
+        bash_command=f'python {AIRFLOW_HOME}/include/extraction/fetch_hn_data.py',
     )
 
     # Step 2: Load to Snowflake
     load_to_snowflake = BashOperator(
         task_id='load_to_snowflake',
-        bash_command=f'''
-            cd {PROJECT_ROOT} && \
-            python extraction/load_to_snowflake.py hn
-        ''',
+        bash_command=f'python {AIRFLOW_HOME}/include/extraction/load_to_snowflake.py hn',
     )
 
     # Step 3: Log completion

@@ -5,8 +5,8 @@ Fetches star counts and activity metrics for tracked data/AI repositories.
 Runs daily to provide fresh engagement signals for the dashboard.
 
 Uses extraction scripts:
-- extraction/fetch_github_data.py - Fetches from GitHub API
-- extraction/load_to_snowflake.py - Loads to Snowflake
+- include/extraction/fetch_github_data.py - Fetches from GitHub API
+- include/extraction/load_to_snowflake.py - Loads to Snowflake
 """
 
 from datetime import datetime, timedelta
@@ -17,15 +17,8 @@ from airflow.operators.bash import BashOperator
 from airflow.providers.snowflake.operators.snowflake import SnowflakeOperator
 
 
-# Path to project root (extraction scripts are in extraction/)
-# Astronomer uses /usr/local/airflow/include, docker-compose uses /opt/airflow
-PROJECT_ROOT = os.environ.get('PROJECT_ROOT')
-if not PROJECT_ROOT:
-    # Auto-detect based on environment
-    if os.path.exists('/usr/local/airflow/include/extraction'):
-        PROJECT_ROOT = '/usr/local/airflow/include'  # Astronomer
-    else:
-        PROJECT_ROOT = '/opt/airflow'  # Docker Compose
+# Astronomer path (project root is /usr/local/airflow)
+AIRFLOW_HOME = os.environ.get('AIRFLOW_HOME', '/usr/local/airflow')
 
 
 # DAG Definition
@@ -51,19 +44,13 @@ with DAG(
     # Step 1: Fetch GitHub data using extraction script
     fetch_github_data = BashOperator(
         task_id='fetch_github_data',
-        bash_command=f'''
-            cd {PROJECT_ROOT} && \
-            python extraction/fetch_github_data.py
-        ''',
+        bash_command=f'python {AIRFLOW_HOME}/include/extraction/fetch_github_data.py',
     )
 
     # Step 2: Load to Snowflake using extraction script
     load_to_snowflake = BashOperator(
         task_id='load_to_snowflake',
-        bash_command=f'''
-            cd {PROJECT_ROOT} && \
-            python extraction/load_to_snowflake.py github
-        ''',
+        bash_command=f'python {AIRFLOW_HOME}/include/extraction/load_to_snowflake.py github',
     )
 
     # Step 3: Trigger dbt refresh (placeholder - actual trigger handled by dbt_full_refresh DAG)

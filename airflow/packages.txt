@@ -1,5 +1,0 @@
-# System packages for Astronomer runtime
-# Installed via apt-get
-
-# Git (required for dbt deps to install packages from GitHub)
-git

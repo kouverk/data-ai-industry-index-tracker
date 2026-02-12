@@ -14,15 +14,9 @@ from airflow.operators.python import PythonOperator
 from airflow.operators.bash import BashOperator
 
 
-# Path to extraction scripts
-# Astronomer uses /usr/local/airflow/include, docker-compose uses /opt/airflow
-EXTRACTION_DIR = os.environ.get('EXTRACTION_DIR')
-if not EXTRACTION_DIR:
-    # Auto-detect based on environment
-    if os.path.exists('/usr/local/airflow/include/extraction'):
-        EXTRACTION_DIR = '/usr/local/airflow/include/extraction'  # Astronomer
-    else:
-        EXTRACTION_DIR = '/opt/airflow/extraction'  # Docker Compose
+# Astronomer path (project root is /usr/local/airflow)
+AIRFLOW_HOME = os.environ.get('AIRFLOW_HOME', '/usr/local/airflow')
+EXTRACTION_DIR = f'{AIRFLOW_HOME}/include/extraction'
 
 
 def generate_weekly_insights(**context):

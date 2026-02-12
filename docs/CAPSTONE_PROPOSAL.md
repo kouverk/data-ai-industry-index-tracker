@@ -525,7 +525,7 @@ ai-industry-intelligence/
 ├── README.md                     # Project overview
 │
 ├── market-signals/               # Job market tracking module
-│   ├── extraction/               # Python extraction scripts
+│   ├── include/extraction/       # Python extraction scripts
 │   │   ├── hn_extract.py
 │   │   ├── linkedin_load.py
 │   │   └── github_extract.py
@@ -534,11 +534,11 @@ ai-industry-intelligence/
 │   │   ├── models/intermediate/
 │   │   ├── models/marts/
 │   │   └── seeds/
-│   ├── airflow/dags/             # Airflow DAGs
+│   ├── dags/                     # Airflow DAGs
 │   └── dashboard/app.py          # Streamlit dashboard
 │
 ├── policy-signals/               # Lobbying & policy module
-│   ├── extraction/               # Python extraction scripts
+│   ├── include/extraction/       # Python extraction scripts
 │   │   ├── download_submissions.py
 │   │   ├── lda_extract.py
 │   │   └── llm_extract_positions.py
@@ -546,7 +546,7 @@ ai-industry-intelligence/
 │   │   ├── models/staging/
 │   │   ├── models/intermediate/
 │   │   └── models/marts/
-│   ├── airflow/dags/             # Airflow DAGs
+│   ├── dags/                     # Airflow DAGs
 │   └── dashboard/app.py          # Streamlit dashboard
 │
 ├── shared/                       # Shared infrastructure

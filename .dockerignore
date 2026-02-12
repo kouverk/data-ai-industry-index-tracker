@@ -1,0 +1,38 @@
+astro
+.git
+.env
+airflow_settings.yaml
+logs/
+.venv
+venv/
+airflow.db
+airflow.cfg
+
+# Data files - don't include in Docker image
+data/
+*.csv
+*.parquet
+*.json
+*.pdf
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# IDE
+.vscode/
+.idea/
+
+# Output files
+*.log
+output/
+
+# dbt artifacts (downloaded/generated at runtime)
+dbt/dbt_packages/
+dbt/target/
+dbt/logs/
+
+# Old airflow folder (being removed)
+airflow/

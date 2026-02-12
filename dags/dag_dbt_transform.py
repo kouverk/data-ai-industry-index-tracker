@@ -13,25 +13,15 @@ from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
 
 
-# Path to dbt project
-# Astronomer uses /usr/local/airflow/include, docker-compose uses /opt/airflow
-DBT_PROJECT_DIR = os.environ.get('DBT_PROJECT_DIR')
-if not DBT_PROJECT_DIR:
-    # Auto-detect based on environment
-    if os.path.exists('/usr/local/airflow/include/dbt'):
-        DBT_PROJECT_DIR = '/usr/local/airflow/include/dbt'  # Astronomer
-    else:
-        DBT_PROJECT_DIR = '/opt/airflow/dbt'  # Docker Compose
-
-# dbt profiles directory
-DBT_PROFILES_DIR = os.environ.get('DBT_PROFILES_DIR', DBT_PROJECT_DIR)
+# Astronomer path (project root is /usr/local/airflow)
+AIRFLOW_HOME = os.environ.get('AIRFLOW_HOME', '/usr/local/airflow')
+DBT_PROJECT_DIR = f'{AIRFLOW_HOME}/dbt'
+DBT_PROFILES_DIR = DBT_PROJECT_DIR
 
 
 def log_run_start(**context):
     """Log the start of dbt run."""
-    dag_run = context.get('dag_run')
-    trigger = dag_run.external_trigger if dag_run else False
-    print(f"Starting dbt run. Triggered externally: {trigger}")
+    print("Starting dbt run")
     print(f"DBT_PROJECT_DIR: {DBT_PROJECT_DIR}")
     print(f"DBT_PROFILES_DIR: {DBT_PROFILES_DIR}")
 

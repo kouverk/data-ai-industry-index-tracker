@@ -554,7 +554,7 @@ data-ai-industry-index-tracker/
 │   ├── CAPSTONE_PROPOSAL.md   # Combined capstone proposal
 │   ├── PROJECT_PROPOSAL.md    # Original project proposal
 │   └── WEEKLY_INSIGHTS_*.md   # Auto-generated weekly reports
-├── extraction/
+├── include/extraction/
 │   ├── llm_skill_extraction.py      # LLM skill extraction script
 │   └── generate_weekly_insights.py  # Weekly insights generator
 ├── exploration/
@@ -569,7 +569,7 @@ data-ai-industry-index-tracker/
 │   │   ├── intermediate/
 │   │   └── marts/
 │   └── seeds/
-├── airflow/dags/
+├── dags/                              # Airflow DAGs
 ├── dashboard/
 │   └── app.py
 ├── data/
